@@ -4,9 +4,6 @@
     "config:base",
     "schedule:weekdays",
     ":automergeBranch",
-    ":automergeDigest",
-    ":automergeMinor",
-    ":automergePatch",
     ":disableDependencyDashboard",
     ":enablePreCommit"
   ],
