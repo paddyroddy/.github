@@ -3,6 +3,7 @@
   "extends": [
     "config:base",
     "schedule:weekdays",
+    ":automergeAll",
     ":automergeBranch",
     ":disableDependencyDashboard",
     ":enablePreCommit"
