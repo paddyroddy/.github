@@ -1,4 +1,4 @@
-# Contributing Guidlines
+# Contributing Guidelines
 
 First off, thanks for taking the time to contribute! ⭐
 
