@@ -1,0 +1,19 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:base",
+    "schedule:weekdays",
+    ":automergeAll",
+    ":automergeBranch",
+    ":disableDependencyDashboard",
+    ":enablePreCommit"
+  ],
+  "commitMessageAction": "Renovate:",
+  "packageRules": [
+    {
+      "description": "Shorten commit titles",
+      "commitMessageTopic": "{{depName}}",
+      "matchManagers": ["pre-commit"]
+    }
+  ]
+}
