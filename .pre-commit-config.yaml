@@ -16,7 +16,7 @@ repos:
     rev: 37.12.1
     hooks:
       - id: renovate-config-validator
-        args: [renovate/default.json]
+        args: [renovate/default-config.json]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
