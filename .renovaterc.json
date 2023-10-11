@@ -8,8 +8,8 @@
     ":disableDependencyDashboard",
     ":enablePreCommit"
   ],
-  "assignees": ["paddyroddy"],
   "commitMessageAction": "Renovate:",
+  "reviewers": ["paddyroddy"],
   "packageRules": [
     {
       "description": "Shorten commit titles",
