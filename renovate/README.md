@@ -13,6 +13,8 @@ Note, the two `/` is intentional.
 }
 ```
 
+One can then view the logs here https://developer.mend.io.
+
 ## Automerging
 
 To benefit from the automerging capabilities of the default config it is
