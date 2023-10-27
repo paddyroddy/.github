@@ -9,7 +9,6 @@ HERE = pathlib.Path(__file__).resolve()
 
 def main(hooks_path: pathlib.Path) -> int:
     cfg = HERE.parent / f"{hooks_path}.yml"
-    print(sys.argv)
     result = subprocess.run(
         [
             "pre-commit",
@@ -18,7 +17,7 @@ def main(hooks_path: pathlib.Path) -> int:
             f"{cfg}",
             "--files",
         ]
-        + sys.argv[1:],
+        + sys.argv[2:],
         check=False,
     )
     return result.returncode
