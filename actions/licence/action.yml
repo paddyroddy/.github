@@ -1,0 +1,29 @@
+name: Update Copyright
+description: Update the copyright of the licence
+
+inputs:
+  github-token:
+    description: GitHub token
+    required: true
+
+  licence-file:
+    description: Path of the licence
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+      with:
+        fetch-depth: 0
+
+    - uses: FantasticFiasco/action-update-license-year@v3
+      with:
+        path: ${{ inputs.licence-file }}
+        token: ${{ inputs.github-token }}
+
+    - name: Merge pull request
+      shell: bash
+      run: gh pr merge --merge --delete-branch
+      env:
+        GITHUB_TOKEN: ${{ inputs.github-token }}

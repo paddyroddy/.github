@@ -1,0 +1,52 @@
+name: Test
+description: Runs tox on the repo
+
+inputs:
+  cache-path:
+    description: Paths to cache
+    required: true
+
+  operating-system:
+    description: Operating system to test
+    required: true
+
+  pyproject-toml:
+    description: Path of pyproject.toml
+    required: true
+
+  python-version:
+    description: Version of python to test
+    required: true
+
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout source
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+    - name: Cache tox/pooch
+      uses: actions/cache@v3
+      with:
+        path: ${{ inputs.cache-path }}
+        key: test-${{ hashFiles('pyproject.toml') }}
+
+    - name: Set up python ${{ inputs.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ inputs.python-version }}
+        cache: "pip"
+        cache-dependency-path: ${{ inputs.pyproject-toml }}
+
+    - name: Install dependencies
+      shell: bash
+      run: python -m pip install tox tox-gh-actions
+
+    - name: Test with tox
+      shell: bash
+      run: tox run
+      env:
+        OS: ${{ inputs.operating-system }}
+
+    - name: Coverage
+      uses: coverallsapp/github-action@v2

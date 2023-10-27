@@ -1,0 +1,55 @@
+name: Documentation
+description: Runs pdoc3 on a project and pushes to GitHub Pages
+
+inputs:
+  docs-dependency-section:
+    description: The location of docs dependencies in pyproject.toml
+    required: true
+
+  gh-pages-publish-directory:
+    description: The path to publish to GitHub Pages
+    required: true
+
+  project-directory:
+    description: Path to the Python project
+    required: true   
+
+  pyproject-toml:
+    description: Path of pyproject.toml
+    required: true
+  
+  template-directory:
+    description: Path of the template directory
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: checkout source
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+    - name: Set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+        cache: "pip"
+        cache-dependency-path: ${{ inputs.pyproject-toml }}
+
+    - name: Install dependencies
+      shell: bash
+      run: python -m pip install -e ${{ inputs.docs-dependency-section }}
+
+    - name: Create documentation
+      shell: bash
+      run: >-
+        pdoc --html ${{ inputs.project-directory }}
+        --template-dir ${{ inputs.template-directory}}
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ${{ inputs.gh-pages-publish-directory }}
+        publish_branch: gh-pages
+        user_name: "github-actions[bot]"
+        user_email: "github-actions[bot]@users.noreply.github.com"
