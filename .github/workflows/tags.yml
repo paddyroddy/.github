@@ -7,9 +7,9 @@ on:
     paths:
       - "**/*"
       - "!.github/**"
+      - "!.pre-commit-config.yaml"
       - "!**/*.json"
       - "!**/*.md"
-      - "!**/*.yaml"
 
 jobs:
   tags:
