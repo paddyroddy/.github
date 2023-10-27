@@ -7,7 +7,7 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: UCL-MIRSG/.github/actions/linting@vx.y.z
+      - uses: paddyroddy/.github/actions/linting@vx.y.z
         with:
           pre-commit-config: ./.pre-commit-config.yaml
 ```
@@ -20,7 +20,7 @@ jobs:
   linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: UCL-MIRSG/.github/actions/linting@vx.y.z
+      - uses: paddyroddy/.github/actions/linting@vx.y.z
         with:
           ansible-roles-config: ./requirements.yml
           pre-commit-config: ./.pre-commit-config.yaml
