@@ -4,7 +4,7 @@ This action can be used in the following manner:
 
 ```yaml
 jobs:
-  chktex:
+  dropbox:
     runs-on: ubuntu-latest
     steps:
       - uses: paddyroddy/.github/actions/dropbox@vx.y.z
