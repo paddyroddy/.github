@@ -1,0 +1,16 @@
+repos:
+  - repo: https://github.com/cmhughes/latexindent.pl
+    rev: V3.19
+    hooks:
+      - id: latexindent
+        args: [-s]
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: trailing-whitespace

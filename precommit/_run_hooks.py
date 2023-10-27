@@ -1,4 +1,3 @@
-#!/usr/bin/env python
 import pathlib
 import subprocess
 import sys
@@ -6,8 +5,16 @@ import sys
 HERE = pathlib.Path(__file__).resolve()
 
 
-def main() -> int:
-    cfg = HERE.parent / "python-hooks.yaml"
+def run_hooks(hooks_path: pathlib.Path) -> int:
+    """Run pre-commit using the specified config.
+
+    Args:
+        hooks_path: The Path object of the hooks
+
+    Returns:
+        The return code of the process
+    """
+    cfg = HERE.parent / hooks_path
     result = subprocess.run(
         [
             "pre-commit",
@@ -20,7 +27,3 @@ def main() -> int:
         check=False,
     )
     return result.returncode
-
-
-if __name__ == "__main__":
-    exit(main())
