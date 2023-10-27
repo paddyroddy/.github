@@ -22,6 +22,10 @@ inputs:
     description: Path of pyproject.toml
     required: true
 
+  python-version:
+    description: Version of python to test
+    required: true
+
   template-directory:
     description: Path of the template directory
     required: true
@@ -35,7 +39,7 @@ runs:
     - name: Set up python
       uses: actions/setup-python@v4
       with:
-        python-version: "3.x"
+        python-version: ${{ inputs.python-version }}
         cache: pip
         cache-dependency-path: ${{ inputs.pyproject-toml }}
 
