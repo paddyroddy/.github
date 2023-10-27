@@ -10,6 +10,10 @@ inputs:
     description: The path to publish to GitHub Pages
     required: true
 
+  github-token:
+    description: GitHub token
+    required: true
+
   project-directory:
     description: Path to the Python project
     required: true
@@ -48,7 +52,7 @@ runs:
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ inputs.github-token }}
         publish_dir: ${{ inputs.gh-pages-publish-directory }}
         publish_branch: gh-pages
         user_name: github-actions[bot]
