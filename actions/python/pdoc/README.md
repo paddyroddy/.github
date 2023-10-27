@@ -11,6 +11,7 @@ jobs:
         with:
           docs-dependency-section: .[docs]
           gh-pages-publish-directory: ./html/python_project
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           project-directory: ./src/python_project
           pyproject-toml: ./pyproject.toml
           template-directory: ./documentation
