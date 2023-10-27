@@ -1,0 +1,7 @@
+- id: python-hooks
+  name: Python hooks
+  description: Default pre-commit hooks for Python repos
+  entry: ./precommit/run-python-hooks.py
+  language: script
+  require_serial: true
+  verbose: true
