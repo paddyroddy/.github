@@ -1,0 +1,14 @@
+name: Compile LaTeX
+description: Runs latexmk on the repo
+
+runs:
+  using: composite
+  steps:
+    - name: checkout source
+      uses: actions/checkout@v4
+
+    - name: Build PDF
+      uses: xu-cheng/texlive-action@v2
+      with:
+        scheme: full
+        run: latexmk -quiet
