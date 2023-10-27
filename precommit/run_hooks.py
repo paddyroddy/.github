@@ -1,0 +1,22 @@
+#!/usr/bin/env python
+import pathlib
+import subprocess
+import sys
+
+HERE = pathlib.Path(__file__).resolve()
+
+
+def run_hooks(hooks_path: pathlib.Path) -> int:
+    cfg = HERE.parent / hooks_path
+    result = subprocess.run(
+        [
+            "pre-commit",
+            "run",
+            "--config",
+            f"{cfg}",
+            "--files",
+        ]
+        + sys.argv[1:],
+        check=False,
+    )
+    return result.returncode
