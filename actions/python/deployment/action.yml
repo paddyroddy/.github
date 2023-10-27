@@ -1,0 +1,47 @@
+name: Deploy
+description: Deploys a Python project to PyPI/TestPyPI
+
+inputs:
+  pypi-api-token:
+    description: API key of PyPI
+    required: true
+
+  pyproject-toml:
+    description: Path of pyproject.toml
+    required: true
+
+  test-pypi-api-token:
+    description: API key of TestPyPI
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout source
+      uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
+
+    - name: Set up python
+      uses: actions/setup-python@v4
+      with:
+        python-version: "3.x"
+        cache: "pip"
+        cache-dependency-path: ${{ inputs.pyproject-toml }}
+
+    - name: Install dependencies
+      shell: bash
+      run: python -m pip install build
+
+    - name: Build distributions
+      shell: bash
+      run: python -m build
+
+    - name: Publish package to TestPyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ inputs.test-pypi-api-token }}
+        repository-url: https://test.pypi.org/legacy/
+
+    - name: Publish package to PyPI
+      uses: pypa/gh-action-pypi-publish@release/v1
+      with:
+        password: ${{ inputs.pypi-api-token }}
