@@ -7,7 +7,7 @@
   verbose: true
 - id: latex-hooks
   name: LaTeX hooks
-  description: Default pre-commit hooks for Latex repos
+  description: Default pre-commit hooks for LaTeX repos
   entry: ./precommit/latex/latex_hooks.py
   language: script
   require_serial: true
