@@ -2,8 +2,24 @@ name: Dropbox
 description: Upload files to Dropbox
 
 inputs:
+  configfile-version:
+    description: Dropbox app config version
+    required: true
+
   files-to-upload:
     description: A list of files to upload to dropbox
+    required: true
+
+  oauth-app-key:
+    description: Dropbox app OAuth key
+    required: true
+
+  oauth-app-secret:
+    description: Dropbox app OAuth secret
+    required: true
+
+  oauth-refresh-token:
+    description: Dropbox app OAuth refresh token
     required: true
 
 runs:
@@ -19,10 +35,10 @@ runs:
         echo "OAUTH_APP_SECRET=$OAUTH_APP_SECRET" >> ~/.dropbox_uploader
         echo "OAUTH_REFRESH_TOKEN=$OAUTH_REFRESH_TOKEN" >> ~/.dropbox_uploader
       env:
-        CONFIGFILE_VERSION: ${{secrets.CONFIGFILE_VERSION}}
-        OAUTH_APP_KEY: ${{secrets.OAUTH_APP_KEY}}
-        OAUTH_APP_SECRET: ${{secrets.OAUTH_APP_SECRET}}
-        OAUTH_REFRESH_TOKEN: ${{secrets.OAUTH_REFRESH_TOKEN}}
+        CONFIGFILE_VERSION: ${{inputs.configfile-version }}
+        OAUTH_APP_KEY: ${{ inputs.oauth-app-key }}
+        OAUTH_APP_SECRET: ${{ inputs.oauth-app-secret }}
+        OAUTH_REFRESH_TOKEN: ${{ inputs.oauth-refresh-token }}
 
     - name: Retrieve Dropbox uploader script
       run: |

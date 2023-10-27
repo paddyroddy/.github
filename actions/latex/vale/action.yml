@@ -2,6 +2,10 @@ name: Vale
 description: Runs vale over all TeX files in the repo
 
 inputs:
+  github-token:
+    description: GitHub token
+    required: true
+
   vale-flags:
     description: Flags to pass to vale
     default: ""
@@ -15,7 +19,7 @@ runs:
     - name: Run Vale
       uses: errata-ai/vale-action@v2
       env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+        GITHUB_TOKEN: ${{ inputs.github-token }}
       with:
         fail_on_error: true
         filter_mode: nofilter
