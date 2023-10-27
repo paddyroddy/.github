@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/latex/vale@vx.y.z
         with:
-          github-token: ${{ secrets.GITHUB_SECRET }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 where `x.y.z` is the `major.minor.patch` version of the action. If flags are
@@ -22,6 +22,6 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/latex/vale@vx.y.z
         with:
-          github-token: ${{ secrets.GITHUB_SECRET }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           vale-flags: ""
 ```
