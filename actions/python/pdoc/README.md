@@ -14,6 +14,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           project-directory: ./src/python_project
           pyproject-toml: ./pyproject.toml
+          python-version: "3.x"
           template-directory: ./documentation
 ```
 
