@@ -17,7 +17,7 @@ def main(hooks_path: pathlib.Path) -> int:
             f"{cfg}",
             "--files",
         ]
-        + sys.argv[2:],
+        + sys.argv[1:],
         check=False,
     )
     return result.returncode
@@ -26,9 +26,10 @@ def main(hooks_path: pathlib.Path) -> int:
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="pre-commit hooks")
     parser.add_argument(
-        "pre_commit_hook",
+        "--precommit",
+        "-p",
         type=str,
         help="path to the desired pre-commit hook",
     )
     args = parser.parse_args()
-    exit(main(pathlib.Path(args.pre_commit_hook)))
+    exit(main(pathlib.Path(args.precommit)))
