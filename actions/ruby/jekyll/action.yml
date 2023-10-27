@@ -1,0 +1,39 @@
+name: Deploy Website
+description: Deploy jekyll website to GitHub Actions
+
+inputs:
+  github-token:
+    description: GitHub token
+    required: true
+
+  ruby-version:
+    description: Ruby version
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: checkout source
+      uses: actions/checkout@v4
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: ${{ inputs.ruby-version }}
+        bundler-cache: true
+
+    - name: Install and Build
+      shell: bash
+      run: >-
+        JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }}
+        JEKYLL_ENV=production
+        bundle exec jekyll build --destination site
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ inputs.github-token }}
+        publish_dir: ./site
+        publish_branch: gh-pages
+        user_name: github-actions[bot]
+        user_email: github-actions[bot]@users.noreply.github.com
