@@ -1,0 +1,29 @@
+name: Bump Version Tag
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*"
+      - "!.github/**"
+      - "!.pre-commit-config.yaml"
+      - "!**/*.json"
+      - "!**/*.md"
+
+jobs:
+  tags:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.67.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
