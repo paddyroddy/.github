@@ -12,12 +12,12 @@ inputs:
 
   project-directory:
     description: Path to the Python project
-    required: true   
+    required: true
 
   pyproject-toml:
     description: Path of pyproject.toml
     required: true
-  
+
   template-directory:
     description: Path of the template directory
     required: true

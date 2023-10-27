@@ -14,7 +14,7 @@ jobs:
           - macos-latest
           - ubuntu-latest
           - windows-latest
-        python-version: 
+        python-version:
           - "3.x"
     steps:
       - uses: paddyroddy/.github/actions/python/tox@vx.y.z

@@ -18,7 +18,6 @@ inputs:
     description: Version of python to test
     required: true
 
-
 runs:
   using: composite
   steps:
