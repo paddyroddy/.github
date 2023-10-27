@@ -6,6 +6,10 @@ inputs:
     description: Paths to cache
     required: true
 
+  coverage-with-coveralls:
+    description: Whether to produce coverage with Coveralls
+    default: yes
+
   operating-system:
     description: Operating system to test
     required: true
@@ -49,3 +53,4 @@ runs:
 
     - name: Coverage
       uses: coverallsapp/github-action@v2
+      if: inputs.coverage-with-coveralls == 'yes'
