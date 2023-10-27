@@ -11,6 +11,7 @@ jobs:
         with:
           pypi-api-token: ${{ secrets.PYPI_API_TOKEN }}
           pyproject-toml: ./pyproject.toml
+          python-version: "3.x"
           test-pypi-api-token: ${{ secrets.TEST_PYPI_API_TOKEN }}
 ```
 
