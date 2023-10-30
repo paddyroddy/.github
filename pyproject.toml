@@ -1,6 +1,7 @@
 [project]
 name = "default-pre-commit-hooks"
 version = "0.0.0"
+scripts = {latex-hooks = "precommit.latex.latex_hooks:main", python-hooks = "precommit.python.python_hooks:main"}
 
 [tool.setuptools]
 packages = ["precommit"]

@@ -1,7 +1,7 @@
 - id: python-hooks
   name: Python hooks
   description: Default pre-commit hooks for Python repos
-  entry: python ./precommit/python/python_hooks.py
+  entry: python-hooks
   language: python
   require_serial: true
   verbose: true
@@ -9,7 +9,8 @@
 - id: latex-hooks
   name: LaTeX hooks
   description: Default pre-commit hooks for LaTeX repos
-  entry: python ./precommit/latex/latex_hooks.py
+  entry: latex-hooks
   language: python
   require_serial: true
   verbose: true
+  additional_dependencies: []
