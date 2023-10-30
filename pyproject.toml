@@ -5,7 +5,7 @@ requires = [
 ]
 
 [project]
-name = "default-pre-commit-hooks"
+name = "precommit"
 scripts = {latex-hooks = "precommit.latex.latex_hooks:main", python-hooks = "precommit.python.python_hooks:main"}
 version = "0.0.0"
 
