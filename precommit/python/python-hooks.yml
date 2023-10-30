@@ -16,6 +16,11 @@ repos:
     rev: v1.6.1
     hooks:
       - id: mypy
+        additional_dependencies:
+          # for this bit to work this repo includes a pyproject.toml, without
+          # which these dependencies would not be installed
+          - numpy
+          - pydantic
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.3
     hooks:
@@ -27,6 +32,7 @@ repos:
       - id: check-docstring-first
       - id: check-merge-conflict
       - id: check-toml
+      - id: check-yaml
       - id: end-of-file-fixer
       - id: mixed-line-ending
         args:
