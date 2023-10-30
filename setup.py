@@ -9,6 +9,6 @@ setuptools.setup(
         ]
     },
     name="pre_commit_placeholder_package",
-    packages=["precommit"],
+    packages=setuptools.find_packages("precommit"),
     version="0.0.0",
 )
