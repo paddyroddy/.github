@@ -9,6 +9,11 @@ setuptools.setup(
         ]
     },
     name="pre_commit_placeholder_package",
-    packages=setuptools.find_packages("precommit"),
+    packages=setuptools.find_packages(
+        exclude=[
+            "actions",
+            "renovate",
+        ]
+    ),
     version="0.0.0",
 )
