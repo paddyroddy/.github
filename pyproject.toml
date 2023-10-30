@@ -1,5 +1,8 @@
 [project]
 name = "github"
+dynamic = [
+    "version",
+]
 
 [tool.setuptools]
 py-modules = []
