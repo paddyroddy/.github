@@ -3,8 +3,8 @@ authors = [
     {email = "patrickjamesroddy@gmail.com", name = "Patrick J. Roddy"},
 ]
 description = """
-This file is only present as the `additional_dependencies` in `pre-commit`
-require a `setup.py` or `pyproject.toml`, otherwise it will not install them
+This file is only present as the additional_dependencies in pre-commit require a
+setup.py or pyproject.toml, otherwise it will not install them
 """
 name = "pre_commit_placeholder_package"
 readme = "README.md"
