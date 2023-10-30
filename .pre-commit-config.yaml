@@ -40,7 +40,6 @@ repos:
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.27.0
     hooks:
-      - id: check-github-actions
       - id: check-github-workflows
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 37.33.6
