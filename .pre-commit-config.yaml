@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/paddyroddy/.github
-    rev: v0.26.0
+    rev: v0.27.0
     hooks:
       - id: python-hooks
   - repo: https://github.com/renovatebot/pre-commit-hooks
