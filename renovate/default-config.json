@@ -3,6 +3,7 @@
   "extends": [
     "config:best-practices",
     "schedule:weekdays",
+    ":assignAndReview(paddyroddy)",
     ":automergeBranch",
     ":automergeDigest",
     ":automergeMinor",
@@ -12,7 +13,6 @@
     ":label(renovate)",
     ":maintainLockFilesWeekly",
     ":noUnscheduledUpdates",
-    ":reviewer(paddyroddy)"
   ],
   "commitMessageAction": "Renovate:",
   "packageRules": [
