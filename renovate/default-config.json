@@ -12,7 +12,7 @@
     ":enablePreCommit",
     ":label(renovate)",
     ":maintainLockFilesWeekly",
-    ":noUnscheduledUpdates",
+    ":noUnscheduledUpdates"
   ],
   "commitMessageAction": "Renovate:",
   "packageRules": [
