@@ -48,3 +48,7 @@ repos:
     rev: v2.2.6
     hooks:
       - id: codespell
+  - repo: https://github.com/python-jsonschema/check-jsonschema
+    rev: 0.27.0
+    hooks:
+      - id: check-github-workflows
