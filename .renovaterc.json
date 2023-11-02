@@ -6,10 +6,11 @@
     ":automergeAll",
     ":automergeBranch",
     ":disableDependencyDashboard",
-    ":enablePreCommit"
+    ":enablePreCommit",
+    ":noUnscheduledUpdates",
+    ":reviewer(paddyroddy)"
   ],
   "commitMessageAction": "Renovate:",
-  "reviewers": ["paddyroddy"],
   "packageRules": [
     {
       "description": "Shorten commit titles",
