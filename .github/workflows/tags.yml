@@ -25,13 +25,10 @@ jobs:
           fetch-depth: 0
 
       - name: Bump version and push tag
-        id: bump-version
         uses: anothrNick/github-tag-action@a2c70ae13a881faf2b4953baaa9e49731997ab36 # 1.67.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
 
       - name: Update major tag
-        uses: actions/publish-action@dca2315f75060c81e52b00dfc86b660107013642 # v0.2.2
-        with:
-          source-tag: ${{ steps.bump-version.outputs.new_tag }}
+        uses: hongaar/update-major-version-tag@v1
