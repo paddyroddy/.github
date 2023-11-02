@@ -7,7 +7,7 @@ jobs:
   documentation:
     runs-on: ubuntu-latest
     steps:
-      - uses: paddyroddy/.github/actions/python/pdoc@vx.y.z
+      - uses: paddyroddy/.github/actions/python/pdoc@vx
         with:
           docs-dependency-section: .[docs]
           gh-pages-publish-directory: ./html/python_project
@@ -18,4 +18,4 @@ jobs:
           template-directory: ./documentation
 ```
 
-where `x.y.z` is the `major.minor.patch` version of the action.
+where `x` is the `major` version of the action.

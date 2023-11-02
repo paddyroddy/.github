@@ -7,7 +7,7 @@ jobs:
   dropbox:
     runs-on: ubuntu-latest
     steps:
-      - uses: paddyroddy/.github/actions/dropbox@vx.y.z
+      - uses: paddyroddy/.github/actions/dropbox@vx
         with:
           configfile-version: ${{ secrets.CONFIGFILE_VERSION }}
           files-to-upload: $(find . -maxdepth 1 -name '*.pdf' -print)
@@ -16,4 +16,4 @@ jobs:
           oauth-refresh-token: ${{ secrets.OAUTH_REFRESH_TOKEN }}
 ```
 
-where `x.y.z` is the `major.minor.patch` version of the action.
+where `x` is the `major` version of the action.
