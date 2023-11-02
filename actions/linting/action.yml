@@ -13,13 +13,13 @@ runs:
       uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4
 
     - name: Cache pre-commit
-      uses: actions/cache@v3
+      uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
       with:
         path: ~/.cache/pre-commit
         key: cache-${{ hashFiles(inputs.pre-commit-config) }}
 
     - name: Set up python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@65d7f2d534ac1bc67fcd62888c5f4f3d2cb2b236 # v4
       with:
         python-version: 3.x
 
