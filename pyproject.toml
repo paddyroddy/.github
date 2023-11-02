@@ -15,9 +15,11 @@ license.file = "README.md"
 fix = true
 force-exclude = true
 ignore = [
+    "COM812",
     "D203",
     "D212",
     "D407",
+    "ISC001",
 ]
 select = [
     "ALL",
