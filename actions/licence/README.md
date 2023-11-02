@@ -7,10 +7,10 @@ jobs:
   licence:
     runs-on: ubuntu-latest
     steps:
-      - uses: paddyroddy/.github/actions/licence@vx.y.z
+      - uses: paddyroddy/.github/actions/licence@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           licence-file: ./LICENCE.md
 ```
 
-where `x.y.z` is the `major.minor.patch` version of the action.
+where `x` is the `major` version of the action.

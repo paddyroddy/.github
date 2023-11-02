@@ -17,7 +17,7 @@ jobs:
         python-version:
           - "3.x"
     steps:
-      - uses: paddyroddy/.github/actions/python/tox@vx.y.z
+      - uses: paddyroddy/.github/actions/python/tox@vx
         with:
           cache-path: |-
             .tox
@@ -26,7 +26,7 @@ jobs:
           python-version: ${{ matrix.python-version }}
 ```
 
-where `x.y.z` is the `major.minor.patch` version of the action. If coverage with
+where `x` is the `major` version of the action. If coverage with
 Coveralls is not desired, then modify the above to:
 
 ```yaml
@@ -44,7 +44,7 @@ jobs:
         python-version:
           - "3.x"
     steps:
-      - uses: paddyroddy/.github/actions/python/tox@vx.y.z
+      - uses: paddyroddy/.github/actions/python/tox@vx
         with:
           cache-path: |-
             .tox

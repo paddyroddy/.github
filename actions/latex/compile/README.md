@@ -7,7 +7,7 @@ jobs:
   compile-latex:
     runs-on: ubuntu-latest
     steps:
-      - uses: paddyroddy/.github/actions/latex/compile@vx.y.z
+      - uses: paddyroddy/.github/actions/latex/compile@vx
 ```
 
-where `x.y.z` is the `major.minor.patch` version of the action.
+where `x` is the `major` version of the action.
