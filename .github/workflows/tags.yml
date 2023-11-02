@@ -31,6 +31,6 @@ jobs:
           WITH_V: true
 
       - name: Update major tag
-        uses: actions/publish-action@v0.2.2
+        uses: actions/publish-action@dca2315f75060c81e52b00dfc86b660107013642 # v0.2.2
         with:
           source-tag: ${{ github.ref_name }}
