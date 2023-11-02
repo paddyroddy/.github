@@ -29,3 +29,6 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
+
+      - name: Update major tag
+        uses: nowactions/update-majorver@v1
