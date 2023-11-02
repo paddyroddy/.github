@@ -8,10 +8,12 @@
     ":automergeMinor",
     ":automergePatch",
     ":disableDependencyDashboard",
-    ":enablePreCommit"
+    ":enablePreCommit",
+    ":maintainLockFilesWeekly",
+    ":noUnscheduledUpdates",
+    ":reviewer(paddyroddy)"
   ],
   "commitMessageAction": "Renovate:",
-  "reviewers": ["paddyroddy"],
   "packageRules": [
     {
       "description": "Shorten commit titles",
