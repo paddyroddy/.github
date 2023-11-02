@@ -1,21 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "schedule:weekly",
-    ":automergeAll",
-    ":automergeBranch",
-    ":disableDependencyDashboard",
-    ":enablePreCommit",
-    ":noUnscheduledUpdates",
-    ":reviewer(paddyroddy)"
-  ],
-  "commitMessageAction": "Renovate:",
-  "packageRules": [
-    {
-      "description": "Shorten commit titles",
-      "commitMessageTopic": "{{depName}}",
-      "matchManagers": ["github-actions", "pre-commit"]
-    }
-  ]
+  "extends": ["github>paddyroddy/.github//renovate/default-config.json"]
 }
