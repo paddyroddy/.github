@@ -19,7 +19,7 @@
     {
       "description": "Shorten commit titles",
       "commitMessageTopic": "{{depName}}",
-      "matchManagers": ["bundler", "github-actions", "pre-commit"]
+      "matchManagers": ["github-actions", "pre-commit"]
     }
   ]
 }
