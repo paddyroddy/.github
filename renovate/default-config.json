@@ -11,7 +11,7 @@
     ":disableDependencyDashboard",
     ":enablePreCommit",
     ":label(renovate)",
-    ":maintainLockFilesWeekly",
+    ":maintainLockFilesMonthly",
     ":noUnscheduledUpdates"
   ],
   "commitMessageAction": "Renovate:",
