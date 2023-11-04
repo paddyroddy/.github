@@ -14,11 +14,20 @@ repos:
     rev: v1.5.4
     hooks:
       - id: forbid-tabs
-        exclude: ".dic$"
+        exclude: .dic$
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.27.0
     hooks:
       - id: check-github-workflows
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        args:
+          - --ignore-words-list=theses
+        exclude: ^.github/styles
+        exclude_types:
+          - bib
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.3
     hooks:
