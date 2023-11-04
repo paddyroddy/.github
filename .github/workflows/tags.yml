@@ -29,9 +29,10 @@ jobs:
         uses: anothrNick/github-tag-action@a2c70ae13a881faf2b4953baaa9e49731997ab36 # 1.67.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
 
       - name: Update major tag
         uses: rickstaa/action-update-semver@f1596c59134ba100443e47894de60f76d97950c7 # v1
         with:
           major_version_tag_only: true
-          tag: v${{ steps.bump-version.outputs.new_tag }}
+          tag: ${{ steps.bump-version.outputs.new_tag }}
