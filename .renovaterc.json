@@ -1,10 +1,4 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>paddyroddy/.github//renovate/default-config.json"],
-  "packageRules": [
-    {
-      "matchDepNames": ["renovatebot/pre-commit-hooks"],
-      "schedule": ["on the first day of the month"]
-    }
-  ]
+  "extends": ["github>paddyroddy/.github//renovate/default-config.json"]
 }
