@@ -31,8 +31,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
 
+      - name: Remove leading 'v'
+        id: remove-leading-v
+        run: >-
+          echo "::set-output
+          name=new_tag::$(echo
+          ${{ steps.bump-version.outputs.new_tag }} | sed 's/^v//')"
+
       - name: Update major tag
         uses: rickstaa/action-update-semver@f1596c59134ba100443e47894de60f76d97950c7 # v1
         with:
           major_version_tag_only: true
-          tag: $(echo ${{ steps.bump-version.outputs.new_tag }} | sed 's/^v//')
+          tag: ${{ steps.remove-leading-v.outputs.new_tag }}
