@@ -22,7 +22,7 @@
       "matchManagers": ["github-actions", "pre-commit"]
     },
     {
-      "description": "Only allow major standard upgrades",
+      "description": "Only allow major updates",
       "enabled": false,
       "matchDepNames": ["renovatebot/pre-commit-hooks"],
       "matchUpdateTypes": ["minor", "patch", "pin"]
