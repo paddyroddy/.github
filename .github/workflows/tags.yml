@@ -35,4 +35,4 @@ jobs:
         uses: rickstaa/action-update-semver@f1596c59134ba100443e47894de60f76d97950c7 # v1
         with:
           major_version_tag_only: true
-          tag: ${{ steps.bump-version.outputs.new_tag }}
+          tag: $(echo ${{ steps.bump-version.outputs.new_tag }} | sed 's/^v//')
