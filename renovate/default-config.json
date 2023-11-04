@@ -22,9 +22,10 @@
       "matchManagers": ["github-actions", "pre-commit"]
     },
     {
-      "description": "Only update once a month",
+      "description": "Only allow major standard upgrades",
+      "enabled": false,
       "matchDepNames": ["renovatebot/pre-commit-hooks"],
-      "schedule": ["on the first day of the month"]
+      "matchUpdateTypes": ["minor", "patch", "pin"]
     }
   ]
 }

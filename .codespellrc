@@ -1,0 +1,3 @@
+[codespell]
+ignore-words-list = theses
+skip = *.bib,.github/styles
