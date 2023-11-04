@@ -6,9 +6,10 @@ a file called `.pre-commit-config.yaml` with the following code.
 ```yaml
 repos:
   - repo: https://github.com/paddyroddy/.github
-    rev: v0.1.0
+    rev: vx.y.z
     hooks:
       - id: latex-hooks
 ```
 
-Then run `pre-commit install; pre-commit autoupdate`.
+where `x.y.z` is the `major.minor.patch` version of the action. Then run
+`pre-commit install`.
