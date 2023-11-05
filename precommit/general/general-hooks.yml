@@ -21,6 +21,10 @@ repos:
     rev: v3.0.3
     hooks:
       - id: prettier
+        exclude: app.js
+        additional_dependencies:
+          - prettier
+          - "@shopify/prettier-plugin-liquid"
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
