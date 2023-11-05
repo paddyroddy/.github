@@ -8,4 +8,4 @@ repos:
     hooks:
       - id: renovate-config-validator
         args:
-          - renovate/default-config.json
+          - renovate/default-config.json5
