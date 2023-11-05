@@ -5,11 +5,13 @@ repos:
       - id: codespell
         args:
           - --ignore-words-list=theses
-        exclude: ^.github/styles
-        exclude_types:
-          - bib
-          - bst
-          - cls
+        exclude: |-
+          (?x)(
+              ^.github/styles|
+              bib$|
+              bst$|
+              cls$
+          )
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.4
     hooks:
