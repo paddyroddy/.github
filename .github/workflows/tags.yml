@@ -9,7 +9,7 @@ on:
       - "!.github/**"
       - "!.gitignore"
       - "!.pre-commit-config.yaml"
-      - "!**/*.json"
+      - "!**/*.json5"
       - "!**/*.md"
       - "!pyproject.toml"
   workflow_dispatch:
