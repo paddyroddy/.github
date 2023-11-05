@@ -23,6 +23,8 @@ repos:
     rev: v2.2.6
     hooks:
       - id: codespell
+        args:
+          - --ignore-words-list=theses
         exclude: ^.github/styles
         exclude_types:
           - bib
