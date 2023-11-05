@@ -6,10 +6,10 @@ One must then make a `.renovaterc.json5` file in the repository, of the followin
 form.
 Note, the two `/` is intentional.
 
-```json
+```json5
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>paddyroddy/.github//renovate/default-config.json5"]
+  $schema: "https://docs.renovatebot.com/renovate-schema.json",
+  extends: ["github>paddyroddy/.github//renovate/default-config.json5"],
 }
 ```
 
