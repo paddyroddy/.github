@@ -31,7 +31,16 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
 
+      - name: Extract major tag
+        id: extract-major
+        run: >-
+          echo "::set-output name=major_tag::$(
+          echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f2)"
+
       - name: Update major tag
-        uses: actions/publish-action@v0.2.2
-        with:
-          source-tag: ${{ steps.bump-version.outputs.new_tag }}
+        run: |-
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag --force ${{ steps.extract-major.outputs.major_version }} \
+          ${{ steps.bump-version.outputs.new_tag }}
+          git push origin ${{ steps.extract-major.outputs.major_version }} --force
