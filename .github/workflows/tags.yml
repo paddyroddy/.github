@@ -34,9 +34,11 @@ jobs:
       - name: Extract major tag
         id: extract-major
         run: >-
-          echo "::set-output name=major_tag::$(
-          echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f2)"
+          echo "{major_tag}={$(echo ${{ steps.bump-version.outputs.new_tag }} |
+          cut -d'.' -f1)}" >> $GITHUB_OUTPUT
 
+      # this is done manually as need a non-annotated tag
+      # TODO: replace with https://github.com/actions/publish-action
       - name: Update major tag
         run: |-
           git config user.name github-actions
