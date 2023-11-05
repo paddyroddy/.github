@@ -11,6 +11,10 @@ readme = "README.md"
 version = "0.0.0"
 license.file = "README.md"
 
+[tool.codespell]
+ignore-words-list = "theses"
+skip = "*.bib,./.github/styles"
+
 [tool.ruff]
 fix = true
 force-exclude = true
