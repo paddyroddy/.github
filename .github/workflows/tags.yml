@@ -12,6 +12,7 @@ on:
       - "!**/*.json"
       - "!**/*.md"
       - "!pyproject.toml"
+  workflow_dispatch:
 
 jobs:
   tags:
