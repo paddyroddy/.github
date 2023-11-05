@@ -13,7 +13,6 @@ license.file = "README.md"
 
 [tool.codespell]
 ignore-words-list = "theses"
-skip = "*.bib,./.github/styles"
 
 [tool.ruff]
 fix = true
