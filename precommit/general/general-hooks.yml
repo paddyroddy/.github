@@ -12,8 +12,7 @@ repos:
     rev: v1.5.4
     hooks:
       - id: forbid-tabs
-        exclude_types:
-          - dic
+        exclude: dic$
   - repo: https://github.com/python-jsonschema/check-jsonschema
     rev: 0.27.0
     hooks:
