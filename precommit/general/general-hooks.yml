@@ -7,7 +7,7 @@ repos:
           - --ignore-words-list=theses
         exclude: |-
           (?x)(
-              ^.github/styles|
+              ^.github/styles/|
               .bib$|
               .bst$|
               .cls$
