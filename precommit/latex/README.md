@@ -1,15 +1,14 @@
 # LaTeX pre-commit config
 
 In a repository that requires [pre-commit](https://pre-commit.com), simply add
-a file called `.pre-commit-config.yaml` with the following code:
+a file called `.pre-commit-config.yaml` with the following code.
 
 ```yaml
 repos:
   - repo: https://github.com/paddyroddy/.github
-    rev: vx.y.z
+    rev: v0.1.0
     hooks:
       - id: latex-hooks
 ```
 
-where `x.y.z` is the `major.minor.patch` version of the action. Then run
-`pre-commit install`.
+Then run `pre-commit install; pre-commit autoupdate`.
