@@ -22,8 +22,8 @@
       matchManagers: ["github-actions", "pre-commit"],
     },
     {
-      description: "Require dependency dashboard for non-major updates",
-      dependencyDashboardApproval: true,
+      description: "Only allow major updates",
+      enabled: false,
       matchDepNames: ["renovatebot/pre-commit-hooks"],
       matchUpdateTypes: ["minor", "patch", "pin"],
     },
