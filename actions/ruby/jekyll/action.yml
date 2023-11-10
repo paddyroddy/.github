@@ -33,9 +33,6 @@ runs:
         echo parent-directory=$(dirname ${{ env.BUNDLE_GEMFILE }})
         >> $GITHUB_OUTPUT
 
-    - run: echo ${{ steps.find-parent-directory.output.parent-directory }}
-      shell: bash
-
     - name: Install and Build
       shell: bash
       working-directory: >-
@@ -49,7 +46,8 @@ runs:
       uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
       with:
         github_token: ${{ inputs.github-token }}
-        publish_dir: ${{ env.BUNDLE_GEMFILE }}/../_site
+        publish_dir: >-
+          ${{ steps.find-parent-directory.output.parent-directory }}/_site
         publish_branch: gh-pages
         user_name: github-actions[bot]
         user_email: github-actions[bot]@users.noreply.github.com
