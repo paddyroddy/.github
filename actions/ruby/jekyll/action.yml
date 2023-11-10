@@ -26,6 +26,16 @@ runs:
         ruby-version: ${{ inputs.ruby-version }}
         bundler-cache: true
 
+    - name: Find parent directory
+      id: find-parent-directory
+      shell: bash
+      run: >-
+        echo parent-directory=$(dirname ${{ env.BUNDLE_GEMFILE }}))
+        >> $GITHUB_OUTPUT
+
+    - run: echo ${{ steps.find-parent-directory.output.parent-directory }}
+      shell: bash
+
     - name: Install and Build
       shell: bash
       working-directory: $(dirname ${{ env.BUNDLE_GEMFILE }})
