@@ -2,6 +2,10 @@ name: Deploy Website
 description: Deploy jekyll website to GitHub Actions
 
 inputs:
+  docs-directory:
+    description: Directory of the documentation Gemfile
+    default: .
+
   github-token:
     description: GitHub token
     required: true
@@ -24,6 +28,7 @@ runs:
 
     - name: Install and Build
       shell: bash
+      working-directory: ${{ inputs.docs-directory }}
       run: >-
         JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }}
         JEKYLL_ENV=production
@@ -33,7 +38,7 @@ runs:
       uses: peaceiris/actions-gh-pages@373f7f263a76c20808c831209c920827a82a2847 # v3
       with:
         github_token: ${{ inputs.github-token }}
-        publish_dir: ./_site
+        publish_dir: ${{ inputs.docs-directory }}/_site
         publish_branch: gh-pages
         user_name: github-actions[bot]
         user_email: github-actions[bot]@users.noreply.github.com
