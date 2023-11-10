@@ -36,7 +36,7 @@ runs:
     - name: Install and Build
       shell: bash
       working-directory: >-
-        ${{ steps.find-parent-directory.output.parent-directory }}
+        ${{ steps.find-parent-directory.outputs.parent-directory }}
       run: >-
         JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }}
         JEKYLL_ENV=production
@@ -47,7 +47,7 @@ runs:
       with:
         github_token: ${{ inputs.github-token }}
         publish_dir: >-
-          ${{ steps.find-parent-directory.output.parent-directory }}/_site
+          ${{ steps.find-parent-directory.outputs.parent-directory }}/_site
         publish_branch: gh-pages
         user_name: github-actions[bot]
         user_email: github-actions[bot]@users.noreply.github.com
