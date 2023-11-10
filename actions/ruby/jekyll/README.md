@@ -20,7 +20,7 @@ the root directory, then modify the above to, e.g.:
 jobs:
   build-and-deploy:
     env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/docs
+      BUNDLE_GEMFILE: ${{ github.workspace }}/docs/Gemfile
     runs-on: ubuntu-latest
     steps:
       - uses: paddyroddy/.github/actions/ruby/jekyll@vx
