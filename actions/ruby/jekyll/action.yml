@@ -30,7 +30,7 @@ runs:
       id: find-parent-directory
       shell: bash
       run: >-
-        echo parent-directory=$(echo $(dirname ${{ env.BUNDLE_GEMFILE }}))
+        echo parent-directory=$(dirname ${{ env.BUNDLE_GEMFILE }})
         >> $GITHUB_OUTPUT
 
     - run: echo ${{ steps.find-parent-directory.output.parent-directory }}
@@ -38,7 +38,8 @@ runs:
 
     - name: Install and Build
       shell: bash
-      working-directory: $(dirname ${{ env.BUNDLE_GEMFILE }})
+      working-directory: >-
+        ${{ steps.find-parent-directory.output.parent-directory }}
       run: >-
         JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }}
         JEKYLL_ENV=production
