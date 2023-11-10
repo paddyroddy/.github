@@ -28,7 +28,7 @@ runs:
 
     - name: Install and Build
       shell: bash
-      working-directory: ${{ env.BUNDLE_GEMFILE }}/..
+      working-directory: $(dirname ${{ env.BUNDLE_GEMFILE }})
       run: >-
         JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }}
         JEKYLL_ENV=production
