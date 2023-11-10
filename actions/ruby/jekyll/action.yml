@@ -2,10 +2,6 @@ name: Deploy Website
 description: Deploy jekyll website to GitHub Actions
 
 inputs:
-  docs-directory:
-    description: Directory of the documentation Gemfile
-    default: .
-
   github-token:
     description: GitHub token
     required: true
