@@ -26,6 +26,11 @@
       matchUpdateTypes: ["minor", "patch", "pin"],
     },
     {
+      description: "Combine updates together",
+      groupName: "paddyroddy/.github",
+      matchDepNames: ["paddyroddy/.github"],
+    },
+    {
       description: "Shorten commit titles",
       commitMessageTopic: "{{depName}}",
       matchManagers: ["github-actions", "pre-commit"],
