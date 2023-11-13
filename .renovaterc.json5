@@ -1,6 +1,9 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["github>paddyroddy/.github//renovate/default-config.json5"],
+  extends: [
+    "github>paddyroddy/.github//renovate/default-config.json5",
+    "schedule:monthly",
+  ],
   "pre-commit": {
     fileMatch: [
       "precommit/general/general-hooks.yml",
