@@ -1,5 +1,6 @@
 name: Update Copyright
 
+# yamllint disable-line rule:truthy
 on:
   schedule:
     - cron: "0 3 1 1 *"

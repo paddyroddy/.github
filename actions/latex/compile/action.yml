@@ -8,7 +8,8 @@ runs:
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
     - name: Build PDF
-      uses: xu-cheng/texlive-action@d9f893f837a29f066e3c70080540976b47263721 # v2
+      uses: >-
+        xu-cheng/texlive-action@d9f893f837a29f066e3c70080540976b47263721 # v2
       with:
         scheme: full
         run: latexmk -quiet
