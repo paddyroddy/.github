@@ -4,7 +4,6 @@ repos:
     hooks:
       - id: yamllint
         args:
-          - --strict
           - >-
             --config-data={
               extends: default, rules: {
@@ -12,6 +11,7 @@ repos:
                 document-start: disable,
               }
             }
+          - --strict
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
