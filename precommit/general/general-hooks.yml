@@ -1,4 +1,17 @@
 repos:
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.33.0
+    hooks:
+      - id: yamllint
+        args:
+          - >-
+            --config-data={
+              extends: default, rules: {
+                comments: disable,
+                document-start: disable,
+              }
+            }
+          - --strict
   - repo: https://github.com/codespell-project/codespell
     rev: v2.2.6
     hooks:
