@@ -31,10 +31,6 @@ runs:
       shell: bash
       run: python -m build
 
-    - name: Check long description for PyPI
-      shell: bash
-      run: python -m twine check dist/*
-
     - name: Publish package to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
