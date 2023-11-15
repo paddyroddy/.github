@@ -6,13 +6,13 @@ This action can be used in the following manner:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    permissions:
+      id-token: write
     steps:
       - uses: paddyroddy/.github/actions/python/deployment@vx
         with:
-          pypi-api-token: ${{ secrets.PYPI_API_TOKEN }}
           pyproject-toml: ./pyproject.toml
           python-version: "3.x"
-          test-pypi-api-token: ${{ secrets.TEST_PYPI_API_TOKEN }}
 ```
 
 where `x` is the `major` version of the action.

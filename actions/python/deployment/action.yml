@@ -2,20 +2,12 @@ name: Deploy
 description: Deploys a Python project to PyPI/TestPyPI
 
 inputs:
-  pypi-api-token:
-    description: API key of PyPI
-    required: true
-
   pyproject-toml:
     description: Path of pyproject.toml
     required: true
 
   python-version:
     description: Version of python to test
-    required: true
-
-  test-pypi-api-token:
-    description: API key of TestPyPI
     required: true
 
 runs:
@@ -39,13 +31,17 @@ runs:
       shell: bash
       run: python -m build
 
+    - name: Check long description for PyPI
+      shell: bash
+      run: python -m twine check dist/*
+
     - name: Publish package to TestPyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        password: ${{ inputs.test-pypi-api-token }}
         repository-url: https://test.pypi.org/legacy/
+        verbose: true
 
     - name: Publish package to PyPI
       uses: pypa/gh-action-pypi-publish@release/v1
       with:
-        password: ${{ inputs.pypi-api-token }}
+        verbose: true
