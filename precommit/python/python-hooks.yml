@@ -11,6 +11,8 @@ repos:
       - id: check-manifest
         additional_dependencies:
           - setuptools-scm
+        args:
+          - --no-build-isolation
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.7.0
     hooks:
