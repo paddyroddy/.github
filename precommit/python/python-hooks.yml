@@ -20,10 +20,8 @@ repos:
         additional_dependencies:
           # for this bit to work this repo includes a pyproject.toml,
           # without which these dependencies would not be installed
-          - hypothesis
           - numpy
           - pydantic
-          - pytest
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.1.5
     hooks:
