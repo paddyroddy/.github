@@ -8,7 +8,9 @@ repos:
             --config-data={
               extends: default,
               rules: {
-                comments: disable,
+                comments: {
+                  min-spaces-from-content: 1
+                },
                 document-start: disable,
               }
             }
