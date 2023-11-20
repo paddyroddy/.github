@@ -7,9 +7,7 @@ repos:
           - >-
             --config-data={
               extends: default,
-              ignore: [
-                .github/styles
-              ],
+              ignore-from-file: .yamlignore,
               rules: {
                 comments: disable,
                 document-start: disable,
