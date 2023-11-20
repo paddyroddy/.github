@@ -13,7 +13,7 @@ repos:
               }
             }
           - --strict
-         exclude: ^.github/styles
+        exclude: ^.github/styles
   - repo: https://github.com/crate-ci/typos
     rev: v1.16.23
     hooks:
