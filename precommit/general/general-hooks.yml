@@ -7,15 +7,13 @@ repos:
           - >-
             --config-data={
               extends: default,
-              ignore: [
-                .github/styles
-              ],
               rules: {
                 comments: disable,
                 document-start: disable,
               }
             }
           - --strict
+        exclude: ^.github/styles
   - repo: https://github.com/crate-ci/typos
     rev: v1.16.23
     hooks:
