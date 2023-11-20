@@ -14,17 +14,12 @@ repos:
               }
             }
           - --strict
-  - repo: https://github.com/codespell-project/codespell
-    rev: v2.2.6
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.16.23
     hooks:
-      - id: codespell
-        exclude: |-
-          (?x)(
-              ^.github/styles/|
-              .bib$|
-              .bst$|
-              .cls$
-          )
+      - id: typos
+        args:
+          - --force-exclude
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.4
     hooks:
