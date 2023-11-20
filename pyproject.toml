@@ -1,15 +1,27 @@
-[project]
-authors = [
-    {email = "patrickjamesroddy@gmail.com", name = "Patrick J. Roddy"},
+# This file is present to make sure that the pre-commit setup
+# works, it is not intended to be an actual package
+
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = [
+    "setuptools",
+    "setuptools-scm",
 ]
-description = """
-This file is only present as the additional_dependencies in pre-commit require a
-setup.py or pyproject.toml, otherwise it will not install them
-"""
+
+[project]
+dynamic = [
+    "version",
+]
 name = "pre_commit_placeholder_package"
 readme = "README.md"
-version = "0.0.0"
-license.file = "README.md"
+
+[tool.check-manifest]
+ignore = [
+    "*",
+]
+
+[tool.mypy]
+ignore_missing_imports = true
 
 [tool.ruff]
 fix = true
@@ -24,6 +36,11 @@ ignore = [
 select = [
     "ALL",
 ]
+
+[tool.setuptools]
+packages.find = {}
+
+[tool.setuptools_scm]
 
 [tool.tomlsort]
 all = true
