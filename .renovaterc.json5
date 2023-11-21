@@ -13,9 +13,9 @@
   },
   packageRules: [
     {
-      description: "Make versioning loose",
+      description: "Support Vx.y.z versioning",
       matchDepNames: ["cmhughes/latexindent.pl"],
-      versioning: "loose",
+      versioning: "^V(?<version>.+)$",
     },
   ],
 }
