@@ -1,3 +1,4 @@
+---
 name: Deploy
 description: Deploys a Python project to PyPI/TestPyPI
 

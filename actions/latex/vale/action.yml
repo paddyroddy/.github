@@ -1,3 +1,4 @@
+---
 name: Vale
 description: Runs vale over all TeX files in the repo
 

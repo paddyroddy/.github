@@ -1,3 +1,4 @@
+---
 name: Documentation
 description: Runs pdoc3 on a project and pushes to GitHub Pages
 

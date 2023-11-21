@@ -1,3 +1,4 @@
+---
 repos:
   - repo: https://github.com/adamchainz/blacken-docs
     rev: "1.16.0"
