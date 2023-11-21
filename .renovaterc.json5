@@ -11,11 +11,4 @@
       "precommit/python/python-hooks.yml",
     ],
   },
-  packageRules: [
-    {
-      description: "Support Vx.y.z versioning",
-      matchDepNames: ["cmhughes/latexindent.pl"],
-      versionCompatibility: "^V(?<version>.+)$",
-    },
-  ],
 }
