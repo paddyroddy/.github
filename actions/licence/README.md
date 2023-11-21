@@ -10,7 +10,7 @@ jobs:
       - uses: paddyroddy/.github/actions/licence@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          licence-file: ./LICENCE.md
+          licence-file: ./LICENCE.txt
 ```
 
 where `x` is the `major` version of the action.
