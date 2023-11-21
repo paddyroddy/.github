@@ -17,4 +17,5 @@
       matchDepNames: ["cmhughes/latexindent.pl"],
       versioning: "loose",
     },
+  ]
 }
