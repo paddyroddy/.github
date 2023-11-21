@@ -16,4 +16,4 @@ jobs:
       - uses: ./actions/licence
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          licence-file: ./LICENCE.md
+          licence-file: ./LICENCE.txt
