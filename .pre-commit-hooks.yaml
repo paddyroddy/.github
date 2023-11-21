@@ -1,3 +1,4 @@
+---
 - id: general-hooks
   name: General hooks
   description: Default pre-commit hooks for general repos

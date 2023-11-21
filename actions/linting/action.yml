@@ -1,3 +1,4 @@
+---
 name: Linting
 description: Runs pre-commit over the repo
 

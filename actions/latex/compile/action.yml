@@ -1,3 +1,4 @@
+---
 name: Compile LaTeX
 description: Runs latexmk on the repo
 

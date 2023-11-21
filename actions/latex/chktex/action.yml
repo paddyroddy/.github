@@ -1,3 +1,4 @@
+---
 name: ChkTeX
 description: Runs ChkTeX over all TeX files in the repo
 
