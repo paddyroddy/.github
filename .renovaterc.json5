@@ -15,7 +15,7 @@
     {
       description: "Support Vx.y.z versioning",
       matchDepNames: ["cmhughes/latexindent.pl"],
-      versioning: "^V(?<version>.+)$",
+      versionCompatibility: "^V(?<version>.+)$",
     },
   ],
 }
