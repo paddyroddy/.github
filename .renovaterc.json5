@@ -11,4 +11,10 @@
       "precommit/python/python-hooks.yml",
     ],
   },
+  packageRules: [
+    {
+      description: "Make versioning loose",
+      matchDepNames: ["cmhughes/latexindent.pl"],
+      versioning: "loose",
+    },
 }
