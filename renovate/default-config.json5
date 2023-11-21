@@ -20,10 +20,9 @@
   },
   packageRules: [
     {
-      description: "Only allow major updates",
-      enabled: false,
-      matchDepNames: ["renovatebot/pre-commit-hooks"],
-      matchUpdateTypes: ["minor", "patch", "pin"],
+      description: "Shorten commit titles",
+      commitMessageTopic: "{{depName}}",
+      matchManagers: ["github-actions", "pre-commit"],
     },
     {
       description: "Combine updates together",
@@ -31,9 +30,15 @@
       matchDepNames: ["paddyroddy/.github"],
     },
     {
-      description: "Shorten commit titles",
-      commitMessageTopic: "{{depName}}",
-      matchManagers: ["github-actions", "pre-commit"],
+      description: "Only allow major updates",
+      enabled: false,
+      matchDepNames: ["renovatebot/pre-commit-hooks"],
+      matchUpdateTypes: ["minor", "patch", "pin"],
+    },
+    {
+      description: "Support Vx.y.z versioning",
+      matchDepNames: ["cmhughes/latexindent.pl"],
+      versionCompatibility: "^V(?<version>.+)$",
     },
   ],
 }
