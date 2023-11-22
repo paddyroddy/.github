@@ -16,6 +16,10 @@ repos:
             }
           - --strict
         exclude: ^.github/styles
+  - repo: https://github.com/AleksaC/hadolint-py
+    rev: v2.11.0
+    hooks:
+      - id: hadolint
   - repo: https://github.com/crate-ci/typos
     rev: v1.16.23
     hooks:
@@ -56,11 +60,9 @@ repos:
     hooks:
       - id: check-added-large-files
       - id: check-case-conflict
-      - id: check-docstring-first
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
       - id: check-shebang-scripts-are-executable
-      - id: check-symlinks
       - id: destroyed-symlinks
       - id: end-of-file-fixer
       - id: mixed-line-ending
