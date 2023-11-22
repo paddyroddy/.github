@@ -36,13 +36,11 @@
       matchUpdateTypes: ["minor", "patch", "pin"],
     },
     {
-      description: "Support Vx. versioning",
-      matchDepNames: ["cmhughes/latexindent.pl"],
-      versionCompatibility: "^V(?<version>.+)$",
-    },
-    {
       description: "Support loose versioning",
-      matchDepNames: ["shellcheck-py/shellcheck-py"],
+      matchDepNames: [
+        ""cmhughes/latexindent.pl",
+        "shellcheck-py/shellcheck-py",
+      ],
       versioning: "loose",
     },
   ],
