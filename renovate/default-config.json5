@@ -37,7 +37,11 @@
     },
     {
       description: "Support loose versioning",
-      matchDepNames: ["cmhughes/latexindent.pl", "shellcheck-py/shellcheck-py"],
+      matchDepNames: [
+        "AleksaC/hadolint-py",
+        "cmhughes/latexindent.pl",
+        "shellcheck-py/shellcheck-py",
+      ],
       versioning: "loose",
     },
   ],
