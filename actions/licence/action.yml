@@ -26,6 +26,6 @@ runs:
 
     - name: Merge pull request
       shell: bash
-      run: gh pr merge --merge --delete-branch
+      run: gh pr merge --squash --delete-branch
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
