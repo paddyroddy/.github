@@ -71,3 +71,7 @@ repos:
     rev: 0.27.1
     hooks:
       - id: check-github-workflows
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
