@@ -38,7 +38,7 @@
     {
       description: "Support loose versioning",
       matchDepNames: [
-        ""cmhughes/latexindent.pl",
+        "cmhughes/latexindent.pl",
         "shellcheck-py/shellcheck-py",
       ],
       versioning: "loose",
