@@ -78,4 +78,5 @@ repos:
     hooks:
       - id: shellcheck
         args:
+          - --external-sources
           - --shell=bash
