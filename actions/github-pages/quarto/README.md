@@ -1,18 +1,17 @@
-# jekyll
+# quarto
 
 This action can be used in the following manner:
 
 ```yaml
 jobs:
   build-and-deploy:
-    env:
-      BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: paddyroddy/.github/actions/ruby/jekyll@vx
+      - uses: paddyroddy/.github/actions/github-pages/quarto@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          ruby-version: "3.2"
 ```
 
 where `x` is the `major` version of the action.
