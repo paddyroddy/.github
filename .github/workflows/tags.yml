@@ -8,12 +8,12 @@ on:
       - main
     paths:
       - "**/*"
-      - "!.github/**"
-      - "!.gitignore"
-      - "!.pre-commit-config.yaml"
       - "!**/*.json5"
       - "!**/*.md"
       - "!**/*.txt"
+      - "!.github/**"
+      - "!.gitignore"
+      - "!.pre-commit-config.yaml"
       - "!pyproject.toml"
   workflow_dispatch:
 
