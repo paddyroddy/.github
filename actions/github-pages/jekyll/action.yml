@@ -1,6 +1,6 @@
 ---
 name: Deploy Website
-description: Deploy jekyll website to GitHub Actions
+description: Deploy jekyll website to GitHub Pages
 
 inputs:
   github-token:
@@ -14,7 +14,7 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: checkout source
+    - name: Checkout source
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
     - name: Set up Ruby
