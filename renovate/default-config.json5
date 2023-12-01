@@ -13,7 +13,6 @@
     ":enablePreCommit",
     ":label(renovate)",
     ":maintainLockFilesMonthly",
-    ":noUnscheduledUpdates",
     ":prHourlyLimitNone",
   ],
   commitMessageAction: "Renovate:",
