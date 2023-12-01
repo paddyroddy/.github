@@ -31,7 +31,7 @@ jobs:
       - name: Bump version and push tag
         id: bump-version
         # yamllint disable-line rule:line-length
-        uses: anothrNick/github-tag-action@v1
+        uses: anothrNick/github-tag-action@a2c70ae13a881faf2b4953baaa9e49731997ab36 # v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
