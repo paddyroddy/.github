@@ -2,6 +2,7 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
     "config:best-practices",
+    "schedule:automergeWeekdays",
     "schedule:monthly",
     ":assignAndReview(paddyroddy)",
     ":automergeBranch",
