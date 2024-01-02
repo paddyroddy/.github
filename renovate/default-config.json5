@@ -26,7 +26,12 @@
       matchManagers: ["github-actions", "pre-commit"],
     },
     {
-      description: "Combine updates together",
+      description: "Combine action artefact updates together",
+      groupName: "artefacts",
+      matchDepNames: ["actions/download-artifact", "actions/upload-artifact"],
+    },
+    {
+      description: "Combine paddyroddy/.github updates together",
       groupName: "paddyroddy/.github",
       matchDepNames: ["paddyroddy/.github"],
     },
