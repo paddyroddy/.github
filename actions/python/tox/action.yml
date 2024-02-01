@@ -26,7 +26,7 @@ runs:
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
     - name: Cache tox/pooch
-      uses: actions/cache@704facf57e6136b1bc63b828d79edcd491f0ee84 # v3
+      uses: actions/cache@13aacd865c20de90d75de3b17ebe84f7a17d57d2 # v4
       with:
         path: ${{ inputs.cache-path }}
         key: test-${{ hashFiles('pyproject.toml') }}
