@@ -16,6 +16,7 @@ def main() -> int:
 
     Returns
         The return code of the process
+
     """
     return run_hooks(pathlib.Path("python/python-hooks.yml"))
 
