@@ -11,9 +11,9 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
 
     Args:
         hooks_path: The Path object of the hooks
+
     Returns:
         The return code of the process
-
     """
     cfg = HERE.parent / hooks_path
     result = subprocess.run(
