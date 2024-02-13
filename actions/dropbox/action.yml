@@ -36,7 +36,7 @@ runs:
           echo "CONFIGFILE_VERSION=${{ inputs.configfile-version }}";
           echo "OAUTH_APP_KEY=${{ inputs.oauth-app-key }}";
           echo "OAUTH_APP_SECRET=${{ inputs.oauth-app-secret }}";
-          echo "OAUTH_REFRESH_TOKEN=${{ inputs.oauth-refresh-token }}"
+          echo "OAUTH_REFRESH_TOKEN=${{ inputs.oauth-refresh-token }}";
         } > ~/.dropbox_uploader
 
     - name: Retrieve Dropbox uploader script
