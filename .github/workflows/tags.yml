@@ -45,9 +45,9 @@ jobs:
       # this is done manually as need a non-annotated tag
       # TODO: replace with https://github.com/actions/publish-action
       - name: Update major tag
-        run: |-
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git tag --force ${{ steps.extract-major.outputs.major_tag }} \
-          ${{ steps.bump-version.outputs.new_tag }}
+        run: >-
+          git config user.name github-actions;
+          git config user.email github-actions@github.com;
+          git tag --force ${{ steps.extract-major.outputs.major_tag }}
+          ${{ steps.bump-version.outputs.new_tag }};
           git push origin ${{ steps.extract-major.outputs.major_tag }} --force

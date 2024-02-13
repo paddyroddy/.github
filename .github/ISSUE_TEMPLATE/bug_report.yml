@@ -48,6 +48,6 @@ body:
     type: textarea
     attributes:
       label: Additional Context
-      value: |-
+      value: >-
         - Operating system:
       render: markdown

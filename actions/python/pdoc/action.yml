@@ -51,7 +51,8 @@ runs:
     - name: Create documentation
       shell: bash
       run: >-
-        pdoc --html ${{ inputs.project-directory }}
+        pdoc
+        --html ${{ inputs.project-directory }}
         --template-dir ${{ inputs.template-directory}}
 
     - name: Deploy
