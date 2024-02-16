@@ -9,9 +9,31 @@ repos:
             --config-data={
               extends: default,
               rules: {
+                anchors: enable,
+                braces: enable,
+                brackets: enable,
+                colons: enable,
+                commas: enable,
                 comments: {
                   min-spaces-from-content: 1
-                }
+                },
+                comments-indentation: enable,
+                document-end: enable,
+                document-start: enable,
+                empty-lines: enable,
+                empty-values: enable,
+                float-values: enable,
+                hyphens: enable,
+                indentation: enable,
+                key-duplicates: enable,
+                key-ordering: enable,
+                line-length: enable,
+                new-line-at-end-of-file: enable,
+                new-lines: enable,
+                octal-values: enable,
+                quoted-strings: enable,
+                trailing-spaces: enable,
+                truthy: enable
               }
             }
           - --strict
