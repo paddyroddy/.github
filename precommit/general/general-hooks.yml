@@ -52,7 +52,7 @@ repos:
     rev: v1.5.4
     hooks:
       - id: forbid-tabs
-        exclude: |-
+        exclude: >-
           (?x)(
             .dic$|
             .tex$
