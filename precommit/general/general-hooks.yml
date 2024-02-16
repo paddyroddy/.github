@@ -10,30 +10,39 @@ repos:
               extends: default,
               rules: {
                 anchors: enable,
-                braces: enable,
-                brackets: enable,
+                braces: {
+                  forbid: true
+                },
+                brackets: {
+                  forbid: true
+                },
                 colons: enable,
                 commas: enable,
                 comments: {
                   min-spaces-from-content: 1
                 },
                 comments-indentation: enable,
-                document-end: enable,
+                document-end: disable,
                 document-start: enable,
                 empty-lines: enable,
-                empty-values: enable,
+                empty-values: disable,
                 float-values: enable,
                 hyphens: enable,
                 indentation: enable,
                 key-duplicates: enable,
-                key-ordering: enable,
+                key-ordering: disable,
                 line-length: enable,
                 new-line-at-end-of-file: enable,
                 new-lines: enable,
                 octal-values: enable,
-                quoted-strings: enable,
+                quoted-strings: {
+                  quote-type: double,
+                  required: only-when-needed
+                },
                 trailing-spaces: enable,
-                truthy: enable
+                truthy: {
+                  check-keys: false
+                }
               }
             }
           - --strict
