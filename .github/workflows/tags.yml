@@ -1,7 +1,6 @@
 ---
 name: Bump Version Tag
 
-# yamllint disable-line rule:truthy
 on:
   push:
     branches:
