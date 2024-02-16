@@ -26,7 +26,7 @@ ignore_missing_imports = true
 [tool.ruff]
 fix = true
 force-exclude = true
-ignore = [
+lint.ignore = [
     "COM812",
     "D203",
     "D212",
@@ -34,7 +34,7 @@ ignore = [
     "D413",
     "ISC001",
 ]
-select = [
+lint.select = [
     "ALL",
 ]
 
