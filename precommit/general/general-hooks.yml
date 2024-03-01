@@ -97,7 +97,7 @@ repos:
           - --fix=lf
       - id: trailing-whitespace
   - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.27.4
+    rev: 0.28.0
     hooks:
       - id: check-github-workflows
   - repo: https://github.com/shellcheck-py/shellcheck-py
