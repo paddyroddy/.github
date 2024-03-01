@@ -18,7 +18,7 @@ runs:
       uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
 
     - name: Run Vale
-      uses: errata-ai/vale-action@c4213d4de3d5f718b8497bd86161531c78992084 # v2
+      uses: errata-ai/vale-action@38bf078c328061f59879b347ca344a718a736018 # v2
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       with:
