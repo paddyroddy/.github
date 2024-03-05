@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """LaTeX pre-commit hooks."""
+
 import pathlib
 import sys
 

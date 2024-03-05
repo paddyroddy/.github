@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 """Python pre-commit hooks."""
+
 import pathlib
 import sys
 
