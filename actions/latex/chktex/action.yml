@@ -10,7 +10,7 @@ runs:
 
     - name: Run chktex
       # yamllint disable-line rule:line-length
-      uses: xu-cheng/texlive-action@d9f893f837a29f066e3c70080540976b47263721 # v2
+      uses: xu-cheng/texlive-action@3586544d56723b23ab69aec1e9d73e7220d9c313 # v2
       with:
         scheme: full
         run: >-
