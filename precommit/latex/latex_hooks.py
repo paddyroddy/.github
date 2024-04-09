@@ -18,7 +18,7 @@ def main() -> int:
     Returns
         The return code of the process
     """
-    return run_hooks(pathlib.Path("latex/latex-hooks.yml"))
+    return run_hooks(pathlib.Path("latex/latex-hooks.yaml"))
 
 
 if __name__ == "__main__":
