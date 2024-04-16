@@ -84,6 +84,9 @@ repos:
         additional_dependencies:
           - prettier
           - "@shopify/prettier-plugin-liquid"
+        args:
+          - --prose-wrap=always
+          - --quote-props=as-needed
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
