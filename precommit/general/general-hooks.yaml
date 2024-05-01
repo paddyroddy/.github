@@ -11,10 +11,10 @@ repos:
               rules: {
                 anchors: enable,
                 braces: {
-                  forbid: true
+                  forbid: non-empty
                 },
                 brackets: {
-                  forbid: true
+                  forbid: non-empty
                 },
                 colons: enable,
                 commas: enable,
