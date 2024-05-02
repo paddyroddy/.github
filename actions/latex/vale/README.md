@@ -12,8 +12,8 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-where `x` is the `major` version of the action. If flags are
-required for vale, then modify the above to:
+where `x` is the `major` version of the action. If flags are required for vale,
+then modify the above to:
 
 ```yaml
 jobs:

@@ -51,9 +51,8 @@ runs:
     - name: Create documentation
       shell: bash
       run: >-
-        pdoc
-        --html ${{ inputs.project-directory }}
-        --template-dir ${{ inputs.template-directory}}
+        pdoc --html ${{ inputs.project-directory }} --template-dir ${{
+        inputs.template-directory}}
 
     - name: Deploy
       # yamllint disable-line rule:line-length
