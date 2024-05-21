@@ -14,7 +14,7 @@ runs:
       uses: actions/checkout@v4
 
     - name: Check links
-      uses: lycheeverse/lychee-action@v0
+      uses: lycheeverse/lychee-action@v1
       with:
         failIfEmpty: false
         token: ${{ inputs.github-token }}
