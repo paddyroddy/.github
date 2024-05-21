@@ -1,0 +1,20 @@
+---
+name: Links
+description: Checks the links in a repo work
+
+inputs:
+  github-token:
+    description: GitHub token
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout source
+      uses: actions/checkout@v4
+
+    - name: Check links
+      uses: lycheeverse/lychee-action
+      with:
+        failIfEmpty: false
+        token: ${{ inputs.github-token }}
