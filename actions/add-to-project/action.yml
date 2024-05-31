@@ -1,0 +1,34 @@
+---
+name: Add Issues to Project
+description: Add issues to the GitHub project board
+
+inputs:
+  app-id:
+    description: Application ID
+    required: true
+
+  app-pem:
+    description: Application private key
+    required: true
+
+  project-url:
+    description: URL of the project board to add issues to
+    default: https://github.com/users/paddyroddy/projects/1
+
+runs:
+  using: composite
+  steps:
+    - name: Generate token
+      id: generate-token
+      # yamllint disable-line rule:line-length
+      uses: actions/create-github-app-token@7bfa3a4717ef143a604ee0a99d859b8886a96d00 # v1
+      with:
+        app-id: ${{ inputs.app-id }}
+        private-key: ${{ inputs.app-pem }}
+
+    - name: Get project data
+      # yamllint disable-line rule:line-length
+      uses: actions/add-to-project@9bfe908f2eaa7ba10340b31e314148fcfe6a2458 # v1.0.1
+      with:
+        project-url: ${{ inputs.project-url }}
+        github-token: ${{ steps.generate-token.outputs.token }}
