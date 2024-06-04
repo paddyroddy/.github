@@ -3,12 +3,8 @@ name: Add Issues to Project
 description: Add issues to the GitHub project board
 
 inputs:
-  app-id:
-    description: Application ID
-    required: true
-
-  app-pem:
-    description: Application private key
+  project-token:
+    description: PAT with repo and project scopes.
     required: true
 
   project-url:
@@ -18,17 +14,9 @@ inputs:
 runs:
   using: composite
   steps:
-    - name: Generate token
-      id: generate-token
-      # yamllint disable-line rule:line-length
-      uses: actions/create-github-app-token@a0de6af83968303c8c955486bf9739a57d23c7f1 # v1
-      with:
-        app-id: ${{ inputs.app-id }}
-        private-key: ${{ inputs.app-pem }}
-
     - name: Get project data
       # yamllint disable-line rule:line-length
       uses: actions/add-to-project@9bfe908f2eaa7ba10340b31e314148fcfe6a2458 # v1.0.1
       with:
+        github-token: ${{ inputs.project-token }}
         project-url: ${{ inputs.project-url }}
-        github-token: ${{ steps.generate-token.outputs.token }}
