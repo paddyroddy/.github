@@ -15,7 +15,6 @@ jobs:
       - name: Checkout source
         uses: actions/checkout@a5ac7e51b41094c92402da3b24376905380afc29 # v4
 
-      - name: Run pre-commit over the repo
-        uses: ./actions/linting
+      - uses: ./actions/linting
         with:
           pre-commit-config: ./.pre-commit-config.yaml
