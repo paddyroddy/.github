@@ -9,8 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
-          app-id: ${{ secrets.APP_ID }}
-          app-pem: ${{ secrets.APP_PEM }}
+          project-token: ${{ secrets.PROJECT_PAT }}
 ```
 
 where `x` is the `major` version of the action. If a different project board is
@@ -24,8 +23,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
-          app-id: ${{ secrets.APP_ID }}
-          app-pem: ${{ secrets.APP_PEM }}
+          project-token: ${{ secrets.PROJECT_PAT }}
           project-url: project_board_url
 ```
 
