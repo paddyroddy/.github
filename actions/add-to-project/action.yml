@@ -3,7 +3,7 @@ name: Add Issues to Project
 description: Add issues to the GitHub project board
 
 inputs:
-  projects-token:
+  project-token:
     description: PAT with repo and project scopes.
     required: true
 
@@ -18,5 +18,5 @@ runs:
       # yamllint disable-line rule:line-length
       uses: actions/add-to-project@9bfe908f2eaa7ba10340b31e314148fcfe6a2458 # v1.0.1
       with:
+        github-token: ${{ inputs.project-token }}
         project-url: ${{ inputs.project-url }}
-        github-token: ${{ inputs.projects-token }}
