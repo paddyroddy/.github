@@ -17,7 +17,13 @@ runs:
       # yamllint disable-line rule:line-length
       uses: quarto-dev/quarto-actions/setup@c1b50d36cf3c22b3dc7e530bd1b36634e824e545 # v2
 
-    - name: Render and Publish
+    - name: Render ${{ github.ref_name }} branch
+      if: github.ref != 'refs/heads/main'
+      # yamllint disable-line rule:line-length
+      uses: quarto-dev/quarto-actions/render@c1b50d36cf3c22b3dc7e530bd1b36634e824e545 # v2
+
+    - name: Publish main branch
+      if: github.ref == 'refs/heads/main'
       # yamllint disable-line rule:line-length
       uses: quarto-dev/quarto-actions/publish@c1b50d36cf3c22b3dc7e530bd1b36634e824e545 # v2
       with:
