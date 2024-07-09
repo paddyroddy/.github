@@ -107,6 +107,10 @@ repos:
     rev: 0.28.6
     hooks:
       - id: check-github-workflows
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.1
+    hooks:
+      - id: actionlint
   - repo: https://github.com/shellcheck-py/shellcheck-py
     rev: v0.10.0.1
     hooks:
