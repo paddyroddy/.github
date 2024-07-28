@@ -14,4 +14,20 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-where `x` is the `major` version of the action.
+where `x` is the `major` version of the action. If Python dependencies are
+required they can be specified via the `requirements-txt` input:
+
+```yaml
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: paddyroddy/.github/actions/github-pages/quarto@vx
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          requirements-txt: ./requirements.txt
+```
+
+where `./requirements.txt` is the path to the `requirements.txt` file.
