@@ -27,7 +27,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: python -m pip install -r ${{ inputs.requirements-txt }}
+      run: python -m pip install -r "${{ inputs.requirements-txt }}"
 
     - name: Set up Quarto
       # yamllint disable-line rule:line-length
