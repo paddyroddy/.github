@@ -14,7 +14,7 @@
   require_serial: true
   verbose: true
 - description: Default pre-commit hooks for Lua repos
-  entry: ./precommit/python/lua_hooks.py
+  entry: ./precommit/lua/lua_hooks.py
   id: lua-hooks
   language: script
   name: Lua hooks
