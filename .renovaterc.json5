@@ -5,6 +5,7 @@
     fileMatch: [
       "precommit/general/general-hooks.yaml",
       "precommit/latex/latex-hooks.yaml",
+      "precommit/lua/lua-hooks.yaml",
       "precommit/python/python-hooks.yaml",
     ],
   },

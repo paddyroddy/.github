@@ -13,6 +13,13 @@
   name: LaTeX hooks
   require_serial: true
   verbose: true
+- description: Default pre-commit hooks for Lua repos
+  entry: ./precommit/lua/lua_hooks.py
+  id: lua-hooks
+  language: script
+  name: Lua hooks
+  require_serial: true
+  verbose: true
 - description: Default pre-commit hooks for Python repos
   entry: ./precommit/python/python_hooks.py
   id: python-hooks
