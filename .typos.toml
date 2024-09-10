@@ -1,0 +1,12 @@
+[type.json5]
+extend-glob = [
+    "*.json5",
+]
+extend-ignore-re = [
+    "actions/(?:\\w+-)+artifact",
+]
+
+[type.yaml]
+extend-ignore-re = [
+    "--color",
+]
