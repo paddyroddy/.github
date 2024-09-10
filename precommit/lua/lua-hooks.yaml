@@ -4,3 +4,5 @@ repos:
     rev: v0.20.0
     hooks:
       - id: stylua-github
+        args:
+          - --indent-type=Spaces
