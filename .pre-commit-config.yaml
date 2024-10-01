@@ -1,12 +1,12 @@
 ---
 repos:
   - repo: https://github.com/paddyroddy/.github
-    rev: v0.223.0
+    rev: v0.227.0
     hooks:
       - id: general-hooks
       - id: python-hooks
   - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 38.18.1
+    rev: 38.106.0
     hooks:
       - id: renovate-config-validator
         args:
