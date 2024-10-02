@@ -102,10 +102,6 @@ repos:
         args:
           - --fix=lf
       - id: trailing-whitespace
-  - repo: https://github.com/python-jsonschema/check-jsonschema
-    rev: 0.29.3
-    hooks:
-      - id: check-github-workflows
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.3
     hooks:
