@@ -20,7 +20,6 @@ jobs:
       - uses: paddyroddy/.github/actions/python/tox@vx
         with:
           cache-path: .tox
-          operating-system: ${{ matrix.os }}
           pyproject-toml: ./pyproject.toml
           python-version: ${{ matrix.python-version }}
 ```
