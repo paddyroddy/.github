@@ -7,10 +7,6 @@ inputs:
     description: Paths to cache
     required: true
 
-  operating-system:
-    description: Operating system to test
-    required: true
-
   pyproject-toml:
     description: Path of pyproject.toml
     required: true
@@ -41,10 +37,10 @@ runs:
     - name: Install dependencies
       shell: bash
       run: >-
-        python -m pip install tox tox-gh-actions
+        python -m pip install tox tox-gh
 
     - name: Test with tox
       shell: bash
       run: tox run
       env:
-        OS: ${{ inputs.operating-system }}
+        TOX_GH_MAJOR_MINOR: ${{ inputs.python-version }}
