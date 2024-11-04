@@ -32,5 +32,6 @@ runs:
       shell: bash
       run: pre-commit run --all-files --color always --verbose
 
+    # yamllint disable-line rule:line-length
     - uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
       if: always()
