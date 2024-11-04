@@ -48,7 +48,7 @@ repos:
           - --strict
         exclude: ^.github/styles
   - repo: https://github.com/crate-ci/typos
-    rev: v1.24.6
+    rev: v1.27.0
     hooks:
       - id: typos
         args:
