@@ -1,0 +1,31 @@
+# https://github.com/github/safe-settings/blob/main-enterprise/docs/sample-settings/sample-deployment-settings.yml
+---
+restrictedRepos:
+  # these repos are all archived and will cause the GHA to fail
+  exclude:
+    - advent-of-code
+    - AircraftTrajectoryBuilder
+    - ansible-lint-bug-demo
+    - ant-optimisation
+    - arepo
+    - cdt
+    - club-membership
+    - CMakeCatchMPI-CW2
+    - dockerfiles
+    - forecasting-bike-hire-trips
+    - HelicopterIcing
+    - line_correlation_function
+    - mlbd-exercises
+    - ncc-cdt-dis
+    - ncc-report
+    - noughts-and-crosses
+    - PackagingTreasure
+    - PBReg
+    - PhD
+    - postgrad_physics_tutorial
+    - RefactoringTrees
+    - s2let-denoising-demo
+    - slepian_zubair
+    - textwall-monitoring
+    - titanic_kaggle_tutorial
+    - uk-challenge
