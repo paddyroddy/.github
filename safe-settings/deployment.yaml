@@ -29,3 +29,7 @@ restrictedRepos:
     - textwall-monitoring
     - titanic_kaggle_tutorial
     - uk-challenge
+    # these repos are managed by https://github.com/apps/pull
+    - github-readme-stats
+    - sleplet
+    - tmux
