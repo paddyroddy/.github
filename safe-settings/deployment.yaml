@@ -1,8 +1,8 @@
 # https://github.com/github/safe-settings/blob/main-enterprise/docs/sample-settings/sample-deployment-settings.yml
 ---
 restrictedRepos:
-  # these repos are all archived and will cause the GHA to fail
   exclude:
+    # these repos are all archived and will cause the GHA to fail
     - advent-of-code
     - AircraftTrajectoryBuilder
     - ansible-lint-bug-demo
@@ -29,3 +29,7 @@ restrictedRepos:
     - textwall-monitoring
     - titanic_kaggle_tutorial
     - uk-challenge
+    # these repos are managed by https://github.com/apps/pull
+    - github-readme-stats
+    - sleplet
+    - tmux
