@@ -1,0 +1,40 @@
+# https://github.com/github/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
+---
+suborgrepos:
+  - "*"
+
+rulesets:
+  - name: Default
+    target: branch
+    enforcement: active
+
+    conditions:
+      ref_name:
+        include:
+          - ~DEFAULT_BRANCH
+        exclude: []
+
+    rules:
+      - type: deletion
+      - type: non_fast_forward # prevents force pushes
+
+  - name: Status Checks
+    target: branch
+    enforcement: active
+
+    conditions:
+      ref_name:
+        include:
+          - ~DEFAULT_BRANCH
+        exclude: []
+
+    rules:
+      - type: required_status_checks
+        parameters:
+          do_not_enforce_on_create: false
+          required_status_checks:
+            - context: links
+              integration_id: 15368
+            - context: linting
+              integration_id: 15368
+          strict_required_status_checks_policy: false
