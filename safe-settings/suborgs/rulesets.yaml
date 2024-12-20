@@ -8,6 +8,11 @@ rulesets:
     target: branch
     enforcement: active
 
+    bypass_actors:
+      - actor_id: 1092899 # README Updater
+        actor_type: Integration
+        bypass_mode: always
+
     conditions:
       ref_name:
         include:
@@ -21,6 +26,11 @@ rulesets:
   - name: Status Checks
     target: branch
     enforcement: active
+
+    bypass_actors:
+      - actor_id: 1092899 # README Updater
+        actor_type: Integration
+        bypass_mode: always
 
     conditions:
       ref_name:
