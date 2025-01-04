@@ -18,4 +18,5 @@ jobs:
 
       - uses: ./actions/add-to-project
         with:
-          project-token: ${{ secrets.PROJECT_PAT }}
+          app-id: ${{ vars.PROJECT_BOARD_APP_ID }}
+          app-pem: ${{ secrets.PROJECT_BOARD_PRIVATE_KEY }}
