@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/licence@vx
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          licence-token: ${{ secrets.LICENCE_PAT }}
           licence-file: ./LICENCE.txt
 ```
 
