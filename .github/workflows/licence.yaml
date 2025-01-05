@@ -14,5 +14,5 @@ jobs:
 
       - uses: ./actions/licence
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          licence-token: ${{ secrets.LICENCE_PAT }}
           licence-file: ./LICENCE.txt
