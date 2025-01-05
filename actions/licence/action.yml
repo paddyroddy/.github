@@ -3,12 +3,12 @@ name: Update Copyright
 description: Update the copyright of the licence
 
 inputs:
-  github-token:
-    description: GitHub token
-    required: true
-
   licence-file:
     description: Path of the licence
+    required: true
+
+  licence-token:
+    description: PAT with public_repo scope.
     required: true
 
 runs:
@@ -22,10 +22,10 @@ runs:
     - uses: FantasticFiasco/action-update-license-year@9135da8f9ccc675217e02357c744b6b541d45cb0 # v3
       with:
         path: ${{ inputs.licence-file }}
-        token: ${{ inputs.github-token }}
+        token: ${{ inputs.licence-token }}
 
     - name: Merge pull request
       shell: bash
       run: gh pr merge --auto --delete-branch --squash
       env:
-        GITHUB_TOKEN: ${{ inputs.github-token }}
+        GITHUB_TOKEN: ${{ inputs.licence-token }}
