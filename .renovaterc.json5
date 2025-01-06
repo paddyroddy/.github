@@ -2,8 +2,8 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
     "github>paddyroddy/.github//renovate/default-config.json5",
-    "group:allNonMajor",
     "group:allDigest",
+    "group:allNonMajor",
   ],
   "pre-commit": {
     fileMatch: [
