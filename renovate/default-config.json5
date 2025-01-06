@@ -14,7 +14,6 @@
     ":label(renovate)",
     ":maintainLockFilesMonthly",
     ":prHourlyLimitNone",
-    "group:allNonMajor",
   ],
   commitMessageAction: "Renovate:",
   "git-submodules": {
