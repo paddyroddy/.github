@@ -3,6 +3,7 @@
 restrictedRepos:
   exclude:
     # these repos are all archived and will cause the GHA to fail
+    # https://github.com/github/safe-settings/issues/443
     - ^advent-of-code$
     - ^AircraftTrajectoryBuilder$
     - ^ansible-lint-bug-demo$
