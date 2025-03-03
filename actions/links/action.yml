@@ -15,7 +15,7 @@ runs:
 
     - name: Check links
       # yamllint disable-line rule:line-length
-      uses: lycheeverse/lychee-action@f796c8b7d468feb9b8c0a46da3fac0af6874d374 # v2
+      uses: lycheeverse/lychee-action@f613c4a64e50d792e0b31ec34bbcbba12263c6a6 # v2
       with:
         args: --verbose --no-progress .
         failIfEmpty: false
