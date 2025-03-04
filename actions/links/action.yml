@@ -7,6 +7,12 @@ inputs:
     description: GitHub token
     required: true
 
+  lychee-args:
+    description:
+      Arguments to pass to lychee
+      (https://github.com/lycheeverse/lychee#commandline-parameters)
+    default: --no-progress --verbose .
+
 runs:
   using: composite
   steps:
@@ -17,6 +23,6 @@ runs:
       # yamllint disable-line rule:line-length
       uses: lycheeverse/lychee-action@f613c4a64e50d792e0b31ec34bbcbba12263c6a6 # v2
       with:
-        args: --verbose --no-progress .
+        args: ${{ inputs.lychee-args }}
         failIfEmpty: false
         token: ${{ inputs.github-token }}
