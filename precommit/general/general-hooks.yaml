@@ -92,6 +92,8 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-added-large-files
+        args:
+          - --enforce-all
       - id: check-case-conflict
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
