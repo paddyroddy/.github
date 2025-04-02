@@ -9,4 +9,5 @@ repository:
   has_discussions: false
   has_downloads: false
   has_wiki: false
+  squash_merge_commit_message: BLANK
   squash_merge_commit_title: PR_TITLE
