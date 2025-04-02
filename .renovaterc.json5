@@ -19,4 +19,10 @@
       datasourceTemplate: "github-releases",
     },
   ],
+  packageRules: [
+    {
+      matchDepNames: ["github/safe-settings"],
+      allowedVersions: "<=2.1.14",
+    }
+  ]
 }
