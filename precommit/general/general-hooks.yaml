@@ -1,7 +1,7 @@
 ---
 repos:
   - repo: https://github.com/adrienverge/yamllint
-    rev: v1.35.1
+    rev: v1.37.0
     hooks:
       - id: yamllint
         args:
@@ -48,14 +48,14 @@ repos:
           - --strict
         exclude: ^.github/styles
   - repo: https://github.com/crate-ci/typos
-    rev: v1.29.0
+    rev: v1.29.10
     hooks:
       - id: typos
         args:
           - --force-exclude
           - --hidden
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.43.0
+    rev: v0.44.0
     hooks:
       - id: markdownlint-fix
         args:
@@ -92,6 +92,9 @@ repos:
     rev: v5.0.0
     hooks:
       - id: check-added-large-files
+        args:
+          - --enforce-all
+        exclude: .dic$
       - id: check-case-conflict
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
@@ -103,7 +106,7 @@ repos:
           - --fix=lf
       - id: trailing-whitespace
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.5
+    rev: v1.7.7
     hooks:
       - id: actionlint
   - repo: https://github.com/shellcheck-py/shellcheck-py

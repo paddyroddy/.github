@@ -19,7 +19,7 @@ runs:
         fetch-depth: 0
 
     # yamllint disable-line rule:line-length
-    - uses: FantasticFiasco/action-update-license-year@9135da8f9ccc675217e02357c744b6b541d45cb0 # v3
+    - uses: FantasticFiasco/action-update-license-year@d837fc83ecb71196807bdf3854208f556e66f6ed # v3
       with:
         path: ${{ inputs.licence-file }}
         token: ${{ inputs.licence-token }}

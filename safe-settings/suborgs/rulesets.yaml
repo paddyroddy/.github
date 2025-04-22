@@ -28,6 +28,9 @@ rulesets:
     enforcement: active
 
     bypass_actors:
+      - actor_id: 5 # repository admin
+        actor_type: RepositoryRole
+        bypass_mode: pull_request
       - actor_id: 1092899 # README Updater
         actor_type: Integration
         bypass_mode: always

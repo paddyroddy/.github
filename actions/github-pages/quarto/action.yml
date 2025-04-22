@@ -19,7 +19,7 @@ runs:
 
     - name: Set up Python
       if: inputs.requirements-txt
-      uses: actions/setup-python@0b93645e9fea7318ecaed2b359559ac225c90a2b # v5
+      uses: actions/setup-python@8d9ed9ac5c53483de85588cdf95a591a75ab9f55 # v5
       with:
         python-version: 3.x
         cache: pip
@@ -32,17 +32,17 @@ runs:
 
     - name: Set up Quarto
       # yamllint disable-line rule:line-length
-      uses: quarto-dev/quarto-actions/setup@8776aaf3ebefdda84c7654715823a205d047802a # v2
+      uses: quarto-dev/quarto-actions/setup@9e48da27e184aa238fcb49f5db75469626d43adb # v2
 
     - name: Render ${{ github.ref_name }} branch
       if: github.ref != 'refs/heads/main'
       # yamllint disable-line rule:line-length
-      uses: quarto-dev/quarto-actions/render@8776aaf3ebefdda84c7654715823a205d047802a # v2
+      uses: quarto-dev/quarto-actions/render@9e48da27e184aa238fcb49f5db75469626d43adb # v2
 
     - name: Publish main branch
       if: github.ref == 'refs/heads/main'
       # yamllint disable-line rule:line-length
-      uses: quarto-dev/quarto-actions/publish@8776aaf3ebefdda84c7654715823a205d047802a # v2
+      uses: quarto-dev/quarto-actions/publish@9e48da27e184aa238fcb49f5db75469626d43adb # v2
       with:
         target: gh-pages
       env:

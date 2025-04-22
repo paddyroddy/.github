@@ -9,4 +9,20 @@
       "precommit/python/python-hooks.yaml",
     ],
   },
+  customManagers: [
+    {
+      customType: "regex",
+      description: "Update GitHub Safe-Settings version",
+      fileMatch: [".github/workflows/safe-settings.yaml$"],
+      matchStrings: ["SAFE_SETTINGS_VERSION:\\s(?<currentValue>.*)"],
+      depNameTemplate: "github/safe-settings",
+      datasourceTemplate: "github-releases",
+    },
+  ],
+  packageRules: [
+    {
+      matchDepNames: ["github/safe-settings"],
+      allowedVersions: "<=2.1.14",
+    },
+  ],
 }
