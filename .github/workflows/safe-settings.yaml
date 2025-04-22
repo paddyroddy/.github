@@ -19,7 +19,7 @@ jobs:
   safe-settings-sync:
     runs-on: ubuntu-latest
     env:
-      SAFE_SETTINGS_VERSION: 2.1.16
+      SAFE_SETTINGS_VERSION: 2.1.17
       SAFE_SETTINGS_CODE_DIR: .safe-settings-code
     steps:
       - name: Checkout source
