@@ -38,6 +38,6 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/links@vx
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           branch: gh-pages
+          github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
