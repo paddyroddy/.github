@@ -27,3 +27,17 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           lychee-args: --no-progress --verbose .
 ```
+
+If a specific branch is required, one can use the `branch` input:
+
+```yaml
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - uses: paddyroddy/.github/actions/links@vx
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+```
