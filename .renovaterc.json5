@@ -2,18 +2,18 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["github>paddyroddy/.github//renovate/default-config.json5"],
   "pre-commit": {
-    fileMatch: [
-      "precommit/general/general-hooks.yaml",
-      "precommit/latex/latex-hooks.yaml",
-      "precommit/lua/lua-hooks.yaml",
-      "precommit/python/python-hooks.yaml",
+    managerFilePatterns: [
+      "/precommit/general/general-hooks.yaml/",
+      "/precommit/latex/latex-hooks.yaml/",
+      "/precommit/lua/lua-hooks.yaml/",
+      "/precommit/python/python-hooks.yaml/",
     ],
   },
   customManagers: [
     {
       customType: "regex",
       description: "Update GitHub Safe-Settings version",
-      fileMatch: [".github/workflows/safe-settings.yaml$"],
+      managerFilePatterns: ["/.github/workflows/safe-settings.yaml$/"],
       matchStrings: ["SAFE_SETTINGS_VERSION:\\s(?<currentValue>.*)"],
       depNameTemplate: "github/safe-settings",
       datasourceTemplate: "github-releases",
