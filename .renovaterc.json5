@@ -1,28 +1,36 @@
 {
-  $schema: "https://docs.renovatebot.com/renovate-schema.json",
-  extends: ["github>paddyroddy/.github//renovate/default-config.json5"],
-  "pre-commit": {
-    fileMatch: [
-      "precommit/general/general-hooks.yaml",
-      "precommit/latex/latex-hooks.yaml",
-      "precommit/lua/lua-hooks.yaml",
-      "precommit/python/python-hooks.yaml",
+  $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+  extends: [
+    'github>paddyroddy/.github//renovate/default-config.json5',
+  ],
+  'pre-commit': {
+    managerFilePatterns: [
+      '/precommit/general/general-hooks.yaml/',
+      '/precommit/latex/latex-hooks.yaml/',
+      '/precommit/lua/lua-hooks.yaml/',
+      '/precommit/python/python-hooks.yaml/',
     ],
   },
   customManagers: [
     {
-      customType: "regex",
-      description: "Update GitHub Safe-Settings version",
-      fileMatch: [".github/workflows/safe-settings.yaml$"],
-      matchStrings: ["SAFE_SETTINGS_VERSION:\\s(?<currentValue>.*)"],
-      depNameTemplate: "github/safe-settings",
-      datasourceTemplate: "github-releases",
+      customType: 'regex',
+      description: 'Update GitHub Safe-Settings version',
+      managerFilePatterns: [
+        '/.github/workflows/safe-settings.yaml$/',
+      ],
+      matchStrings: [
+        'SAFE_SETTINGS_VERSION:\\s(?<currentValue>.*)',
+      ],
+      depNameTemplate: 'github/safe-settings',
+      datasourceTemplate: 'github-releases',
     },
   ],
   packageRules: [
     {
-      matchDepNames: ["github/safe-settings"],
-      allowedVersions: "<=2.1.14",
+      matchDepNames: [
+        'github/safe-settings',
+      ],
+      allowedVersions: '<=2.1.14',
     },
   ],
 }
