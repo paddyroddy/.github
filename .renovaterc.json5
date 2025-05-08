@@ -2,12 +2,7 @@
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: ["github>paddyroddy/.github//renovate/default-config.json5"],
   "pre-commit": {
-    managerFilePatterns: [
-      "/precommit/general/general-hooks.yaml/",
-      "/precommit/latex/latex-hooks.yaml/",
-      "/precommit/lua/lua-hooks.yaml/",
-      "/precommit/python/python-hooks.yaml/",
-    ],
+    managerFilePatterns: ["/precommit/.*/.*-hooks\\.yaml/"],
   },
   customManagers: [
     {
