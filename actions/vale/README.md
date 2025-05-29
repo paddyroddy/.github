@@ -7,7 +7,7 @@ jobs:
   vale:
     runs-on: ubuntu-latest
     steps:
-      - uses: paddyroddy/.github/actions/latex/vale@vx
+      - uses: paddyroddy/.github/actions/vale@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
 ```
@@ -20,7 +20,7 @@ jobs:
   vale:
     runs-on: ubuntu-latest
     steps:
-      - uses: paddyroddy/.github/actions/latex/vale@vx
+      - uses: paddyroddy/.github/actions/vale@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           vale-flags: ""
