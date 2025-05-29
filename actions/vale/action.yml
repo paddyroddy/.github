@@ -1,6 +1,6 @@
 ---
 name: Vale
-description: Runs vale over all TeX files in the repo
+description: Runs vale over all files in the repo
 
 inputs:
   github-token:
