@@ -17,14 +17,14 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
     """
     cfg = HERE.parent / hooks_path
     result = subprocess.run(  # noqa: S603
-        [
+        [  # noqa: S607
             "pre-commit",
             "run",
             "--config",
             f"{cfg}",
             "--files",
-        ]
-        + sys.argv[1:],
+            *sys.argv[1:],
+        ],
         check=False,
     )
     return result.returncode
