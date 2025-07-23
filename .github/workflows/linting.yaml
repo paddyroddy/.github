@@ -18,3 +18,7 @@ jobs:
       - uses: ./actions/linting
         with:
           pre-commit-config: ./.pre-commit-config.yaml
+
+      - uses: ./actions/vale
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

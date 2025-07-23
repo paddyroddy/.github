@@ -1,6 +1,6 @@
 ---
 name: Vale
-description: Runs vale over all TeX files in the repo
+description: Runs vale over all files in the repo
 
 inputs:
   github-token:
@@ -24,5 +24,5 @@ runs:
       with:
         fail_on_error: true
         filter_mode: nofilter
-        reporter: github-check
+        reporter: github-pr-review
         vale_flags: ${{ inputs.vale-flags }}
