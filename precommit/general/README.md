@@ -30,5 +30,5 @@ extend-ignore-re = [
 ```
 
 One can then add, for example, `# typos: ignore` on a given line, or
-`# typos: ignore-next-line` on a preceeding line. Note that this should work
+`# typos: ignore-next-line` on a preceding line. Note that this should work
 with any style of comment.
