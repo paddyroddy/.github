@@ -65,8 +65,8 @@ repos:
       - id: forbid-tabs
         exclude: >-
           (?x)(
-            .dic$|
-            .tex$
+            \.dic$|
+            \.tex$
           )
   - repo: https://github.com/pappasam/toml-sort
     rev: v0.24.2
@@ -93,7 +93,7 @@ repos:
       - id: check-added-large-files
         args:
           - --enforce-all
-        exclude: .dic$
+        exclude: \.dic$
       - id: check-case-conflict
       - id: check-executables-have-shebangs
       - id: check-merge-conflict
