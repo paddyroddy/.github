@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""General pre-commit hooks."""
+"""General prek hooks."""
 
 import pathlib
 import sys
@@ -13,7 +13,7 @@ from _run_hooks import run_hooks  # noqa: E402
 
 def main() -> int:
     """
-    Run the general pre-commit hooks.
+    Run the general prek hooks.
 
     Returns
         The return code of the process

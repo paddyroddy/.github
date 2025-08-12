@@ -1,26 +1,26 @@
 ---
-- description: Default pre-commit hooks for general repos
+- description: Default prek hooks for general repos
   entry: ./precommit/general/general_hooks.py
   id: general-hooks
   language: script
   name: General hooks
   require_serial: true
   verbose: true
-- description: Default pre-commit hooks for LaTeX repos
+- description: Default prek hooks for LaTeX repos
   entry: ./precommit/latex/latex_hooks.py
   id: latex-hooks
   language: script
   name: LaTeX hooks
   require_serial: true
   verbose: true
-- description: Default pre-commit hooks for Lua repos
+- description: Default prek hooks for Lua repos
   entry: ./precommit/lua/lua_hooks.py
   id: lua-hooks
   language: script
   name: Lua hooks
   require_serial: true
   verbose: true
-- description: Default pre-commit hooks for Python repos
+- description: Default prek hooks for Python repos
   entry: ./precommit/python/python_hooks.py
   id: python-hooks
   language: script
