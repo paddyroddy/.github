@@ -1,4 +1,4 @@
-# This file is present to make sure that the pre-commit setup
+# This file is present to make sure that the prek setup
 # works, it is not intended to be an actual package
 
 [build-system]
