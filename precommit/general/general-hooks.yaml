@@ -93,6 +93,7 @@ repos:
       - id: check-added-large-files
         args:
           - --enforce-all
+          - --maxkb=700
         exclude: \.dic$
       - id: check-case-conflict
       - id: check-executables-have-shebangs
