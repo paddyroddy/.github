@@ -15,7 +15,7 @@ jobs:
 ```
 
 where `x` is the `major` version of the action. If Python dependencies are
-required they can be specified via the `pyproject-toml` input:
+required they can be specified via the `requirements-txt` input:
 
 ```yaml
 jobs:
@@ -27,7 +27,7 @@ jobs:
       - uses: paddyroddy/.github/actions/github-pages/quarto@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
-          pyproject-toml: ./pyproject.toml
+          requirements-txt: ./requirements.txt
 ```
 
-where `./pyproject.toml` is the path to the `pyproject.toml` file.
+where `./requirements.txt` is the path to the `requirements.txt` file.
