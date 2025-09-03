@@ -2,34 +2,6 @@
 ---
 restrictedRepos:
   exclude:
-    # these repos are all archived and will cause the GHA to fail
-    # https://github.com/github/safe-settings/issues/443
-    - ^advent-of-code$
-    - ^AircraftTrajectoryBuilder$
-    - ^ansible-lint-bug-demo$
-    - ^ant-optimisation$
-    - ^arepo$
-    - ^cdt$
-    - ^club-membership$
-    - ^CMakeCatchMPI-CW2$
-    - ^dockerfiles$
-    - ^forecasting-bike-hire-trips$
-    - ^HelicopterIcing$
-    - ^line_correlation_function$
-    - ^mlbd-exercises$
-    - ^ncc-cdt-dis$
-    - ^ncc-report$
-    - ^noughts-and-crosses$
-    - ^PackagingTreasure$
-    - ^PBReg$
-    - ^PhD$
-    - ^postgrad_physics_tutorial$
-    - ^RefactoringTrees$
-    - ^s2let-denoising-demo$
-    - ^slepian_zubair$
-    - ^textwall-monitoring$
-    - ^titanic_kaggle_tutorial$
-    - ^uk-challenge$
     # these repos are managed by https://github.com/apps/pull
     - ^github-readme-stats$
     - ^sleplet$
