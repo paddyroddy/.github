@@ -10,7 +10,7 @@ runs:
 
     - name: Build PDF
       # yamllint disable-line rule:line-length
-      uses: xu-cheng/texlive-action@f886de8159e5952a131848a5fa9c3196a2132b5d # v2
+      uses: xu-cheng/texlive-action@475ab07999e9709e524c3708488c8c170d3a6611 # v3
       with:
         scheme: full
         run: latexmk -quiet
