@@ -69,7 +69,7 @@ repos:
             \.tex$
           )
   - repo: https://github.com/pappasam/toml-sort
-    rev: v0.24.2
+    rev: v0.24.3
     hooks:
       - id: toml-sort-fix
         args:
@@ -93,6 +93,7 @@ repos:
       - id: check-added-large-files
         args:
           - --enforce-all
+          - --maxkb=1000
         exclude: \.dic$
       - id: check-case-conflict
       - id: check-executables-have-shebangs
