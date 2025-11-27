@@ -28,8 +28,7 @@ runs:
         key: test-${{ hashFiles('pyproject.toml') }}
 
     - name: Set up uv ${{ inputs.python-version }}
-      # yamllint disable-line rule:line-length
-      uses: astral-sh/setup-uv/commit/06e4edb239928eb926db9fa84abd11632bf44baa # v7
+      uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
       with:
         python-version: ${{ inputs.python-version }}
 

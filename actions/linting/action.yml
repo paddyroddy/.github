@@ -20,8 +20,7 @@ runs:
         key: cache-${{ hashFiles(inputs.pre-commit-config) }}
 
     - name: Set up uv
-      # yamllint disable-line rule:line-length
-      uses: astral-sh/setup-uv/commit/06e4edb239928eb926db9fa84abd11632bf44baa # v7
+      uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
 
     - name: Install pre-commit
       shell: bash

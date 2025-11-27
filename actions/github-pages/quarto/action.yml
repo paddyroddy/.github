@@ -26,8 +26,7 @@ runs:
 
     - name: Set up uv
       if: inputs.requirements-txt
-      # yamllint disable-line rule:line-length
-      uses: astral-sh/setup-uv/commit/06e4edb239928eb926db9fa84abd11632bf44baa # v7
+      uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
 
     - name: Install dependencies
       if: inputs.requirements-txt

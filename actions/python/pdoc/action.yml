@@ -38,8 +38,7 @@ runs:
       uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
 
     - name: Set up uv
-      # yamllint disable-line rule:line-length
-      uses: astral-sh/setup-uv/commit/06e4edb239928eb926db9fa84abd11632bf44baa # v7
+      uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
       with:
         python-version: ${{ inputs.python-version }}
 
