@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Python pre-commit hooks."""
+"""LaTeX prek hooks."""
 
 import pathlib
 import sys
@@ -13,12 +13,12 @@ from _run_hooks import run_hooks  # noqa: E402
 
 def main() -> int:
     """
-    Run the Python pre-commit hooks.
+    Run the LaTeX prek hooks.
 
     Returns
         The return code of the process
     """
-    return run_hooks(pathlib.Path("python/python-hooks.yaml"))
+    return run_hooks(pathlib.Path("latex/latex-hooks.yaml"))
 
 
 if __name__ == "__main__":

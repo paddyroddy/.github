@@ -1,6 +1,6 @@
-# General pre-commit config
+# General prek config
 
-In a repository that requires [pre-commit](https://pre-commit.com), simply add a
+In a repository that requires [prek](https://github.com/j178/prek), simply add a
 file called `.pre-commit-config.yaml` with the following code.
 
 ```yaml
@@ -11,7 +11,7 @@ repos:
       - id: general-hooks
 ```
 
-Then run `pre-commit install; pre-commit autoupdate`.
+Then run `prek install; prek autoupdate`.
 
 ## Spellchecking
 
