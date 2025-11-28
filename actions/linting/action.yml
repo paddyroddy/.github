@@ -23,15 +23,10 @@ runs:
       uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
       with:
         activate-environment: true
-        python-version: "3.x"
-
-    - name: Install pre-commit
-      shell: bash
-      run: uv pip install pre-commit
 
     - name: Run pre-commit
       shell: bash
-      run: uv run pre-commit run --all-files --color always --verbose
+      run: uv run --frozen pre-commit run --all-files --color always --verbose
 
     # yamllint disable-line rule:line-length
     - uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
