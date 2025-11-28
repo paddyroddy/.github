@@ -87,6 +87,8 @@ repos:
         args:
           - --prose-wrap=always
           - --quote-props=as-needed
+        # https://github.com/rbubley/mirrors-prettier/issues/3
+        language_version: 18.20.8
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
