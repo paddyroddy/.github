@@ -26,7 +26,8 @@ runs:
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
         path: ${{ inputs.cache-path }}
-        key: test-${{ hashFiles('pyproject.toml') }}-${{ inputs.python-version }}
+        key:
+          test-${{ hashFiles('pyproject.toml') }}-${{ inputs.python-version }}
 
     - name: Set up uv ${{ inputs.python-version }}
       uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
