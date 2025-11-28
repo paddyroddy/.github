@@ -40,4 +40,4 @@ runs:
 
     - name: Test with tox
       shell: bash
-      run: uv run pytest --cov
+      run: uv run pytest --cov --cov-report=lcov
