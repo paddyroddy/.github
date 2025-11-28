@@ -44,7 +44,7 @@ runs:
 
     - name: Install dependencies
       shell: bash
-      run: uv pip install --group ${{ inputs.docs-dependency-section }} .
+      run: uv sync --group ${{ inputs.docs-dependency-section }}
 
     - name: Create documentation
       shell: bash
