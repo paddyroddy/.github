@@ -11,14 +11,6 @@ repos:
     hooks:
       - id: ruff-check
       - id: ruff-format
-  - repo: https://github.com/mgedmin/check-manifest
-    rev: "0.50"
-    hooks:
-      - id: check-manifest
-        additional_dependencies:
-          - setuptools-scm
-        args:
-          - --no-build-isolation
   - repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.17.1
     hooks:
