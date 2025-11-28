@@ -1,12 +1,11 @@
 ---
 name: Test
-description: Runs tox on the repo
+description: Runs pytest coverage tests using uv
 
 inputs:
   cache-path:
     description: Paths to cache
     default: ""
-    required: true
 
   pyproject-toml:
     description: Path of pyproject.toml
@@ -27,7 +26,7 @@ runs:
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
         path: ${{ inputs.cache-path }}
-        key: test-${{ hashFiles('pyproject.toml') }}-${{ env.pythonLocation }}
+        key: test-${{ hashFiles('pyproject.toml') }}-${{ inputs.python-version }}
 
     - name: Set up uv ${{ inputs.python-version }}
       uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
