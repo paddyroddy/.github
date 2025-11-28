@@ -39,6 +39,6 @@ runs:
 
     - name: Test with tox
       shell: bash
-      run: uv tox run
+      run: uv run tox run
       env:
         TOX_GH_MAJOR_MINOR: ${{ inputs.python-version }}
