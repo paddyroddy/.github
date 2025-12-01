@@ -26,7 +26,7 @@ runs:
 
     - name: Set up uv
       if: inputs.requirements-txt
-      uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
+      uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7
       with:
         activate-environment: true
 
