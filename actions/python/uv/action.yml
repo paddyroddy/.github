@@ -38,6 +38,6 @@ runs:
       shell: bash
       run: uv sync --all-groups
 
-    - name: Test with tox
+    - name: Test with pytest
       shell: bash
       run: uv run pytest --cov --cov-report=lcov
