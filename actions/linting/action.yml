@@ -1,6 +1,6 @@
 ---
 name: Linting
-description: Runs pre-commit over the repo
+description: Runs prek over the repo
 
 inputs:
   pre-commit-config:
@@ -13,10 +13,10 @@ runs:
     - name: Checkout source
       uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
-    - name: Cache pre-commit
+    - name: Cache prek
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
-        path: ~/.cache/pre-commit
+        path: ~/.cache/prek
         key: cache-${{ hashFiles(inputs.pre-commit-config) }}
 
     - name: Set up uv
@@ -24,14 +24,10 @@ runs:
       with:
         activate-environment: true
 
-    - name: Install pre-commit
+    - name: Install prek
       shell: bash
-      run: uv pip install pre-commit
+      run: uv pip install prek
 
-    - name: Run pre-commit
+    - name: Run prek
       shell: bash
-      run: uv run pre-commit run --all-files --color always --verbose
-
-    # yamllint disable-line rule:line-length
-    - uses: pre-commit-ci/lite-action@5d6cc0eb514c891a40562a58a8e71576c5c7fb43 # v1.1.0
-      if: ${{ !cancelled() }}
+      run: uv run prek run --all-files --color always --verbose
