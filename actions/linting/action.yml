@@ -11,7 +11,7 @@ runs:
   using: composite
   steps:
     - name: Checkout source
-      uses: actions/checkout@08eba0b27e820071cde6df949e0beb9ba4906955 # v4
+      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
     - name: Cache prek
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
@@ -20,7 +20,7 @@ runs:
         key: cache-${{ hashFiles(inputs.pre-commit-config) }}
 
     - name: Set up uv
-      uses: astral-sh/setup-uv@06e4edb239928eb926db9fa84abd11632bf44baa # v7
+      uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7
       with:
         activate-environment: true
 

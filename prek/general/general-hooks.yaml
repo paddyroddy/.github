@@ -47,14 +47,14 @@ repos:
             }
           - --strict
   - repo: https://github.com/crate-ci/typos
-    rev: v1.34.0
+    rev: v1.40.0
     hooks:
       - id: typos
         args:
           - --force-exclude
           - --hidden
   - repo: https://github.com/igorshubovych/markdownlint-cli
-    rev: v0.45.0
+    rev: v0.46.0
     hooks:
       - id: markdownlint-fix
         args:
@@ -108,7 +108,7 @@ repos:
           - --fix=lf
       - id: trailing-whitespace
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.7
+    rev: v1.7.9
     hooks:
       - id: actionlint
   - repo: https://github.com/shellcheck-py/shellcheck-py
