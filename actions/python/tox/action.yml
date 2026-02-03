@@ -28,7 +28,7 @@ runs:
         key: test-${{ hashFiles('pyproject.toml') }}
 
     - name: Set up uv ${{ inputs.python-version }}
-      uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7
+      uses: astral-sh/setup-uv@803947b9bd8e9f986429fa0c5a41c367cd732b41 # v7
       with:
         activate-environment: true
         python-version: ${{ inputs.python-version }}
