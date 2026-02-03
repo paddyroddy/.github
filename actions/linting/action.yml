@@ -20,7 +20,7 @@ runs:
         key: cache-${{ hashFiles(inputs.pre-commit-config) }}
 
     - name: Set up uv
-      uses: astral-sh/setup-uv@1e862dfacbd1d6d858c55d9b792c756523627244 # v7
+      uses: astral-sh/setup-uv@803947b9bd8e9f986429fa0c5a41c367cd732b41 # v7
       with:
         activate-environment: true
 
