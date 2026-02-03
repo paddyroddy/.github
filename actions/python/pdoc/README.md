@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/python/pdoc@vx
         with:
-          docs-dependency-section: .[docs]
+          docs-dependency-section: docs
           gh-pages-publish-directory: ./html/python_project
           github-token: ${{ secrets.GITHUB_TOKEN }}
           project-directory: ./src/python_project

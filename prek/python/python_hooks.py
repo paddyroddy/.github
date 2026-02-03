@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-"""Lua pre-commit hooks."""
+"""Python prek hooks."""
 
 import pathlib
 import sys
@@ -13,12 +13,12 @@ from _run_hooks import run_hooks  # noqa: E402
 
 def main() -> int:
     """
-    Run the Lua pre-commit hooks.
+    Run the Python prek hooks.
 
     Returns
         The return code of the process
     """
-    return run_hooks(pathlib.Path("lua/lua-hooks.yaml"))
+    return run_hooks(pathlib.Path("python/python-hooks.yaml"))
 
 
 if __name__ == "__main__":

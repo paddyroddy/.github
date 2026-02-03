@@ -1,11 +1,11 @@
 ---
 name: Test
-description: Runs tox on the repo
+description: Runs pytest coverage tests using uv
 
 inputs:
   cache-path:
     description: Paths to cache
-    required: true
+    default: ""
 
   pyproject-toml:
     description: Path of pyproject.toml
@@ -22,23 +22,22 @@ runs:
       uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
 
     - name: Cache ${{ inputs.cache-path }}
+      if: inputs.cache-path != ''
       uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
       with:
         path: ${{ inputs.cache-path }}
-        key: test-${{ hashFiles('pyproject.toml') }}
+        key:
+          test-${{ hashFiles('pyproject.toml') }}-${{ inputs.python-version }}
 
     - name: Set up uv ${{ inputs.python-version }}
       uses: astral-sh/setup-uv@803947b9bd8e9f986429fa0c5a41c367cd732b41 # v7
       with:
-        activate-environment: true
         python-version: ${{ inputs.python-version }}
 
     - name: Install dependencies
       shell: bash
-      run: uv pip install tox tox-gh
+      run: uv sync --all-groups
 
-    - name: Test with tox
+    - name: Test with pytest
       shell: bash
-      run: uv run tox run
-      env:
-        TOX_GH_MAJOR_MINOR: ${{ inputs.python-version }}
+      run: uv run pytest --cov --cov-report=lcov
