@@ -5,7 +5,7 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   vale:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/vale@vx
         with:
@@ -18,7 +18,7 @@ then modify the above to:
 ```yaml
 jobs:
   vale:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/vale@vx
         with:

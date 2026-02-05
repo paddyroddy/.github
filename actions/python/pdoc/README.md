@@ -5,7 +5,7 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   documentation:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/python/pdoc@vx
         with:
