@@ -18,7 +18,7 @@ def main() -> int:
     Returns
         The return code of the process
     """
-    return run_hooks(pathlib.Path("python/python-hooks.yaml"))
+    return run_hooks(HERE.parent / "python-hooks.yaml")
 
 
 if __name__ == "__main__":
