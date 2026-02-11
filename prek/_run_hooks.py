@@ -20,10 +20,7 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
         "run",
         "--config",
         str(hooks_path),
+        "--files",
+        *sys.argv[1:],
     ]
-
-    # Only add --files if *non-empty*, matching pre-commit’s behaviour
-    if len(sys.argv) > 1:
-        cmd += ["--files", *sys.argv[1:]]
-
     return subprocess.run(cmd, check=False).returncode  # noqa: S603
