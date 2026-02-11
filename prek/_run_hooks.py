@@ -2,6 +2,7 @@ import pathlib
 import subprocess
 import sys
 import os
+import shlex
 
 HERE = pathlib.Path(__file__).resolve()
 
@@ -16,13 +17,7 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
     Returns:
         The return code of the process
     """
-    with open("/tmp/prek_debug.txt", "w") as f:
-        f.write(f"sys.argv = {sys.argv}\n")
-        f.write(f"os.getcwd() = {os.getcwd()}\n")
-        f.write(f"HERE = {HERE}\n")
-        f.write(f"hooks_path = {hooks_path}\n")
-    
-    cmd = [
+    cmd_parts = [
         "prek",
         "run",
         "--config",
@@ -30,12 +25,11 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
     ]
     
     if sys.argv[1:]:
-        cmd.extend(["--files", *sys.argv[1:]])
+        cmd_parts.extend(["--files", *sys.argv[1:]])
     else:
-        cmd.append("--all-files")
+        cmd_parts.append("--all-files")
     
-    with open("/tmp/prek_debug.txt", "a") as f:
-        f.write(f"cmd = {cmd}\n")
+    # Join into a shell command
+    cmd = " ".join(shlex.quote(part) for part in cmd_parts)
     
-    # Run from the git repo root (where the user ran prek)
-    return subprocess.run(cmd, check=False, cwd=os.getcwd()).returncode  # noqa: S603
+    return subprocess.run(cmd, check=False, cwd=os.getcwd(), shell=True).returncode  # noqa: S602
