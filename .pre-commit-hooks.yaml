@@ -1,27 +1,27 @@
 ---
 - description: Default prek hooks for general repos
-  entry: prek.general.general_hooks.py
+  entry: prek/general/general_hooks.py
   id: general-hooks
   language: system
   name: General hooks
   require_serial: true
   verbose: true
 - description: Default prek hooks for LaTeX repos
-  entry: prek.latex.latex_hooks.py
+  entry: prek/latex/latex_hooks.py
   id: latex-hooks
   language: system
   name: LaTeX hooks
   require_serial: true
   verbose: true
 - description: Default prek hooks for Lua repos
-  entry: prek.lua.lua_hooks.py
+  entry: prek/lua/lua_hooks.py
   id: lua-hooks
   language: system
   name: Lua hooks
   require_serial: true
   verbose: true
 - description: Default prek hooks for Python repos
-  entry: prek.python.python_hooks.py
+  entry: prek/python/python_hooks.py
   id: python-hooks
   language: system
   name: Python hooks
