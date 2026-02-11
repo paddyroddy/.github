@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Python prek hooks."""
 
 import pathlib
