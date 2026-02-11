@@ -22,7 +22,7 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
             "--config",
             str(hooks_path),
             "--files",
-            *sys.argv[2:],
+            *sys.argv[1:],
         ],
         check=False,
     )
