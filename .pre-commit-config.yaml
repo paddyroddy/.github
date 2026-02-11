@@ -1,12 +1,12 @@
 ---
 repos:
   - repo: https://github.com/paddyroddy/.github
-    rev: v0.372.0
+    rev: v0.373.0
     hooks:
       - id: general-hooks
-  # - repo: https://github.com/renovatebot/pre-commit-hooks
-  #   rev: 43.3.6
-  #   hooks:
-  #     - id: renovate-config-validator
-  #       args:
-  #         - renovate/default-config.json5
+  - repo: https://github.com/renovatebot/pre-commit-hooks
+    rev: 43.3.6
+    hooks:
+      - id: renovate-config-validator
+        args:
+          - renovate/default-config.json5

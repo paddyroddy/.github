@@ -16,7 +16,6 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
     Returns:
         The return code of the process
     """
-    # Always use --all-files for simplicity
     cmd = [
         "prek",
         "run",
@@ -24,5 +23,5 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
         str(hooks_path),
         "--all-files",
     ]
-    
-    return subprocess.run(cmd, check=False, cwd=os.getcwd()).returncode  # noqa: S603
+
+    return subprocess.run(cmd, check=False).returncode  # noqa: S603
