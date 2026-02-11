@@ -22,7 +22,7 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
         str(hooks_path),
     ]
 
-    # only pass the files if they were given
+    # Only add --files if *non-empty*, matching pre-commit’s behaviour
     if len(sys.argv) > 1:
         cmd += ["--files", *sys.argv[1:]]
 
