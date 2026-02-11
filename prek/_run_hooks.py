@@ -32,4 +32,13 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
     # Join into a shell command
     cmd = " ".join(shlex.quote(part) for part in cmd_parts)
     
-    return subprocess.run(cmd, check=False, cwd=os.getcwd(), shell=True).returncode  # noqa: S602
+    with open("/tmp/prek_shell_debug.txt", "w") as f:
+        f.write(f"Shell command: {cmd}\n")
+        f.write(f"cwd: {os.getcwd()}\n")
+    
+    result = subprocess.run(cmd, check=False, cwd=os.getcwd(), shell=True)  # noqa: S602
+    
+    with open("/tmp/prek_shell_debug.txt", "a") as f:
+        f.write(f"returncode: {result.returncode}\n")
+    
+    return result.returncode
