@@ -1,7 +1,5 @@
 import pathlib
 import subprocess
-import sys
-import os
 
 HERE = pathlib.Path(__file__).resolve()
 
