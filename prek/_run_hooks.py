@@ -15,15 +15,10 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
     Returns:
         The return code of the process
     """
-    result = subprocess.run(  # noqa: S603
-        [  # noqa: S607
-            "prek",
-            "run",
-            "--config",
-            str(hooks_path),
-            "--files",
-            *sys.argv[1:],
-        ],
-        check=False,
-    )
-    return result.returncode
+    cmd = [
+        "prek",
+        "run",
+        "--config",
+        str(hooks_path),
+    ]
+    return subprocess.run(cmd, check=False).returncode  # noqa: S603
