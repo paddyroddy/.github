@@ -23,5 +23,4 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
         str(hooks_path),
         "--all-files",
     ]
-
     return subprocess.run(cmd, check=False).returncode  # noqa: S603
