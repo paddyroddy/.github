@@ -4,6 +4,7 @@
   id: general-hooks
   language: script
   name: General hooks
+  pass_filenames: false
   require_serial: true
   verbose: true
 - description: Default prek hooks for LaTeX repos
@@ -11,6 +12,7 @@
   id: latex-hooks
   language: script
   name: LaTeX hooks
+  pass_filenames: false
   require_serial: true
   verbose: true
 - description: Default prek hooks for Lua repos
@@ -18,6 +20,7 @@
   id: lua-hooks
   language: script
   name: Lua hooks
+  pass_filenames: false
   require_serial: true
   verbose: true
 - description: Default prek hooks for Python repos
@@ -25,5 +28,6 @@
   id: python-hooks
   language: script
   name: Python hooks
+  pass_filenames: false
   require_serial: true
   verbose: true
