@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """Lua prek hooks."""
 
 import pathlib

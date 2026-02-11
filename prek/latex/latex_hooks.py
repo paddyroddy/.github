@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """LaTeX prek hooks."""
 
 import pathlib
