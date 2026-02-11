@@ -1,6 +1,5 @@
 import pathlib
 import subprocess
-import sys
 
 HERE = pathlib.Path(__file__).resolve()
 
@@ -20,12 +19,6 @@ def run_hooks(hooks_path: pathlib.Path) -> int:
         "run",
         "--config",
         str(hooks_path),
+        "--all-files",
     ]
-
-    # prek behaves differently to pre-commit
-    if sys.argv[1:]:
-        cmd.extend(["--files", *sys.argv[1:]])
-    else:
-        cmd.append("--all-files")
-
     return subprocess.run(cmd, check=False).returncode  # noqa: S603
