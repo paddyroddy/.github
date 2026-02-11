@@ -4,6 +4,7 @@ repos:
     rev: v0.373.0
     hooks:
       - id: general-hooks
+      - id: python-hooks
   - repo: https://github.com/renovatebot/pre-commit-hooks
     rev: 43.3.6
     hooks:
