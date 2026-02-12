@@ -1,37 +1,29 @@
 ---
-- id: general-hooks
+- description: Default prek hooks for general repos
+  entry: ./prek/general/general_hooks.py
+  id: general-hooks
+  language: script
   name: General hooks
-  description: Default prek hooks for general repos
-  entry: prek run --config prek/general-hooks.yaml --all-files
-  language: python
-  additional_dependencies:
-    - prek
   require_serial: true
   verbose: true
-- id: latex-hooks
+- description: Default prek hooks for LaTeX repos
+  entry: ./prek/latex/latex_hooks.py
+  id: latex-hooks
+  language: script
   name: LaTeX hooks
-  description: Default prek hooks for LaTeX repos
-  entry: prek run --config prek/latex-hooks.yaml --all-files
-  language: python
-  additional_dependencies:
-    - prek
   require_serial: true
   verbose: true
-- id: lua-hooks
+- description: Default prek hooks for Lua repos
+  entry: ./prek/lua/lua_hooks.py
+  id: lua-hooks
+  language: script
   name: Lua hooks
-  description: Default prek hooks for Lua repos
-  entry: prek run --config prek/lua-hooks.yaml --all-files
-  language: python
-  additional_dependencies:
-    - prek
   require_serial: true
   verbose: true
-- id: python-hooks
+- description: Default prek hooks for Python repos
+  entry: ./prek/python/python_hooks.py
+  id: python-hooks
+  language: script
   name: Python hooks
-  description: Default prek hooks for Python repos
-  entry: prek run --config prek/python-hooks.yaml --all-files
-  language: python
-  additional_dependencies:
-    - prek
   require_serial: true
   verbose: true
