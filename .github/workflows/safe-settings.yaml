@@ -38,6 +38,7 @@ jobs:
           cache-dependency-path:
             ${{ env.SAFE_SETTINGS_CODE_DIR }}/package-lock.json
           cache: npm
+          node-version: latest
           node-version-file: ${{ env.SAFE_SETTINGS_CODE_DIR }}/.nvmrc
 
       - name: Install dependencies
