@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """General prek hooks."""
 
 import pathlib
@@ -18,7 +18,7 @@ def main() -> int:
     Returns
         The return code of the process
     """
-    return run_hooks(pathlib.Path("general/general-hooks.yaml"))
+    return run_hooks(HERE.parent / "general-hooks.yaml")
 
 
 if __name__ == "__main__":

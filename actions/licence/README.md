@@ -5,7 +5,7 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   licence:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/licence@vx
         with:

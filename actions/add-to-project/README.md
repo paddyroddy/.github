@@ -5,7 +5,7 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   add-issue-to-project:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
@@ -19,7 +19,7 @@ to:
 ```yaml
 jobs:
   add-issue-to-project:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:

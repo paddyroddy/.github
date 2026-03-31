@@ -7,7 +7,7 @@ jobs:
   build-and-deploy:
     env:
       BUNDLE_GEMFILE: ${{ github.workspace }}/Gemfile
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
       - uses: paddyroddy/.github/actions/github-pages/jekyll@vx
         with:
