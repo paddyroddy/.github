@@ -19,7 +19,7 @@ jobs:
   safe-settings-sync:
     runs-on: ubuntu-slim
     env:
-      SAFE_SETTINGS_VERSION: 2.1.20-rc.2
+      SAFE_SETTINGS_VERSION: 2.1.15
       SAFE_SETTINGS_CODE_DIR: .safe-settings-code
     steps:
       - name: Checkout source
