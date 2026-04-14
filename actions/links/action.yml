@@ -23,6 +23,7 @@ runs:
     - name: Checkout source
       uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
       with:
+        persist-credentials: false
         ref: ${{ inputs.branch }}
 
     - name: Check links

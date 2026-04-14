@@ -7,12 +7,17 @@ on:
 
 jobs:
   update-licence-year:
+    permissions:
+      contents: write
     runs-on: ubuntu-slim
     steps:
       - name: Checkout source
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
 
       - uses: ./actions/licence
         with:
-          licence-token: ${{ secrets.LICENCE_PAT }}
+          # yamllint disable-line rule:line-length
+          licence-token: ${{ secrets.LICENCE_PAT }} # zizmor: ignore[secrets-outside-env]
           licence-file: ./LICENCE.txt

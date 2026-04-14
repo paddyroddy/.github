@@ -9,11 +9,11 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/dropbox@vx
         with:
-          configfile-version: ${{ secrets.CONFIGFILE_VERSION }}
+          configfile-version: ${{ secrets.CONFIGFILE_VERSION }} # zizmor: ignore[secrets-outside-env]
           files-to-upload: $(find . -maxdepth 1 -name '*.pdf' -print)
-          oauth-app-key: ${{ secrets.OAUTH_APP_KEY }}
-          oauth-app-secret: ${{ secrets.OAUTH_APP_SECRET }}
-          oauth-refresh-token: ${{ secrets.OAUTH_REFRESH_TOKEN }}
+          oauth-app-key: ${{ secrets.OAUTH_APP_KEY }} # zizmor: ignore[secrets-outside-env]
+          oauth-app-secret: ${{ secrets.OAUTH_APP_SECRET }} # zizmor: ignore[secrets-outside-env]
+          oauth-refresh-token: ${{ secrets.OAUTH_REFRESH_TOKEN }} # zizmor: ignore[secrets-outside-env]
 ```
 
 where `x` is the `major` version of the action.

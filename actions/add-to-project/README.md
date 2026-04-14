@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
-          project-token: ${{ secrets.PROJECT_PAT }}
+          project-token: ${{ secrets.PROJECT_PAT }} # zizmor: ignore[secrets-outside-env]
 ```
 
 where `x` is the `major` version of the action. If a different project board is
@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
-          project-token: ${{ secrets.PROJECT_PAT }}
+          project-token: ${{ secrets.PROJECT_PAT }} # zizmor: ignore[secrets-outside-env]
           project-url: project_board_url
 ```
 

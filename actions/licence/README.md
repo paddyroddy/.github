@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/licence@vx
         with:
-          licence-token: ${{ secrets.LICENCE_PAT }}
+          licence-token: ${{ secrets.LICENCE_PAT }} # zizmor: ignore[secrets-outside-env]
           licence-file: ./LICENCE.txt
 ```
 
