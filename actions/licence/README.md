@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/licence@vx
         with:
+          # yamllint disable-line rule:line-length
           licence-token: ${{ secrets.LICENCE_PAT }} # zizmor: ignore[secrets-outside-env]
           licence-file: ./LICENCE.txt
 ```

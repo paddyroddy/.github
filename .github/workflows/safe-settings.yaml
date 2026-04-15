@@ -62,13 +62,10 @@ jobs:
           ENABLE_PR_COMMENT: true
           GH_ORG: ${{ vars.SAFE_SETTINGS_GH_ORG }}
           GITHUB_CLIENT_ID: ${{ vars.SAFE_SETTINGS_GITHUB_CLIENT_ID }}
-          # prettier-ignore-start
-          # yamllint disable-line rule:line-length
-          GITHUB_CLIENT_SECRET: ${{ secrets.SAFE_SETTINGS_GITHUB_CLIENT_SECRET }} # zizmor: ignore[secrets-outside-env]
-          # prettier-ignore-end
           LOG_LEVEL: trace
-          # prettier-ignore-start
-          # yamllint disable-line rule:line-length
-          PRIVATE_KEY: ${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }} # zizmor: ignore[secrets-outside-env]
-          # prettier-ignore-end
           SETTINGS_FILE_PATH: account.yaml
+          # yamllint disable rule:line-length
+          # prettier-ignore
+          GITHUB_CLIENT_SECRET: ${{ secrets.SAFE_SETTINGS_GITHUB_CLIENT_SECRET }} # zizmor: ignore[secrets-outside-env]
+          PRIVATE_KEY: ${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }} # zizmor: ignore[secrets-outside-env]
+          # yamllint enable rule:line-length

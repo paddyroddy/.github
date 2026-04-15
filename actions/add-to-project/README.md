@@ -9,6 +9,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
+          # yamllint disable-line rule:line-length
           project-token: ${{ secrets.PROJECT_PAT }} # zizmor: ignore[secrets-outside-env]
 ```
 
@@ -23,6 +24,7 @@ jobs:
     steps:
       - uses: paddyroddy/.github/actions/add-to-project@vx
         with:
+          # yamllint disable-line rule:line-length
           project-token: ${{ secrets.PROJECT_PAT }} # zizmor: ignore[secrets-outside-env]
           project-url: project_board_url
 ```
