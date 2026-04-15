@@ -11,7 +11,8 @@ on:
 
 jobs:
   add-issue-to-project:
-    permissions: {}
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     steps:
       - name: Checkout source
