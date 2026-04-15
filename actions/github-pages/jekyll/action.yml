@@ -16,9 +16,11 @@ runs:
   steps:
     - name: Checkout source
       uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      with:
+        persist-credentials: false
 
     - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
+      uses: ruby/setup-ruby@4c56a21280b36d862b5fc31348f463d60bdc55d5 # v1.301.0
       with:
         ruby-version: ${{ inputs.ruby-version }}
         bundler-cache: true

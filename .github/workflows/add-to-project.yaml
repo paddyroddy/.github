@@ -5,17 +5,22 @@ on:
   issues:
     types:
       - opened
-  pull_request_target:
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
     types:
       - opened
 
 jobs:
   add-issue-to-project:
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     steps:
       - name: Checkout source
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
 
       - uses: ./actions/add-to-project
         with:
-          project-token: ${{ secrets.PROJECT_PAT }}
+          # yamllint disable-line rule:line-length
+          project-token: ${{ secrets.PROJECT_PAT }} # zizmor: ignore[secrets-outside-env]

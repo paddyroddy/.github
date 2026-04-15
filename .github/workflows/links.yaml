@@ -10,11 +10,15 @@ on:
 
 jobs:
   links:
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     timeout-minutes: 2
     steps:
       - name: Checkout source
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
 
       - uses: ./actions/links
         with:
