@@ -12,6 +12,7 @@ jobs:
   linting:
     permissions:
       contents: read
+      pull-requests: write
     runs-on: ubuntu-slim
     steps:
       - name: Checkout source
