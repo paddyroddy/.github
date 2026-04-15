@@ -8,7 +8,7 @@ on:
 jobs:
   update-licence-year:
     permissions:
-      contents: write
+      contents: read
     runs-on: ubuntu-slim
     steps:
       - name: Checkout source
