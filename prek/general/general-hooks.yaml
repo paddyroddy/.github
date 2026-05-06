@@ -59,6 +59,7 @@ repos:
       - id: markdownlint-fix
         args:
           - --dot
+        language_version: 20
   - repo: https://github.com/Lucas-C/pre-commit-hooks
     rev: v1.5.6
     hooks:
