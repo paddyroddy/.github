@@ -47,7 +47,7 @@ repos:
             }
           - --strict
   - repo: https://github.com/crate-ci/typos
-    rev: v1.44.0
+    rev: v1.46.0
     hooks:
       - id: typos
         args:
@@ -69,7 +69,7 @@ repos:
             \.tex$
           )
   - repo: https://github.com/pappasam/toml-sort
-    rev: v0.24.3
+    rev: v0.24.4
     hooks:
       - id: toml-sort-fix
         args:
@@ -78,7 +78,7 @@ repos:
           - --spaces-indent-inline-array=4
           - --trailing-comma-inline-array
   - repo: https://github.com/rbubley/mirrors-prettier
-    rev: v3.8.1
+    rev: v3.8.3
     hooks:
       - id: prettier
         additional_dependencies:
@@ -87,8 +87,6 @@ repos:
         args:
           - --prose-wrap=always
           - --quote-props=as-needed
-        # https://github.com/rbubley/mirrors-prettier/issues/3
-        language_version: 18.20.8
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v5.0.0
     hooks:
@@ -108,11 +106,11 @@ repos:
           - --fix=lf
       - id: trailing-whitespace
   - repo: https://github.com/rhysd/actionlint
-    rev: v1.7.11
+    rev: v1.7.12
     hooks:
       - id: actionlint
   - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.10.0.1
+    rev: v0.11.0.1
     hooks:
       - id: shellcheck
         args:

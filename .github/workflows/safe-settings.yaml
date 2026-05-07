@@ -17,6 +17,8 @@ concurrency:
 
 jobs:
   safe-settings-sync:
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     env:
       SAFE_SETTINGS_VERSION: 2.1.20
@@ -24,16 +26,19 @@ jobs:
     steps:
       - name: Checkout source
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+        with:
+          persist-credentials: false
 
       - name: Checkout GitHub Safe-Settings repository
         uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
         with:
           path: ${{ env.SAFE_SETTINGS_CODE_DIR }}
+          persist-credentials: false
           ref: ${{ env.SAFE_SETTINGS_VERSION }}
           repository: github/safe-settings
 
       - name: Setup Node.js
-        uses: actions/setup-node@53b83947a5a98c8d113130e565377fae1a50d02f # v6
+        uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           cache-dependency-path:
             ${{ env.SAFE_SETTINGS_CODE_DIR }}/package-lock.json
@@ -57,8 +62,10 @@ jobs:
           ENABLE_PR_COMMENT: true
           GH_ORG: ${{ vars.SAFE_SETTINGS_GH_ORG }}
           GITHUB_CLIENT_ID: ${{ vars.SAFE_SETTINGS_GITHUB_CLIENT_ID }}
-          GITHUB_CLIENT_SECRET:
-            ${{ secrets.SAFE_SETTINGS_GITHUB_CLIENT_SECRET }}
           LOG_LEVEL: trace
-          PRIVATE_KEY: ${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }}
           SETTINGS_FILE_PATH: account.yaml
+          # yamllint disable rule:line-length
+          # prettier-ignore
+          GITHUB_CLIENT_SECRET: ${{ secrets.SAFE_SETTINGS_GITHUB_CLIENT_SECRET }} # zizmor: ignore[secrets-outside-env]
+          PRIVATE_KEY: ${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }} # zizmor: ignore[secrets-outside-env]
+          # yamllint enable rule:line-length
