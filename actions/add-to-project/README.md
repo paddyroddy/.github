@@ -5,7 +5,9 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   add-issue-to-project:
-    permissions: {}
+    permissions:
+      issues: read
+      pull-requests: read
     runs-on: ubuntu-slim
     steps:
       # yamllint disable-line rule:line-length
@@ -22,7 +24,9 @@ to:
 ```yaml
 jobs:
   add-issue-to-project:
-    permissions: {}
+    permissions:
+      issues: read
+      pull-requests: read
     runs-on: ubuntu-slim
     steps:
       # yamllint disable-line rule:line-length
