@@ -7,7 +7,7 @@ jobs:
   vale:
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
     runs-on: ubuntu-slim
     steps:
       # yamllint disable-line rule:line-length
@@ -24,7 +24,7 @@ jobs:
   vale:
     permissions:
       contents: read
-      pull-requests: read
+      pull-requests: write
     runs-on: ubuntu-slim
     steps:
       # yamllint disable-line rule:line-length
