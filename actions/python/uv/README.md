@@ -6,6 +6,8 @@ This action can be used in the following manner:
 jobs:
   test:
     name: ${{ matrix.os }} py${{ matrix.python-version }}
+    permissions:
+      contents: read
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: false
@@ -17,6 +19,7 @@ jobs:
         python-version:
           - "3.x"
     steps:
+      # yamllint disable-line rule:line-length
       - uses: paddyroddy/.github/actions/python/uv@vx
         with:
           cache-path: ""
