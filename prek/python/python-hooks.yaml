@@ -5,6 +5,8 @@ repos:
     hooks:
       - id: ruff-check
       - id: ruff-format
+        args:
+          - --preview
         types_or:
           - jupyter
           - markdown
