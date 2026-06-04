@@ -28,3 +28,4 @@ runs:
         filter_mode: nofilter
         reporter: github-pr-review
         vale_flags: ${{ inputs.vale-flags }}
+        version: 3.14.1
