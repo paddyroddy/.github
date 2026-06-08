@@ -15,7 +15,7 @@ runs:
   using: composite
   steps:
     - name: Checkout source
-      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       with:
         persist-credentials: false
 
@@ -43,7 +43,7 @@ runs:
     - name: Deploy
       if: github.ref == 'refs/heads/main'
       # yamllint disable-line rule:line-length
-      uses: peaceiris/actions-gh-pages@4f9cc6602d3f66b9c108549d475ec49e8ef4d45e # v4
+      uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
       with:
         github_token: ${{ inputs.github-token }}
         publish_dir: >-

@@ -15,20 +15,20 @@ runs:
   using: composite
   steps:
     - name: Checkout source
-      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       with:
         persist-credentials: true
 
     - name: Cache Jupyter
       if: inputs.requirements-txt
-      uses: actions/cache@0057852bfaa89a56745cba8c7296529d2fc39830 # v4
+      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
       with:
         path: .jupyter_cache
         key: quarto-${{ hashFiles('_quarto.yaml') }}
 
     - name: Set up uv
       if: inputs.requirements-txt
-      uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+      uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
       with:
         activate-environment: true
 
@@ -39,17 +39,17 @@ runs:
 
     - name: Set up Quarto
       # yamllint disable-line rule:line-length
-      uses: quarto-dev/quarto-actions/setup@8a96df13519ee81fd526f2dfca5962811136661b # v2
+      uses: quarto-dev/quarto-actions/setup@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
 
     - name: Render ${{ github.ref_name }} branch
       if: github.ref != 'refs/heads/main'
       # yamllint disable-line rule:line-length
-      uses: quarto-dev/quarto-actions/render@8a96df13519ee81fd526f2dfca5962811136661b # v2
+      uses: quarto-dev/quarto-actions/render@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
 
     - name: Publish main branch
       if: github.ref == 'refs/heads/main'
       # yamllint disable-line rule:line-length
-      uses: quarto-dev/quarto-actions/publish@8a96df13519ee81fd526f2dfca5962811136661b # v2
+      uses: quarto-dev/quarto-actions/publish@8a96df13519ee81fd526f2dfca5962811136661b # v2.2.0
       with:
         target: gh-pages
       env:

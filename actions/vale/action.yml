@@ -15,12 +15,13 @@ runs:
   using: composite
   steps:
     - name: Checkout source
-      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       with:
         persist-credentials: false
 
     - name: Run Vale
-      uses: vale-cli/vale-action@d89dee975228ae261d22c15adcd03578634d429c # v2
+      # yamllint disable-line rule:line-length
+      uses: vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # 2.1.2
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       with:
