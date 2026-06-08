@@ -20,6 +20,7 @@ runs:
         persist-credentials: false
 
     - name: Run Vale
+      # yamllint disable-line rule:line-length
       uses: vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # 2.1.2
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
