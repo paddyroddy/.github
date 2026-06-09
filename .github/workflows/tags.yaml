@@ -27,6 +27,8 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
+          ref: ${{ github.ref }}
+          repository: ${{ github.repository }}
 
       - name: Bump version and push tag
         id: bump-version

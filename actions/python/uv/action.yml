@@ -22,6 +22,8 @@ runs:
       uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
       with:
         persist-credentials: false
+        ref: ${{ github.ref }}
+        repository: ${{ github.repository }}
 
     - name: Cache ${{ inputs.cache-path }}
       if: inputs.cache-path != ''
