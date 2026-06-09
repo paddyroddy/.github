@@ -25,6 +25,7 @@ runs:
       with:
         persist-credentials: false
         ref: ${{ inputs.branch }}
+        repository: ${{ github.repository }}
 
     - name: Check links
       # yamllint disable-line rule:line-length
