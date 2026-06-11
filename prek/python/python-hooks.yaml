@@ -12,10 +12,9 @@ repos:
           - markdown
           - pyi
           - python
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.20.2
+  - repo: https://github.com/astral-sh/ty-pre-commit
+    rev: v0.0.48
     hooks:
-      - id: mypy
-        additional_dependencies:
-          - numpy
-          - pydantic
+      - id: ty
+        args:
+          - --no-default-groups
