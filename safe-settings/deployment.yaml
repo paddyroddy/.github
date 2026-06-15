@@ -13,6 +13,7 @@ restrictedRepos:
     - ^club-membership$
     - ^CMakeCatchMPI-CW2$
     - ^dockerfiles$
+    - ^fastest-races$
     - ^forecasting-bike-hire-trips$
     - ^HelicopterIcing$
     - ^line_correlation_function$
@@ -25,6 +26,7 @@ restrictedRepos:
     - ^PhD$
     - ^postgrad_physics_tutorial$
     - ^RefactoringTrees$
+    - ^renovate-37190$
     - ^s2let-denoising-demo$
     - ^slepian_zubair$
     - ^textwall-monitoring$
@@ -33,4 +35,3 @@ restrictedRepos:
     # these repos are managed by https://github.com/apps/pull
     - ^github-readme-stats$
     - ^sleplet$
-    - ^tmux$
