@@ -31,6 +31,7 @@ restrictedRepos:
     - ^slepian_zubair$
     - ^textwall-monitoring$
     - ^titanic_kaggle_tutorial$
+    - ^tmux$
     - ^uk-challenge$
     # these repos are managed by https://github.com/apps/pull
     - ^github-readme-stats$
