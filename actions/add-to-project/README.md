@@ -16,7 +16,7 @@ jobs:
           PROJECT_TOKEN: ${{ secrets.PROJECT_PAT }}
         with:
           # yamllint disable-line rule:line-length
-          project-token: ${{ env.PROJECT_PAT }}
+          project-token: ${{ env.PROJECT_TOKEN }}
 ```
 
 where `x` is the `major` version of the action. If a different project board is
