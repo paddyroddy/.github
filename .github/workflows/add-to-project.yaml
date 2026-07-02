@@ -25,6 +25,7 @@ jobs:
           repository: ${{ github.repository }}
 
       - uses: ./actions/add-to-project
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_PAT }}
         with:
-          # yamllint disable-line rule:line-length
-          project-token: ${{ secrets.PROJECT_PAT }} # zizmor: ignore[secrets-outside-env]
+          project-token: ${{ env.PROJECT_TOKEN }}
