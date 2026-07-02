@@ -15,7 +15,6 @@ jobs:
         env:
           PROJECT_TOKEN: ${{ secrets.PROJECT_PAT }}
         with:
-          # yamllint disable-line rule:line-length
           project-token: ${{ env.PROJECT_TOKEN }}
 ```
 
@@ -36,7 +35,6 @@ jobs:
         env:
           PROJECT_TOKEN: ${{ secrets.PROJECT_PAT }}
         with:
-          # yamllint disable-line rule:line-length
           project-token: ${{ env.PROJECT_TOKEN }}
           project-url: project_board_url
 ```

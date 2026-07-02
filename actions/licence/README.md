@@ -15,7 +15,6 @@ jobs:
           LICENCE_TOKEN: ${{ secrets.LICENCE_PAT }}
         with:
           licence-file: ./LICENCE.txt
-          # yamllint disable-line rule:line-length
           licence-token: ${{ env.LICENCE_TOKEN }}
 ```
 

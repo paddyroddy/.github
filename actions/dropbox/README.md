@@ -16,7 +16,6 @@ jobs:
           OAUTH_APP_SECRET: ${{ secrets.OAUTH_APP_SECRET }}
           OAUTH_REFRESH_TOKEN: ${{ secrets.OAUTH_REFRESH_TOKEN }}
         with:
-          # yamllint disable rule:line-length
           configfile-version: ${{ env.CONFIGFILE_VERSION }}
           files-to-upload: $(find . -maxdepth 1 -name '*.pdf' -print)
           oauth-app-key: ${{ env.OAUTH_APP_KEY }}
