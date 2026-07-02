@@ -21,7 +21,6 @@ jobs:
           oauth-app-key: ${{ env.OAUTH_APP_KEY }}
           oauth-app-secret: ${{ env.OAUTH_APP_SECRET }}
           oauth-refresh-token: ${{ env.OAUTH_REFRESH_TOKEN }}
-          # yamllint enable rule:line-length
 ```
 
 where `x` is the `major` version of the action.
