@@ -46,6 +46,8 @@ rulesets:
         parameters:
           do_not_enforce_on_create: false
           required_status_checks:
+            - context: copilot-pull-request-reviewer
+              integration_id: 15368
             - context: links
               integration_id: 15368
             - context: linting
