@@ -23,6 +23,19 @@ rulesets:
       - type: deletion
       - type: non_fast_forward # prevents force pushes
 
+  - name: Copilot Review
+    target: branch
+    enforcement: active
+
+    conditions:
+      ref_name:
+        include:
+          - ~DEFAULT_BRANCH
+        exclude: []
+
+    rules:
+      - type: copilot_code_review
+
   - name: Status Checks
     target: branch
     enforcement: active
