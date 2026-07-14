@@ -10,13 +10,13 @@
       description: "Update GitHub Safe-Settings version",
       managerFilePatterns: ["/.github/workflows/safe-settings.yaml$/"],
       matchStrings: ["SAFE_SETTINGS_VERSION:\\s(?<currentValue>.*)"],
-      depNameTemplate: "github/safe-settings",
+      depNameTemplate: "github-community-projects/safe-settings",
       datasourceTemplate: "github-releases",
     },
   ],
   packageRules: [
     {
-      matchDepNames: ["github/safe-settings"],
+      matchDepNames: ["github-community-projects/safe-settings"],
       allowedVersions: "<=2.1.17",
     },
   ],

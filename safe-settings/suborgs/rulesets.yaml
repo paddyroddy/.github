@@ -1,4 +1,4 @@
-# https://github.com/github/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
+# https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
 ---
 suborgrepos:
   - "*"

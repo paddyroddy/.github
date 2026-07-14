@@ -1,7 +1,7 @@
 # Safe-Settings
 
-[Safe-Settings](https://github.com/github/safe-settings) is a way to manage
-policy-as-code and apply repository settings across the account. A
+[Safe-Settings](https://github.com/github-community-projects/safe-settings) is a
+way to manage policy-as-code and apply repository settings across the account. A
 [GitHub App](https://github.com/apps/paddyroddy-safe-settings) has been set up
 which the [GitHub Action](../.github/workflows/safe-settings.yaml) uses to apply
 the settings on a cron schedule.
@@ -10,18 +10,18 @@ the settings on a cron schedule.
 
 There are four types of settings that can be applied:
 
-- [Deployment](https://raw.githubusercontent.com/github/safe-settings/refs/heads/main-enterprise/docs/sample-settings/sample-deployment-settings.yml)
+- [Deployment](https://raw.githubusercontent.com/github-community-projects/safe-settings/refs/heads/main-enterprise/docs/sample-settings/sample-deployment-settings.yml)
   which defines deployment and runtime settings.
-- [Account](https://raw.githubusercontent.com/github/safe-settings/refs/heads/main-enterprise/docs/sample-settings/settings.yml)
+- [Account](https://raw.githubusercontent.com/github-community-projects/safe-settings/refs/heads/main-enterprise/docs/sample-settings/settings.yml)
   which can be used to define account-level settings.
-- [Repository](https://raw.githubusercontent.com/github/safe-settings/refs/heads/main-enterprise/docs/sample-settings/repo.yml)
+- [Repository](https://raw.githubusercontent.com/github-community-projects/safe-settings/refs/heads/main-enterprise/docs/sample-settings/repo.yml)
   which can be used to define repo-level settings.
-- [Suborganisation](https://raw.githubusercontent.com/github/safe-settings/refs/heads/main-enterprise/docs/sample-settings/suborg.yml)
+- [Suborganisation](https://raw.githubusercontent.com/github-community-projects/safe-settings/refs/heads/main-enterprise/docs/sample-settings/suborg.yml)
   which can be used to define suborganisation-level settings.
 
 Beyond these example configurations one can read more about potential settings
 to apply in the
-[documentation](https://github.com/github/safe-settings/tree/main-enterprise/docs/github-settings).
+[documentation](https://github.com/github-community-projects/safe-settings/tree/main-enterprise/docs/github-settings).
 The precedence order for configuration is `repository` > `suborganisation` >
 `account`.
 
@@ -55,4 +55,4 @@ suborgrepos:
 ```
 
 at the top of the file. Further explanation can be found in the
-[Safe-Settings issues](https://github.com/github/safe-settings/issues/553#issuecomment-2552578978).
+[Safe-Settings issues](https://github.com/github-community-projects/safe-settings/issues/553#issuecomment-2552578978).
