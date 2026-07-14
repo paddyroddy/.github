@@ -37,7 +37,7 @@ jobs:
           path: ${{ env.SAFE_SETTINGS_CODE_DIR }}
           persist-credentials: false
           ref: ${{ env.SAFE_SETTINGS_VERSION }}
-          repository: github/safe-settings
+          repository: github-community-projects/safe-settings
 
       - name: Setup Node.js
         # yamllint disable-line rule:line-length

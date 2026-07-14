@@ -1,4 +1,4 @@
-# https://github.com/github/safe-settings/blob/main-enterprise/docs/sample-settings/settings.yml
+# https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/settings.yml
 ---
 repository:
   allow_auto_merge: true
