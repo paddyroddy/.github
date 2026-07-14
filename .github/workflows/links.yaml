@@ -24,4 +24,5 @@ jobs:
 
       - uses: ./actions/links
         with:
+          branch: ${{ github.head_ref || github.ref_name }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
