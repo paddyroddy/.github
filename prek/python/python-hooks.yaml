@@ -13,7 +13,7 @@ repos:
           - pyi
           - python
   - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.0.53
+    rev: v0.0.63
     hooks:
       - id: ty
         args:
