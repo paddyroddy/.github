@@ -1,174 +1,128 @@
 ---
-{
-  repos: [{
-    repo: "https://github.com/google/yamlfmt",
-    rev: "v0.21.0",
-    hooks: [{
-      id: "yamlfmt",
-      args: [
-        "-kyaml",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/adrienverge/yamllint",
-    rev: "v1.38.0",
-    hooks: [{
-      id: "yamllint",
-      args: [
-        "\
-           --config-data={\n\
-          \  extends: default,\n\
-          \  rules: {\n\
-          \    anchors: enable,\n\
-          \    braces: enable,\n\
-          \    brackets: enable,\n\
-          \    colons: enable,\n\
-          \    commas: {\n\
-          \      max-spaces-before: 1\n\
-          \    },\n\
-          \    comments: {\n\
-          \      min-spaces-from-content: 1\n\
-          \    },\n\
-          \    comments-indentation: enable,\n\
-          \    document-end: disable,\n\
-          \    document-start: enable,\n\
-          \    empty-lines: enable,\n\
-          \    empty-values: disable,\n\
-          \    float-values: enable,\n\
-          \    hyphens: enable,\n\
-          \    indentation: enable,\n\
-          \    key-duplicates: enable,\n\
-          \    key-ordering: disable,\n\
-          \    line-length: disable,\n\
-          \    new-line-at-end-of-file: enable,\n\
-          \    new-lines: enable,\n\
-          \    octal-values: enable,\n\
-          \    quoted-strings: {\n\
-          \      check-keys: false,\n\
-          \      quote-type: double,\n\
-          \      required: true\n\
-          \    },\n\
-          \    trailing-spaces: enable,\n\
-          \    truthy: {\n\
-          \      check-keys: false\n\
-          \    }\n\
-          \  }\n\
-           }\
-          ",
-        "--strict",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/crate-ci/typos",
-    rev: "v1.49.0",
-    hooks: [{
-      id: "typos",
-      args: [
-        "--force-exclude",
-        "--hidden",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/igorshubovych/markdownlint-cli",
-    rev: "v0.49.1",
-    hooks: [{
-      id: "markdownlint-fix",
-      args: [
-        "--dot",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/Lucas-C/pre-commit-hooks",
-    rev: "v1.5.6",
-    hooks: [{
-      id: "forbid-tabs",
-      exclude: "\
-         (?x)(\n\
-        \  \\.dic$|\n\
-        \  \\.tex$\n\
-         )\
-        ",
-    }],
-  }, {
-    repo: "https://github.com/pappasam/toml-sort",
-    rev: "v0.24.4",
-    hooks: [{
-      id: "toml-sort-fix",
-      args: [
-        "--all",
-        "--in-place",
-        "--spaces-indent-inline-array=4",
-        "--trailing-comma-inline-array",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/rbubley/mirrors-prettier",
-    rev: "v3.9.6",
-    hooks: [{
-      id: "prettier",
-      additional_dependencies: [
-        "prettier",
-        "@shopify/prettier-plugin-liquid",
-      ],
-      args: [
-        "--prose-wrap=always",
-        "--quote-props=as-needed",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/pre-commit/pre-commit-hooks",
-    rev: "v5.0.0",
-    hooks: [{
-      id: "check-added-large-files",
-      args: [
-        "--enforce-all",
-        "--maxkb=1000",
-      ],
-      exclude: "\\.dic$",
-    }, {
-      id: "check-case-conflict",
-    }, {
-      id: "check-executables-have-shebangs",
-    }, {
-      id: "check-merge-conflict",
-    }, {
-      id: "check-shebang-scripts-are-executable",
-    }, {
-      id: "destroyed-symlinks",
-    }, {
-      id: "end-of-file-fixer",
-    }, {
-      id: "mixed-line-ending",
-      args: [
-        "--fix=lf",
-      ],
-    }, {
-      id: "trailing-whitespace",
-    }],
-  }, {
-    repo: "https://github.com/rhysd/actionlint",
-    rev: "v1.7.12",
-    hooks: [{
-      id: "actionlint",
-    }],
-  }, {
-    repo: "https://github.com/shellcheck-py/shellcheck-py",
-    rev: "v0.11.0.1",
-    hooks: [{
-      id: "shellcheck",
-      args: [
-        "--external-sources",
-        "--shell=bash",
-      ],
-    }],
-  }, {
-    repo: "https://github.com/zizmorcore/zizmor-pre-commit",
-    rev: "v1.26.1",
-    hooks: [{
-      id: "zizmor",
-      args: [
-        "--fix=safe",
-      ],
-    }],
-  }],
-}
+repos:
+  - repo: https://github.com/google/yamlfmt
+    rev: v0.21.0
+    hooks:
+      - id: yamlfmt
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.38.0
+    hooks:
+      - id: yamllint
+        args:
+          - >-
+            --config-data={
+              extends: default,
+              rules: {
+                anchors: enable,
+                braces: {
+                  forbid: non-empty
+                },
+                brackets: {
+                  forbid: non-empty
+                },
+                colons: enable,
+                commas: enable,
+                comments: {
+                  min-spaces-from-content: 1
+                },
+                comments-indentation: enable,
+                document-end: disable,
+                document-start: enable,
+                empty-lines: enable,
+                empty-values: disable,
+                float-values: enable,
+                hyphens: enable,
+                indentation: enable,
+                key-duplicates: enable,
+                key-ordering: disable,
+                line-length: enable,
+                new-line-at-end-of-file: enable,
+                new-lines: enable,
+                octal-values: enable,
+                quoted-strings: {
+                  quote-type: double,
+                  required: only-when-needed
+                },
+                trailing-spaces: enable,
+                truthy: {
+                  check-keys: false
+                }
+              }
+            }
+          - --strict
+  - repo: https://github.com/crate-ci/typos
+    rev: v1.49.0
+    hooks:
+      - id: typos
+        args:
+          - --force-exclude
+          - --hidden
+  - repo: https://github.com/igorshubovych/markdownlint-cli
+    rev: v0.49.1
+    hooks:
+      - id: markdownlint-fix
+        args:
+          - --dot
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.6
+    hooks:
+      - id: forbid-tabs
+        exclude: >-
+          (?x)(
+            \.dic$|
+            \.tex$
+          )
+  - repo: https://github.com/pappasam/toml-sort
+    rev: v0.24.4
+    hooks:
+      - id: toml-sort-fix
+        args:
+          - --all
+          - --in-place
+          - --spaces-indent-inline-array=4
+          - --trailing-comma-inline-array
+  - repo: https://github.com/rbubley/mirrors-prettier
+    rev: v3.9.6
+    hooks:
+      - id: prettier
+        additional_dependencies:
+          - prettier
+          - "@shopify/prettier-plugin-liquid"
+        args:
+          - --prose-wrap=always
+          - --quote-props=as-needed
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-added-large-files
+        args:
+          - --enforce-all
+          - --maxkb=1000
+        exclude: \.dic$
+      - id: check-case-conflict
+      - id: check-executables-have-shebangs
+      - id: check-merge-conflict
+      - id: check-shebang-scripts-are-executable
+      - id: destroyed-symlinks
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args:
+          - --fix=lf
+      - id: trailing-whitespace
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.11.0.1
+    hooks:
+      - id: shellcheck
+        args:
+          - --external-sources
+          - --shell=bash
+  - repo: https://github.com/zizmorcore/zizmor-pre-commit
+    rev: v1.26.1
+    hooks:
+      - id: zizmor
+        args:
+          - --fix=safe

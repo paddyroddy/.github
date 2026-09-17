@@ -1,45 +1,34 @@
 ---
-{
-  name: "Update Copyright",
-  description: "Update the copyright of the licence",
-  inputs: {
-    licence-file: {
-      description: "Path of the licence",
-      required: true,
-    },
-    licence-token: {
-      description: "PAT with public_repo scope.",
-      required: true,
-    },
-  },
-  runs: {
-    using: "composite",
-    steps: [
-      {
-        uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
-        with: {
-          fetch-depth: 0,
-          persist-credentials: false,
-          ref: "${{ github.ref }}",
-          repository: "${{ github.repository }}",
-        },
-      },
-      # yamllint disable-line rule:line-length
-      {
-        uses: "FantasticFiasco/action-update-license-year@f180e962fa988db222d8f03ef4636750312d1b3d", # v3.0.4
-        with: {
-          path: "${{ inputs.licence-file }}",
-          token: "${{ inputs.licence-token }}",
-        },
-      },
-      {
-        name: "Merge pull request",
-        shell: "bash",
-        run: "gh pr merge --auto --delete-branch --squash",
-        env: {
-          GITHUB_TOKEN: "${{ inputs.licence-token }}",
-        },
-      },
-    ],
-  },
-}
+name: Update Copyright
+description: Update the copyright of the licence
+
+inputs:
+  licence-file:
+    description: Path of the licence
+    required: true
+
+  licence-token:
+    description: PAT with public_repo scope.
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      with:
+        fetch-depth: 0
+        persist-credentials: false
+        ref: ${{ github.ref }}
+        repository: ${{ github.repository }}
+
+    # yamllint disable-line rule:line-length
+    - uses: FantasticFiasco/action-update-license-year@f180e962fa988db222d8f03ef4636750312d1b3d # v3.0.4
+      with:
+        path: ${{ inputs.licence-file }}
+        token: ${{ inputs.licence-token }}
+
+    - name: Merge pull request
+      shell: bash
+      run: gh pr merge --auto --delete-branch --squash
+      env:
+        GITHUB_TOKEN: ${{ inputs.licence-token }}

@@ -1,43 +1,31 @@
 ---
-{
-  name: "Add issues to project board",
-  "on": {
-    issues: {
-      types: [
-        "opened",
-      ],
-    },
-    pull_request_target: {
-      types: [
-        "opened",
-      ],
-    }, # zizmor: ignore[dangerous-triggers]
-  },
-  jobs: {
-    add-issue-to-project: {
-      permissions: {
-        contents: "read",
-        issues: "read",
-        pull-requests: "read",
-      },
-      runs-on: "ubuntu-slim",
-      steps: [{
-        name: "Checkout source",
-        uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
-        with: {
-          persist-credentials: false,
-          ref: "${{ github.ref }}",
-          repository: "${{ github.repository }}",
-        },
-      }, {
-        uses: "./actions/add-to-project",
-        env: {
-          PROJECT_TOKEN: "${{ secrets.PROJECT_PAT }}",
-        },
-        with: {
-          project-token: "${{ env.PROJECT_TOKEN }}",
-        },
-      }],
-    },
-  },
-}
+name: Add issues to project board
+
+on:
+  issues:
+    types:
+      - opened
+  pull_request_target: # zizmor: ignore[dangerous-triggers]
+    types:
+      - opened
+
+jobs:
+  add-issue-to-project:
+    permissions:
+      contents: read
+      issues: read
+      pull-requests: read
+    runs-on: ubuntu-slim
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+          ref: ${{ github.ref }}
+          repository: ${{ github.repository }}
+
+      - uses: ./actions/add-to-project
+        env:
+          PROJECT_TOKEN: ${{ secrets.PROJECT_PAT }}
+        with:
+          project-token: ${{ env.PROJECT_TOKEN }}

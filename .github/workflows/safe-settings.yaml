@@ -1,85 +1,74 @@
 ---
-{
-  name: "Safe Settings Sync",
-  "on": {
-    push: {
-      branches: [
-        "main",
-        "renovate/**",
-      ],
-    },
-    pull_request: ,
-    schedule: [{
-      cron: "0 */4 * * *",
-    }],
-    workflow_dispatch: {},
-  },
-  concurrency: {
-    cancel-in-progress: true,
-    group: "${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}",
-  },
-  jobs: {
-    safe-settings-sync: {
-      permissions: {
-        contents: "read",
-      },
-      runs-on: "ubuntu-slim",
-      env: {
-        SAFE_SETTINGS_VERSION: "2.1.17",
-        SAFE_SETTINGS_CODE_DIR: ".safe-settings-code",
-      },
-      steps: [{
-        name: "Checkout source",
-        uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
-        with: {
-          persist-credentials: false,
-          ref: "${{ github.ref }}",
-          repository: "${{ github.repository }}",
-        },
-      }, {
-        name: "Checkout GitHub Safe-Settings repository",
-        uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
-        with: {
-          path: "${{ env.SAFE_SETTINGS_CODE_DIR }}",
-          persist-credentials: false,
-          ref: "${{ env.SAFE_SETTINGS_VERSION }}",
-          repository: "github-community-projects/safe-settings",
-        },
-      }, {
-        name: "Setup Node.js",
+name: Safe Settings Sync
+on:
+  push:
+    branches:
+      - main
+      - renovate/**
+  pull_request:
+  schedule:
+    - cron: 0 */4 * * *
+  workflow_dispatch: {}
+
+concurrency:
+  cancel-in-progress: true
+  group: >-
+    ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+
+jobs:
+  safe-settings-sync:
+    permissions:
+      contents: read
+    runs-on: ubuntu-slim
+    env:
+      SAFE_SETTINGS_VERSION: 2.1.17
+      SAFE_SETTINGS_CODE_DIR: .safe-settings-code
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          persist-credentials: false
+          ref: ${{ github.ref }}
+          repository: ${{ github.repository }}
+
+      - name: Checkout GitHub Safe-Settings repository
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          path: ${{ env.SAFE_SETTINGS_CODE_DIR }}
+          persist-credentials: false
+          ref: ${{ env.SAFE_SETTINGS_VERSION }}
+          repository: github-community-projects/safe-settings
+
+      - name: Setup Node.js
         # yamllint disable-line rule:line-length
-        uses: "actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38", # v6.5.0
-        with: {
-          cache-dependency-path: "${{ env.SAFE_SETTINGS_CODE_DIR }}/package-lock.json",
-          cache: "npm",
-          node-version-file: "${{ env.SAFE_SETTINGS_CODE_DIR }}/.nvmrc",
-        },
-      }, {
-        name: "Install dependencies",
-        run: "npm install",
-        working-directory: "${{ env.SAFE_SETTINGS_CODE_DIR }}",
-      }, {
-        name: "Run application",
-        run: "npm run full-sync",
-        working-directory: "${{ env.SAFE_SETTINGS_CODE_DIR }}",
-        env: {
-          ADMIN_REPO: ".github",
-          APP_ID: "${{ vars.SAFE_SETTINGS_APP_ID }}",
-          BLOCK_REPO_RENAME_BY_HUMAN: false,
-          CONFIG_PATH: "safe-settings",
-          DEPLOYMENT_CONFIG_FILE: "${{ github.workspace }}/safe-settings/deployment.yaml",
-          ENABLE_PR_COMMENT: true,
-          GH_ORG: "${{ vars.SAFE_SETTINGS_GH_ORG }}",
-          GITHUB_CLIENT_ID: "${{ vars.SAFE_SETTINGS_GITHUB_CLIENT_ID }}",
-          LOG_LEVEL: "trace",
-          SETTINGS_FILE_PATH: "account.yaml",
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6.5.0
+        with:
+          cache-dependency-path:
+            ${{ env.SAFE_SETTINGS_CODE_DIR }}/package-lock.json
+          cache: npm
+          node-version-file: ${{ env.SAFE_SETTINGS_CODE_DIR }}/.nvmrc
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ${{ env.SAFE_SETTINGS_CODE_DIR }}
+
+      - name: Run application
+        run: npm run full-sync
+        working-directory: ${{ env.SAFE_SETTINGS_CODE_DIR }}
+        env:
+          ADMIN_REPO: .github
+          APP_ID: ${{ vars.SAFE_SETTINGS_APP_ID }}
+          BLOCK_REPO_RENAME_BY_HUMAN: false
+          CONFIG_PATH: safe-settings
+          DEPLOYMENT_CONFIG_FILE:
+            ${{ github.workspace }}/safe-settings/deployment.yaml
+          ENABLE_PR_COMMENT: true
+          GH_ORG: ${{ vars.SAFE_SETTINGS_GH_ORG }}
+          GITHUB_CLIENT_ID: ${{ vars.SAFE_SETTINGS_GITHUB_CLIENT_ID }}
+          LOG_LEVEL: trace
+          SETTINGS_FILE_PATH: account.yaml
           # yamllint disable rule:line-length
           # prettier-ignore
-          GITHUB_CLIENT_SECRET: "${{ secrets.SAFE_SETTINGS_GITHUB_CLIENT_SECRET }}", # zizmor: ignore[secrets-outside-env]
-          PRIVATE_KEY: "${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }}", # zizmor: ignore[secrets-outside-env]
+          GITHUB_CLIENT_SECRET: ${{ secrets.SAFE_SETTINGS_GITHUB_CLIENT_SECRET }} # zizmor: ignore[secrets-outside-env]
+          PRIVATE_KEY: ${{ secrets.SAFE_SETTINGS_PRIVATE_KEY }} # zizmor: ignore[secrets-outside-env]
           # yamllint enable rule:line-length
-        },
-      }],
-    },
-  },
-}

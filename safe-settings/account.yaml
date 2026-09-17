@@ -1,16 +1,13 @@
+# https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/settings.yml
 ---
-{
-  # https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/settings.yml
-  repository: {
-    allow_auto_merge: true,
-    allow_merge_commit: false,
-    allow_rebase_merge: false,
-    allow_update_branch: true,
-    delete_branch_on_merge: true,
-    has_discussions: false,
-    has_downloads: false,
-    has_wiki: false,
-    squash_merge_commit_message: "BLANK",
-    squash_merge_commit_title: "PR_TITLE",
-  },
-}
+repository:
+  allow_auto_merge: true
+  allow_merge_commit: false
+  allow_rebase_merge: false
+  allow_update_branch: true
+  delete_branch_on_merge: true
+  has_discussions: false
+  has_downloads: false
+  has_wiki: false
+  squash_merge_commit_message: BLANK
+  squash_merge_commit_title: PR_TITLE

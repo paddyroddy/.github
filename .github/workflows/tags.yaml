@@ -1,63 +1,55 @@
 ---
-{
-  name: "Bump Version Tag",
-  "on": {
-    push: {
-      branches: [
-        "main",
-      ],
-      paths: [
-        "**/*",
-        "!**/*.json5",
-        "!**/*.md",
-        "!**/*.txt",
-        "!.github/**",
-        "!.gitignore",
-        "!.pre-commit-config.yaml",
-        "!pyproject.toml",
-      ],
-    },
-    workflow_dispatch: ,
-  },
-  jobs: {
-    tags: {
-      runs-on: "ubuntu-latest",
-      permissions: {
-        contents: "write",
-      },
-      steps: [
-        {
-          name: "Checkout source",
-          uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
-          with: {
-            fetch-depth: 0,
-            persist-credentials: true,
-            ref: "${{ github.ref }}",
-            repository: "${{ github.repository }}",
-          },
-        },
-        {
-          name: "Bump version and push tag",
-          id: "bump-version",
-          # yamllint disable-line rule:line-length
-          uses: "anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8", # 1.75.0
-          env: {
-            GITHUB_TOKEN: "${{ secrets.GITHUB_TOKEN }}",
-            WITH_V: true,
-          },
-        },
-        {
-          name: "Extract major tag",
-          id: "extract-major",
-          run: "echo major_tag=\"$(echo ${{ steps.bump-version.outputs.new_tag }} | cut -d'.' -f1)\" >> \"$GITHUB_OUTPUT\"",
-        },
-        # this is done manually as need a non-annotated tag
-        # TODO: replace with https://github.com/actions/publish-action
-        {
-          name: "Update major tag",
-          run: "git config user.name github-actions; git config user.email github-actions@github.com; git tag --force ${{ steps.extract-major.outputs.major_tag }} ${{ steps.bump-version.outputs.new_tag }}; git push origin ${{ steps.extract-major.outputs.major_tag }} --force",
-        },
-      ],
-    },
-  },
-}
+name: Bump Version Tag
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**/*"
+      - "!**/*.json5"
+      - "!**/*.md"
+      - "!**/*.txt"
+      - "!.github/**"
+      - "!.gitignore"
+      - "!.pre-commit-config.yaml"
+      - "!pyproject.toml"
+  workflow_dispatch:
+
+jobs:
+  tags:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+          ref: ${{ github.ref }}
+          repository: ${{ github.repository }}
+
+      - name: Bump version and push tag
+        id: bump-version
+        # yamllint disable-line rule:line-length
+        uses: anothrNick/github-tag-action@4ed44965e0db8dab2b466a16da04aec3cc312fd8 # 1.75.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          WITH_V: true
+
+      - name: Extract major tag
+        id: extract-major
+        run: >-
+          echo major_tag="$(echo ${{ steps.bump-version.outputs.new_tag }} | cut
+          -d'.' -f1)" >> "$GITHUB_OUTPUT"
+
+      # this is done manually as need a non-annotated tag
+      # TODO: replace with https://github.com/actions/publish-action
+      - name: Update major tag
+        run: >-
+          git config user.name github-actions; git config user.email
+          github-actions@github.com; git tag --force ${{
+          steps.extract-major.outputs.major_tag }} ${{
+          steps.bump-version.outputs.new_tag }}; git push origin ${{
+          steps.extract-major.outputs.major_tag }} --force

@@ -1,25 +1,22 @@
 ---
-{
-  name: "ChkTeX",
-  description: "Runs ChkTeX over all TeX files in the repo",
-  runs: {
-    using: "composite",
-    steps: [{
-      name: "Checkout source",
-      uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
-      with: {
-        persist-credentials: false,
-        ref: "${{ github.ref }}",
-        repository: "${{ github.repository }}",
-      },
-    }, {
-      name: "Run chktex",
+name: ChkTeX
+description: Runs ChkTeX over all TeX files in the repo
+
+runs:
+  using: composite
+  steps:
+    - name: Checkout source
+      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      with:
+        persist-credentials: false
+        ref: ${{ github.ref }}
+        repository: ${{ github.repository }}
+
+    - name: Run chktex
       # yamllint disable-line rule:line-length
-      uses: "xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80", # v3
-      with: {
-        scheme: "full",
-        run: "for file in *.tex; do echo $file; chktex $file | tee /dev/stderr | (! grep -q ^); done",
-      },
-    }],
-  },
-}
+      uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80 # v3
+      with:
+        scheme: full
+        run: >-
+          for file in *.tex; do echo $file; chktex $file | tee /dev/stderr | (!
+          grep -q ^); done
