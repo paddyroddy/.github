@@ -1,32 +1,43 @@
 ---
-name: Update Copyright
-description: Update the copyright of the licence
-
-inputs:
-  licence-file:
-    description: Path of the licence
-    required: true
-
-  licence-token:
-    description: PAT with public_repo scope.
-    required: true
-
-runs:
-  using: composite
-  steps:
-    - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      with:
-        fetch-depth: 0
-        persist-credentials: false
-
-    # yamllint disable-line rule:line-length
-    - uses: FantasticFiasco/action-update-license-year@f180e962fa988db222d8f03ef4636750312d1b3d # v3.0.4
-      with:
-        path: ${{ inputs.licence-file }}
-        token: ${{ inputs.licence-token }}
-
-    - name: Merge pull request
-      shell: bash
-      run: gh pr merge --auto --delete-branch --squash
-      env:
-        GITHUB_TOKEN: ${{ inputs.licence-token }}
+{
+  name: "Update Copyright",
+  description: "Update the copyright of the licence",
+  inputs: {
+    licence-file: {
+      description: "Path of the licence",
+      required: true,
+    },
+    licence-token: {
+      description: "PAT with public_repo scope.",
+      required: true,
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [
+      {
+        uses: "actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10", # v6.0.3
+        with: {
+          fetch-depth: 0,
+          persist-credentials: false,
+        },
+      },
+      # yamllint disable-line rule:line-length
+      {
+        uses: "FantasticFiasco/action-update-license-year@f180e962fa988db222d8f03ef4636750312d1b3d", # v3.0.4
+        with: {
+          path: "${{ inputs.licence-file }}",
+          token: "${{ inputs.licence-token }}",
+        },
+      },
+      {
+        name: "Merge pull request",
+        shell: "bash",
+        run: "gh pr merge --auto --delete-branch --squash",
+        env: {
+          GITHUB_TOKEN: "${{ inputs.licence-token }}",
+        },
+      },
+    ],
+  },
+}

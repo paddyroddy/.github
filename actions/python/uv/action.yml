@@ -1,45 +1,51 @@
 ---
-name: Test
-description: Runs pytest coverage tests using uv
-
-inputs:
-  cache-path:
-    description: Paths to cache
-    default: ""
-
-  pyproject-toml:
-    description: Path of pyproject.toml
-    required: true
-
-  python-version:
-    description: Version of python to test
-    required: true
-
-runs:
-  using: composite
-  steps:
-    - name: Checkout source
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      with:
-        persist-credentials: false
-
-    - name: Cache ${{ inputs.cache-path }}
-      if: inputs.cache-path != ''
-      uses: actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae # v5.0.5
-      with:
-        path: ${{ inputs.cache-path }}
-        key:
-          test-${{ hashFiles('pyproject.toml') }}-${{ inputs.python-version }}
-
-    - name: Set up uv ${{ inputs.python-version }}
-      uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
-      with:
-        python-version: ${{ inputs.python-version }}
-
-    - name: Install dependencies
-      shell: bash
-      run: uv sync --all-groups
-
-    - name: Test with pytest
-      shell: bash
-      run: uv run pytest --cov --cov-report=lcov
+{
+  name: "Test",
+  description: "Runs pytest coverage tests using uv",
+  inputs: {
+    cache-path: {
+      description: "Paths to cache",
+      default: "",
+    },
+    pyproject-toml: {
+      description: "Path of pyproject.toml",
+      required: true,
+    },
+    python-version: {
+      description: "Version of python to test",
+      required: true,
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Checkout source",
+      uses: "actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10", # v6.0.3
+      with: {
+        persist-credentials: false,
+      },
+    }, {
+      name: "Cache ${{ inputs.cache-path }}",
+      if: "inputs.cache-path != ''",
+      uses: "actions/cache@27d5ce7f107fe9357f9df03efb73ab90386fccae", # v5.0.5
+      with: {
+        path: "${{ inputs.cache-path }}",
+        key: "test-${{ hashFiles('pyproject.toml') }}-${{ inputs.python-version }}",
+      },
+    }, {
+      name: "Set up uv ${{ inputs.python-version }}",
+      uses: "astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39", # v8.2.0
+      with: {
+        python-version: "${{ inputs.python-version }}",
+      },
+    }, {
+      name: "Install dependencies",
+      shell: "bash",
+      run: "uv sync --all-groups",
+    }, {
+      name: "Test with pytest",
+      shell: "bash",
+      run: "uv run pytest --cov --cov-report=lcov",
+    }],
+  },
+}

@@ -1,29 +1,39 @@
 ---
-name: Linting
-
-on:
-  push:
-    branches:
-      - main
-      - renovate/**
-  pull_request:
-
-jobs:
-  linting:
-    permissions:
-      contents: read
-      pull-requests: write
-    runs-on: ubuntu-slim
-    steps:
-      - name: Checkout source
-        uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-        with:
-          persist-credentials: false
-
-      - uses: ./actions/linting
-        with:
-          pre-commit-config: ./.pre-commit-config.yaml
-
-      - uses: ./actions/vale
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+{
+  name: "Linting",
+  "on": {
+    push: {
+      branches: [
+        "main",
+        "renovate/**",
+      ],
+    },
+    pull_request: ,
+  },
+  jobs: {
+    linting: {
+      permissions: {
+        contents: "read",
+        pull-requests: "write",
+      },
+      runs-on: "ubuntu-slim",
+      steps: [{
+        name: "Checkout source",
+        uses: "actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10", # v6.0.3
+        with: {
+          persist-credentials: false,
+        },
+      }, {
+        uses: "./actions/linting",
+        with: {
+          pre-commit-config: "./.pre-commit-config.yaml",
+        },
+      }, {
+        uses: "./actions/vale",
+        with: {
+          github-token: "${{ secrets.GITHUB_TOKEN }}",
+        },
+      }],
+    },
+  },
+}

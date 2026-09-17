@@ -1,13 +1,21 @@
 ---
-repos:
-  - repo: https://github.com/paddyroddy/.github
-    rev: v0.416.0
-    hooks:
-      - id: general-hooks
-      - id: python-hooks
-  - repo: https://github.com/renovatebot/pre-commit-hooks
-    rev: 43.101.2
-    hooks:
-      - id: renovate-config-validator
-        args:
-          - renovate/default-config.json5
+{
+  repos: [{
+    repo: "https://github.com/paddyroddy/.github",
+    rev: "v0.416.0",
+    hooks: [{
+      id: "general-hooks",
+    }, {
+      id: "python-hooks",
+    }],
+  }, {
+    repo: "https://github.com/renovatebot/pre-commit-hooks",
+    rev: "43.101.2",
+    hooks: [{
+      id: "renovate-config-validator",
+      args: [
+        "renovate/default-config.json5",
+      ],
+    }],
+  }],
+}

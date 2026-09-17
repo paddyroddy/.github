@@ -1,22 +1,27 @@
 ---
-name: Add Issues to Project
-description: Add issues to the GitHub project board
-
-inputs:
-  project-token:
-    description: PAT with repo and project scopes.
-    required: true
-
-  project-url:
-    description: URL of the project board to add issues to
-    default: https://github.com/users/paddyroddy/projects/1
-
-runs:
-  using: composite
-  steps:
-    - name: Get project data
+{
+  name: "Add Issues to Project",
+  description: "Add issues to the GitHub project board",
+  inputs: {
+    project-token: {
+      description: "PAT with repo and project scopes.",
+      required: true,
+    },
+    project-url: {
+      description: "URL of the project board to add issues to",
+      default: "https://github.com/users/paddyroddy/projects/1",
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Get project data",
       # yamllint disable-line rule:line-length
-      uses: actions/add-to-project@5afcf98fcd03f1c2f92c3c83f58ae24323cc57fd # v2.0.0
-      with:
-        github-token: ${{ inputs.project-token }}
-        project-url: ${{ inputs.project-url }}
+      uses: "actions/add-to-project@5afcf98fcd03f1c2f92c3c83f58ae24323cc57fd", # v2.0.0
+      with: {
+        github-token: "${{ inputs.project-token }}",
+        project-url: "${{ inputs.project-url }}",
+      },
+    }],
+  },
+}

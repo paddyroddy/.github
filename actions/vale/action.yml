@@ -1,32 +1,39 @@
 ---
-name: Vale
-description: Runs vale over all files in the repo
-
-inputs:
-  github-token:
-    description: GitHub token
-    required: true
-
-  vale-flags:
-    description: Flags to pass to vale
-    default: ""
-
-runs:
-  using: composite
-  steps:
-    - name: Checkout source
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      with:
-        persist-credentials: false
-
-    - name: Run Vale
+{
+  name: "Vale",
+  description: "Runs vale over all files in the repo",
+  inputs: {
+    github-token: {
+      description: "GitHub token",
+      required: true,
+    },
+    vale-flags: {
+      description: "Flags to pass to vale",
+      default: "",
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Checkout source",
+      uses: "actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10", # v6.0.3
+      with: {
+        persist-credentials: false,
+      },
+    }, {
+      name: "Run Vale",
       # yamllint disable-line rule:line-length
-      uses: vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # 2.1.2
-      env:
-        GITHUB_TOKEN: ${{ inputs.github-token }}
-      with:
-        fail_on_error: true
-        filter_mode: nofilter
-        reporter: github-pr-review
-        vale_flags: ${{ inputs.vale-flags }}
-        version: 3.14.1
+      uses: "vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a", # 2.1.2
+      env: {
+        GITHUB_TOKEN: "${{ inputs.github-token }}",
+      },
+      with: {
+        fail_on_error: true,
+        filter_mode: "nofilter",
+        reporter: "github-pr-review",
+        vale_flags: "${{ inputs.vale-flags }}",
+        version: "3.14.1",
+      },
+    }],
+  },
+}

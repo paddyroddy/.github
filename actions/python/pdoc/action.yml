@@ -1,66 +1,71 @@
 ---
-name: Documentation
-description: Runs pdoc3 on a project and pushes to GitHub Pages
-
-inputs:
-  docs-dependency-section:
-    description: The location of docs dependencies in pyproject.toml
-    required: true
-
-  gh-pages-publish-directory:
-    description: The path to publish to GitHub Pages
-    required: true
-
-  github-token:
-    description: GitHub token
-    required: true
-
-  project-directory:
-    description: Path to the Python project
-    required: true
-
-  pyproject-toml:
-    description: Path of pyproject.toml
-    required: true
-
-  python-version:
-    description: Version of python to test
-    required: true
-
-  template-directory:
-    description: Path of the template directory
-    required: true
-
-runs:
-  using: composite
-  steps:
-    - name: Checkout source
-      uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6.0.3
-      with:
-        persist-credentials: false
-
-    - name: Set up uv
-      uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
-      with:
-        python-version: ${{ inputs.python-version }}
-
-    - name: Install dependencies
-      shell: bash
-      run: uv sync --group ${{ inputs.docs-dependency-section }}
-
-    - name: Create documentation
-      shell: bash
-      run: >-
-        uv run pdoc --html ${{ inputs.project-directory }} --template-dir ${{
-        inputs.template-directory}}
-
-    - name: Deploy
-      if: github.ref == 'refs/heads/main'
+{
+  name: "Documentation",
+  description: "Runs pdoc3 on a project and pushes to GitHub Pages",
+  inputs: {
+    docs-dependency-section: {
+      description: "The location of docs dependencies in pyproject.toml",
+      required: true,
+    },
+    gh-pages-publish-directory: {
+      description: "The path to publish to GitHub Pages",
+      required: true,
+    },
+    github-token: {
+      description: "GitHub token",
+      required: true,
+    },
+    project-directory: {
+      description: "Path to the Python project",
+      required: true,
+    },
+    pyproject-toml: {
+      description: "Path of pyproject.toml",
+      required: true,
+    },
+    python-version: {
+      description: "Version of python to test",
+      required: true,
+    },
+    template-directory: {
+      description: "Path of the template directory",
+      required: true,
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Checkout source",
+      uses: "actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10", # v6.0.3
+      with: {
+        persist-credentials: false,
+      },
+    }, {
+      name: "Set up uv",
+      uses: "astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39", # v8.2.0
+      with: {
+        python-version: "${{ inputs.python-version }}",
+      },
+    }, {
+      name: "Install dependencies",
+      shell: "bash",
+      run: "uv sync --group ${{ inputs.docs-dependency-section }}",
+    }, {
+      name: "Create documentation",
+      shell: "bash",
+      run: "uv run pdoc --html ${{ inputs.project-directory }} --template-dir ${{ inputs.template-directory}}",
+    }, {
+      name: "Deploy",
+      if: "github.ref == 'refs/heads/main'",
       # yamllint disable-line rule:line-length
-      uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
-      with:
-        github_token: ${{ inputs.github-token }}
-        publish_dir: ${{ inputs.gh-pages-publish-directory }}
-        publish_branch: gh-pages
-        user_name: github-actions[bot]
-        user_email: github-actions[bot]@users.noreply.github.com
+      uses: "peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453", # v4.1.0
+      with: {
+        github_token: "${{ inputs.github-token }}",
+        publish_dir: "${{ inputs.gh-pages-publish-directory }}",
+        publish_branch: "gh-pages",
+        user_name: "github-actions[bot]",
+        user_email: "github-actions[bot]@users.noreply.github.com",
+      },
+    }],
+  },
+}

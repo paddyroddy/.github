@@ -1,8 +1,13 @@
 ---
-repos:
-  - repo: https://github.com/JohnnyMorganz/StyLua
-    rev: v2.5.2
-    hooks:
-      - id: stylua-github
-        args:
-          - --indent-type=Spaces
+{
+  repos: [{
+    repo: "https://github.com/JohnnyMorganz/StyLua",
+    rev: "v2.5.2",
+    hooks: [{
+      id: "stylua-github",
+      args: [
+        "--indent-type=Spaces",
+      ],
+    }],
+  }],
+}
