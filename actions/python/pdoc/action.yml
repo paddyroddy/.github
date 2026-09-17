@@ -1,68 +1,73 @@
 ---
-name: Documentation
-description: Runs pdoc3 on a project and pushes to GitHub Pages
-
-inputs:
-  docs-dependency-section:
-    description: The location of docs dependencies in pyproject.toml
-    required: true
-
-  gh-pages-publish-directory:
-    description: The path to publish to GitHub Pages
-    required: true
-
-  github-token:
-    description: GitHub token
-    required: true
-
-  project-directory:
-    description: Path to the Python project
-    required: true
-
-  pyproject-toml:
-    description: Path of pyproject.toml
-    required: true
-
-  python-version:
-    description: Version of python to test
-    required: true
-
-  template-directory:
-    description: Path of the template directory
-    required: true
-
-runs:
-  using: composite
-  steps:
-    - name: Checkout source
-      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
-      with:
-        persist-credentials: false
-        ref: ${{ github.ref }}
-        repository: ${{ github.repository }}
-
-    - name: Set up uv
-      uses: astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990 # v8.3.2
-      with:
-        python-version: ${{ inputs.python-version }}
-
-    - name: Install dependencies
-      shell: bash
-      run: uv sync --group ${{ inputs.docs-dependency-section }}
-
-    - name: Create documentation
-      shell: bash
-      run: >-
-        uv run pdoc --html ${{ inputs.project-directory }} --template-dir ${{
-        inputs.template-directory}}
-
-    - name: Deploy
-      if: github.ref == 'refs/heads/main'
+{
+  name: "Documentation",
+  description: "Runs pdoc3 on a project and pushes to GitHub Pages",
+  inputs: {
+    docs-dependency-section: {
+      description: "The location of docs dependencies in pyproject.toml",
+      required: true,
+    },
+    gh-pages-publish-directory: {
+      description: "The path to publish to GitHub Pages",
+      required: true,
+    },
+    github-token: {
+      description: "GitHub token",
+      required: true,
+    },
+    project-directory: {
+      description: "Path to the Python project",
+      required: true,
+    },
+    pyproject-toml: {
+      description: "Path of pyproject.toml",
+      required: true,
+    },
+    python-version: {
+      description: "Version of python to test",
+      required: true,
+    },
+    template-directory: {
+      description: "Path of the template directory",
+      required: true,
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Checkout source",
+      uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
+      with: {
+        persist-credentials: false,
+        ref: "${{ github.ref }}",
+        repository: "${{ github.repository }}",
+      },
+    }, {
+      name: "Set up uv",
+      uses: "astral-sh/setup-uv@11f9893b081a58869d3b5fccaea48c9e9e46f990", # v8.3.2
+      with: {
+        python-version: "${{ inputs.python-version }}",
+      },
+    }, {
+      name: "Install dependencies",
+      shell: "bash",
+      run: "uv sync --group ${{ inputs.docs-dependency-section }}",
+    }, {
+      name: "Create documentation",
+      shell: "bash",
+      run: "uv run pdoc --html ${{ inputs.project-directory }} --template-dir ${{ inputs.template-directory}}",
+    }, {
+      name: "Deploy",
+      if: "github.ref == 'refs/heads/main'",
       # yamllint disable-line rule:line-length
-      uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
-      with:
-        github_token: ${{ inputs.github-token }}
-        publish_dir: ${{ inputs.gh-pages-publish-directory }}
-        publish_branch: gh-pages
-        user_name: github-actions[bot]
-        user_email: github-actions[bot]@users.noreply.github.com
+      uses: "peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453", # v4.1.0
+      with: {
+        github_token: "${{ inputs.github-token }}",
+        publish_dir: "${{ inputs.gh-pages-publish-directory }}",
+        publish_branch: "gh-pages",
+        user_name: "github-actions[bot]",
+        user_email: "github-actions[bot]@users.noreply.github.com",
+      },
+    }],
+  },
+}

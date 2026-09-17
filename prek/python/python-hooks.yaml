@@ -1,20 +1,30 @@
 ---
-repos:
-  - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.16.4
-    hooks:
-      - id: ruff-check
-      - id: ruff-format
-        args:
-          - --preview
-        types_or:
-          - jupyter
-          - markdown
-          - pyi
-          - python
-  - repo: https://github.com/astral-sh/ty-pre-commit
-    rev: v0.0.74
-    hooks:
-      - id: ty
-        args:
-          - --no-default-groups
+{
+  repos: [{
+    repo: "https://github.com/astral-sh/ruff-pre-commit",
+    rev: "v0.16.4",
+    hooks: [{
+      id: "ruff-check",
+    }, {
+      id: "ruff-format",
+      args: [
+        "--preview",
+      ],
+      types_or: [
+        "jupyter",
+        "markdown",
+        "pyi",
+        "python",
+      ],
+    }],
+  }, {
+    repo: "https://github.com/astral-sh/ty-pre-commit",
+    rev: "v0.0.74",
+    hooks: [{
+      id: "ty",
+      args: [
+        "--no-default-groups",
+      ],
+    }],
+  }],
+}

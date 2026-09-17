@@ -1,80 +1,97 @@
-# https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
 ---
-suborgrepos:
-  - "*"
-
-rulesets:
-  - name: Default
-    target: branch
-    enforcement: active
-
-    bypass_actors:
-      - actor_id: 1092899 # README Updater
-        actor_type: Integration
-        bypass_mode: always
-
-    conditions:
-      ref_name:
-        include:
-          - ~DEFAULT_BRANCH
-        exclude: []
-
-    rules:
-      - type: deletion
-      - type: non_fast_forward # prevents force pushes
-
-  - name: Copilot Review
-    target: branch
-    enforcement: active
-
-    conditions:
-      ref_name:
-        include:
-          - ~DEFAULT_BRANCH
-        exclude: []
-
-    rules:
-      - type: copilot_code_review
-
-  - name: Status Checks
-    target: branch
-    enforcement: active
-
-    bypass_actors:
-      - actor_id: 5 # repository admin
-        actor_type: RepositoryRole
-        bypass_mode: pull_request
-      - actor_id: 1092899 # README Updater
-        actor_type: Integration
-        bypass_mode: always
-
-    conditions:
-      ref_name:
-        include:
-          - ~DEFAULT_BRANCH
-        exclude: []
-
-    rules:
-      - type: required_status_checks
-        parameters:
-          do_not_enforce_on_create: false
-          required_status_checks:
-            - context: links
-              integration_id: 15368
-            - context: linting
-              integration_id: 15368
-          strict_required_status_checks_policy: false
-
-  - name: Tags
-    target: tag
-    enforcement: active
-
-    conditions:
-      ref_name:
-        include:
-          - ~ALL
-        exclude: []
-
-    rules:
-      - type: deletion
-      - type: non_fast_forward # prevents force pushes
+{
+  # https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
+  suborgrepos: [
+    "*",
+  ],
+  rulesets: [{
+    name: "Default",
+    target: "branch",
+    enforcement: "active",
+    bypass_actors: [{
+      actor_id: 1092899, # README Updater
+      actor_type: "Integration",
+      bypass_mode: "always",
+    }],
+    conditions: {
+      ref_name: {
+        include: [
+          "~DEFAULT_BRANCH",
+        ],
+        exclude: [],
+      },
+    },
+    rules: [{
+      type: "deletion",
+    }, {
+      type: "non_fast_forward", # prevents force pushes
+    }],
+  }, {
+    name: "Copilot Review",
+    target: "branch",
+    enforcement: "active",
+    conditions: {
+      ref_name: {
+        include: [
+          "~DEFAULT_BRANCH",
+        ],
+        exclude: [],
+      },
+    },
+    rules: [{
+      type: "copilot_code_review",
+    }],
+  }, {
+    name: "Status Checks",
+    target: "branch",
+    enforcement: "active",
+    bypass_actors: [{
+      actor_id: 5, # repository admin
+      actor_type: "RepositoryRole",
+      bypass_mode: "pull_request",
+    }, {
+      actor_id: 1092899, # README Updater
+      actor_type: "Integration",
+      bypass_mode: "always",
+    }],
+    conditions: {
+      ref_name: {
+        include: [
+          "~DEFAULT_BRANCH",
+        ],
+        exclude: [],
+      },
+    },
+    rules: [{
+      type: "required_status_checks",
+      parameters: {
+        do_not_enforce_on_create: false,
+        required_status_checks: [{
+          context: "links",
+          integration_id: 15368,
+        }, {
+          context: "linting",
+          integration_id: 15368,
+        }],
+        strict_required_status_checks_policy: false,
+      },
+    }],
+  }, {
+    name: "Tags",
+    target: "tag",
+    enforcement: "active",
+    conditions: {
+      ref_name: {
+        include: [
+          "~ALL",
+        ],
+        exclude: [],
+      },
+    },
+    rules: [{
+      type: "deletion",
+    }, {
+      type: "non_fast_forward", # prevents force pushes
+    }],
+  }],
+}

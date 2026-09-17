@@ -1,55 +1,56 @@
 ---
-name: Deploy Website
-description: Deploy jekyll website to GitHub Pages
-
-inputs:
-  github-token:
-    description: GitHub token
-    required: true
-
-  ruby-version:
-    description: Ruby version
-    required: true
-
-runs:
-  using: composite
-  steps:
-    - name: Checkout source
-      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
-      with:
-        persist-credentials: false
-        ref: ${{ github.ref }}
-        repository: ${{ github.repository }}
-
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
-      with:
-        ruby-version: ${{ inputs.ruby-version }}
-        bundler-cache: true
-
-    - name: Find parent directory
-      id: find-parent-directory
-      shell: bash
-      run: >-
-        echo parent-directory=$(dirname ${{ env.BUNDLE_GEMFILE }}) >>
-        $GITHUB_OUTPUT
-
-    - name: Install and Build
-      shell: bash
-      working-directory: >-
-        ${{ steps.find-parent-directory.outputs.parent-directory }}
-      run: >-
-        JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }} JEKYLL_ENV=production
-        bundle exec jekyll build
-
-    - name: Deploy
-      if: github.ref == 'refs/heads/main'
+{
+  name: "Deploy Website",
+  description: "Deploy jekyll website to GitHub Pages",
+  inputs: {
+    github-token: {
+      description: "GitHub token",
+      required: true,
+    },
+    ruby-version: {
+      description: "Ruby version",
+      required: true,
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Checkout source",
+      uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
+      with: {
+        persist-credentials: false,
+        ref: "${{ github.ref }}",
+        repository: "${{ github.repository }}",
+      },
+    }, {
+      name: "Set up Ruby",
+      uses: "ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b", # v1.321.0
+      with: {
+        ruby-version: "${{ inputs.ruby-version }}",
+        bundler-cache: true,
+      },
+    }, {
+      name: "Find parent directory",
+      id: "find-parent-directory",
+      shell: "bash",
+      run: "echo parent-directory=$(dirname ${{ env.BUNDLE_GEMFILE }}) >> $GITHUB_OUTPUT",
+    }, {
+      name: "Install and Build",
+      shell: "bash",
+      working-directory: "${{ steps.find-parent-directory.outputs.parent-directory }}",
+      run: "JEKYLL_GITHUB_TOKEN=${{ inputs.github-token }} JEKYLL_ENV=production bundle exec jekyll build",
+    }, {
+      name: "Deploy",
+      if: "github.ref == 'refs/heads/main'",
       # yamllint disable-line rule:line-length
-      uses: peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453 # v4.1.0
-      with:
-        github_token: ${{ inputs.github-token }}
-        publish_dir: >-
-          ${{ steps.find-parent-directory.outputs.parent-directory }}/_site
-        publish_branch: gh-pages
-        user_name: github-actions[bot]
-        user_email: github-actions[bot]@users.noreply.github.com
+      uses: "peaceiris/actions-gh-pages@84c30a85c19949d7eee79c4ff27748b70285e453", # v4.1.0
+      with: {
+        github_token: "${{ inputs.github-token }}",
+        publish_dir: "${{ steps.find-parent-directory.outputs.parent-directory }}/_site",
+        publish_branch: "gh-pages",
+        user_name: "github-actions[bot]",
+        user_email: "github-actions[bot]@users.noreply.github.com",
+      },
+    }],
+  },
+}

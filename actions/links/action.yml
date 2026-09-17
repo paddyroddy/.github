@@ -1,36 +1,40 @@
 ---
-name: Links
-description: Checks the links in a repo work
-
-inputs:
-  branch:
-    description: GitHub branch to check out
-    default: main
-
-  github-token:
-    description: GitHub token
-    required: true
-
-  lychee-args:
-    description:
-      Arguments to pass to lychee
-      (https://github.com/lycheeverse/lychee#commandline-parameters)
-    default: --no-progress --verbose .
-
-runs:
-  using: composite
-  steps:
-    - name: Checkout source
-      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
-      with:
-        persist-credentials: false
-        ref: ${{ inputs.branch }}
-        repository: ${{ github.repository }}
-
-    - name: Check links
+{
+  name: "Links",
+  description: "Checks the links in a repo work",
+  inputs: {
+    branch: {
+      description: "GitHub branch to check out",
+      default: "main",
+    },
+    github-token: {
+      description: "GitHub token",
+      required: true,
+    },
+    lychee-args: {
+      description: "Arguments to pass to lychee (https://github.com/lycheeverse/lychee#commandline-parameters)",
+      default: "--no-progress --verbose .",
+    },
+  },
+  runs: {
+    using: "composite",
+    steps: [{
+      name: "Checkout source",
+      uses: "actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803", # v6.1.0
+      with: {
+        persist-credentials: false,
+        ref: "${{ inputs.branch }}",
+        repository: "${{ github.repository }}",
+      },
+    }, {
+      name: "Check links",
       # yamllint disable-line rule:line-length
-      uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
-      with:
-        args: ${{ inputs.lychee-args }}
-        failIfEmpty: false
-        token: ${{ inputs.github-token }}
+      uses: "lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8", # v2.9.0
+      with: {
+        args: "${{ inputs.lychee-args }}",
+        failIfEmpty: false,
+        token: "${{ inputs.github-token }}",
+      },
+    }],
+  },
+}
