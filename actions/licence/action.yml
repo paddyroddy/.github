@@ -14,13 +14,15 @@ inputs:
 runs:
   using: composite
   steps:
-    - uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+    - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       with:
         fetch-depth: 0
         persist-credentials: false
+        ref: ${{ github.ref }}
+        repository: ${{ github.repository }}
 
     # yamllint disable-line rule:line-length
-    - uses: FantasticFiasco/action-update-license-year@f180e962fa988db222d8f03ef4636750312d1b3d # v3
+    - uses: FantasticFiasco/action-update-license-year@f180e962fa988db222d8f03ef4636750312d1b3d # v3.0.4
       with:
         path: ${{ inputs.licence-file }}
         token: ${{ inputs.licence-token }}

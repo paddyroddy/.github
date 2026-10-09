@@ -1,4 +1,4 @@
-# https://github.com/github/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
+# https://github.com/github-community-projects/safe-settings/blob/main-enterprise/docs/sample-settings/suborg.yml
 ---
 suborgrepos:
   - "*"
@@ -22,6 +22,19 @@ rulesets:
     rules:
       - type: deletion
       - type: non_fast_forward # prevents force pushes
+
+  - name: Copilot Review
+    target: branch
+    enforcement: active
+
+    conditions:
+      ref_name:
+        include:
+          - ~DEFAULT_BRANCH
+        exclude: []
+
+    rules:
+      - type: copilot_code_review
 
   - name: Status Checks
     target: branch
@@ -51,3 +64,17 @@ rulesets:
             - context: linting
               integration_id: 15368
           strict_required_status_checks_policy: false
+
+  - name: Tags
+    target: tag
+    enforcement: active
+
+    conditions:
+      ref_name:
+        include:
+          - ~ALL
+        exclude: []
+
+    rules:
+      - type: deletion
+      - type: non_fast_forward # prevents force pushes

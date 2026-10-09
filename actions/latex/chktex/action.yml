@@ -6,13 +6,15 @@ runs:
   using: composite
   steps:
     - name: Checkout source
-      uses: actions/checkout@34e114876b0b11c390a56381ad16ebd13914f8d5 # v4
+      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
       with:
         persist-credentials: false
+        ref: ${{ github.ref }}
+        repository: ${{ github.repository }}
 
     - name: Run chktex
       # yamllint disable-line rule:line-length
-      uses: xu-cheng/texlive-action@f886de8159e5952a131848a5fa9c3196a2132b5d # v2
+      uses: xu-cheng/texlive-action@22c04326a5d855880f9d39bb955138bf11c6df80 # v3
       with:
         scheme: full
         run: >-

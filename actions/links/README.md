@@ -5,9 +5,12 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   links:
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     timeout-minutes: 2
     steps:
+      # yamllint disable-line rule:line-length
       - uses: paddyroddy/.github/actions/links@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -18,10 +21,13 @@ required, one can add custom inputs through `lychee-args`, i.e.:
 
 ```yaml
 jobs:
-  linting:
+  links:
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     timeout-minutes: 2
     steps:
+      # yamllint disable-line rule:line-length
       - uses: paddyroddy/.github/actions/links@vx
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
@@ -33,9 +39,12 @@ If a specific branch is required, one can use the `branch` input:
 ```yaml
 jobs:
   links:
+    permissions:
+      contents: read
     runs-on: ubuntu-slim
     timeout-minutes: 2
     steps:
+      # yamllint disable-line rule:line-length
       - uses: paddyroddy/.github/actions/links@vx
         with:
           branch: gh-pages

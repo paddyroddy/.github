@@ -5,8 +5,11 @@ This action can be used in the following manner:
 ```yaml
 jobs:
   documentation:
+    permissions:
+      contents: write
     runs-on: ubuntu-slim
     steps:
+      # yamllint disable-line rule:line-length
       - uses: paddyroddy/.github/actions/python/pdoc@vx
         with:
           docs-dependency-section: docs
