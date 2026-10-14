@@ -14,10 +14,4 @@
       datasourceTemplate: "github-releases",
     },
   ],
-  packageRules: [
-    {
-      matchDepNames: ["github-community-projects/safe-settings"],
-      allowedVersions: "<=2.1.17",
-    },
-  ],
 }
