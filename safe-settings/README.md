@@ -30,9 +30,8 @@ The precedence order for configuration is `repository` > `suborganisation` >
 ### Deployment
 
 The [deployment settings](deployment.yaml) are used to exclude repositories from
-the Safe-Settings app. This is because these repositories are read-only and
-hence cannot be modified. Rather than having the GitHub Action fail on these
-repositories, they are excluded from the run.
+the Safe-Settings app. Archived repositories do not need to be listed because
+Safe-Settings skips them automatically.
 
 ### Account
 
