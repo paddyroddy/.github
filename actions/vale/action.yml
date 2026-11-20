@@ -15,7 +15,7 @@ runs:
   using: composite
   steps:
     - name: Checkout source
-      uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6.1.0
+      uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       with:
         persist-credentials: false
         ref: ${{ github.ref }}
@@ -23,7 +23,7 @@ runs:
 
     - name: Run Vale
       # yamllint disable-line rule:line-length
-      uses: vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # 2.1.2
+      uses: vale-cli/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3.0.0
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       with:
@@ -31,4 +31,3 @@ runs:
         filter_mode: nofilter
         reporter: github-pr-review
         vale_flags: ${{ inputs.vale-flags }}
-        version: 3.14.1
