@@ -23,7 +23,7 @@ runs:
 
     - name: Run Vale
       # yamllint disable-line rule:line-length
-      uses: vale-cli/vale-action@85f9f7f2c5f449ac0ae5b66662961bae3f77ca6a # 2.1.2
+      uses: vale-cli/vale-action@518a9136acc6e6668ce7c00d367051e0941e87ff # v3.0.0
       env:
         GITHUB_TOKEN: ${{ inputs.github-token }}
       with:
@@ -31,4 +31,3 @@ runs:
         filter_mode: nofilter
         reporter: github-pr-review
         vale_flags: ${{ inputs.vale-flags }}
-        version: 3.14.1
