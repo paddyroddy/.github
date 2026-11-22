@@ -22,10 +22,10 @@ jobs:
           ref: ${{ github.ref }}
           repository: ${{ github.repository }}
 
-      - uses: ./actions/linting
+      - uses: $/actions/linting
         with:
           pre-commit-config: ./.pre-commit-config.yaml
 
-      - uses: ./actions/vale
+      - uses: $/actions/vale
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
