@@ -18,7 +18,7 @@ jobs:
           ref: ${{ github.ref }}
           repository: ${{ github.repository }}
 
-      - uses: ./actions/licence
+      - uses: $/actions/licence
         env:
           LICENCE_TOKEN: ${{ secrets.LICENCE_PAT }}
         with:

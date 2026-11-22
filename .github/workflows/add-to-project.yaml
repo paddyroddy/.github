@@ -24,7 +24,7 @@ jobs:
           ref: ${{ github.ref }}
           repository: ${{ github.repository }}
 
-      - uses: ./actions/add-to-project
+      - uses: $/actions/add-to-project
         env:
           PROJECT_TOKEN: ${{ secrets.PROJECT_PAT }}
         with:
